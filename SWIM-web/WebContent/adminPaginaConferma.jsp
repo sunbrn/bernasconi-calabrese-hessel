@@ -17,20 +17,6 @@
 </head>
 <body>				
 		
-		<!-- INIZIO TABELLA ESTERNA --> 
-		<table width="100%" height="100%" border="1">    
-			<tr width="100%"  >
-			
-				<!-- colonna1 -->
-				<td align="middle" width="20%" bgcolor=#007FFF> 
-					<a href="aggiungiCompetenzaAdmin.html"><img src="/SWIM-web/Immagini/AggiungiCompetenza.jpg\" width="100" height="20"> </a>
-				</td>
-					
-				<!-- colonna2 -->
-				<td align="middle" width="60%" frame=void border="1">
-					<table width="100%" height="100%">
-					<tr>
-					
 					<%					
 						String esito=(String)request.getSession().getAttribute("esitoAggiuntaCompetenzaAdmin");
 					
@@ -40,34 +26,14 @@
 							out.println("<h3>&nbsp;La competenza e' stata aggiunta correttamente.</h3>");
 						}
 					%>
-						<td align="middle">
-						<a href="adminHomePage.html">Home Admin</a>
-						<br>
-						</td>
 						
-						<td align="middle">
-							<form action="ShowAblityListServlet" method="post"><input type="submit" value="Torna a lista competenze">
-							</form>
-						<br>
-						</td>
+						<p><a href="adminHomePage.html"> Home</a></p><br>
 						
-						<td align="middle">
-							<form action="ShowAblityRequestListServlet" method="post"><input type="submit" value="Torna a lista di richieste competenza">
-							</form>
-						<br>
-						</td>
+						<p><a href="ShowAblityListServlet"> Lista competenze</a></p><br>
 						
-					</tr>
-					</table>
-				</td>					
+						<p><a href="ShowAblityRequestListServlet"> Richieste competenze </a></p><br>
+						
+								
 				
-				<!-- colonna3 -->				
-				<td align="middle" width="20%" bgcolor=#007FFF>
-						
-				</td>	
-				
-			</tr>
-		</table> <!-- FINE TABELLA ESTERNA --> 
-		
 </body>	
 </html>

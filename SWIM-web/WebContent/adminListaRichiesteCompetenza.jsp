@@ -16,26 +16,16 @@
 <title>SWIMv2 - Lista di richieste aggiunta competenza</title>
 </head>
 <body>				
+					<p><a href="adminAggiungiCompetenza.jsp"> Nuova competenza </a></p><br>
 		
-		<!-- INIZIO TABELLA ESTERNA --> 
-		<table width="100%" height="100%" border="1">    
-			<tr width="100%"  >
-			
-				<!-- colonna1 -->
-				<td align="middle" width="20%" bgcolor=#007FFF> 
-					<form action="adminAggiungiCompetenza.jsp" method="get"><input type="submit" value="Aggiungi nuova competenza"></form>
-					<br>
-					<form action="adminHomePage.html" method="get"><input type="submit" value="Torna alla home"></form>
-					<br>
-					<form action="LogoutServlet" method="get"><input type="submit" value="Log-Out"></form>
-					</form>
-				</td>
+					<p><a href="adminHomePage.html"> Home </a></p><br>
 					
-				<!-- colonna2 -->
-				<td align="middle" width="60%" frame=void border="1">
+					<p><a href="LogoutServlet"> Log-Out </a></p><br>
+					
+					
 					<table width="100%" height="100%">
 					<tr><td align="middle">
-						<h3>&nbsp;Richieste aggiunta competenza pervenute dagli utenti:</h3>
+						<h3>Richieste aggiunta competenza pervenute dagli utenti:</h3>
 						<br>
 						
 						<%							
@@ -83,15 +73,7 @@
 							
 					</td></tr>
 					</table>
-				</td>					
 				
-				<!-- colonna3 -->				
-				<td align="middle" width="20%" bgcolor=#007FFF>
-						
-				</td>	
-				
-			</tr>
-		</table> <!-- FINE TABELLA ESTERNA --> 
 		
 </body>	
 </html>

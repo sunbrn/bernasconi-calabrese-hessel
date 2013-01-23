@@ -13,24 +13,11 @@
 <title>SWIMv2 - Aggiungi Competenza</title>
 </head>
 <body>
-					
-				<table border="0" cellpadding="1" cellspacing="2" width="100%">
-	
-				<TBODY>
-	
-				<tr>
-					
-					<td>
-					
-					</td>
-					
-					
-					<td>
-						<p>Nuova Competenza:</p>
-						<p>scegli una nuova competenza da aggiungere: </p>
-					<br>
-					<br> 
-						<p>
+				<p>Nuova Competenza:</p>
+				<p>Scegli una nuova competenza da aggiungere: </p>
+				<br>
+				<br> 
+				<p>
 						<%						
 						ArrayList<Archivio_comp> elenco= (ArrayList<Archivio_comp>) request.getSession().getAttribute("listaCodiciECompetenze");
 						
@@ -47,19 +34,10 @@
 							out.println("non sono ancora state definite competenze dichiarabili");
 						}
 						%>
-						</p>
-					</td>
-				</tr>
-				
-				<tr>
-				<td>
+				</p>
 				<br><br><br>
 				<p> se non hai trovato la competenza che desideravi dichiarare, invia una richiesta all'amministratore! </p>
 				<p> <a href="/SWIM-web/richiediCompetenza.html"> Richiedi Competenza </a> </p>
-				<p><a href="homePageUtente.jsp"> Torna alla Home </a></p>
-				</td>
-				</tr>
-				
-				</table>
+				<p><a href="homePageUtente.jsp"> Home </a></p>
 </body>
 </html>

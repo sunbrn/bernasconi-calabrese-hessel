@@ -15,24 +15,14 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title> SWIMv2 - Aggiungi Competenza Admin </title>
 	</head>
-	<body>
-
-		
-		<!-- INIZIO TABELLA ESTERNA --> 
-		<table width="100%" height="100%" border="1">    
-			<tr width="100%"  >
-			
-				<!--PRIMA COLONNA ESTERNA-->
-				<td align="middle" width="20%" bgcolor=#007FFF> 
-					<form action="adminHomePage.html" method="get"><input type="submit" value="Torna alla home"></form>
-					<br>
-					<form action="LogoutServlet" method="get"><input type="submit" value="Log-Out"></form>
-				</td>
+	
+	<body>		
 				
-				<!-- SECONDA COLONNA ESTERNA-->
-				<td width="30%">
-						<!--INPUT FORM REGISTRAZIONE-->
-						<form name="Aggiungi_comp" action="AddAbilityAdminServlet" method="get">
+					<p><a href="adminHomePage.html"> Home </a></p>
+					<br>
+					<p><a href="LogoutServlet" align="right"> Log-out</a></p>
+				
+					<form name="Aggiungi_comp" action="AddAbilityAdminServlet" method="get">
 							
 							<table border="0" cellpadding="1" cellspacing="2" width="100%">
 							
@@ -54,20 +44,9 @@
 								</TBODY>
 										
 							</table>
-						</form>	
-				</td>
+					</form>				
 				
-				<!-- TERZA COLONNA ESTERNA-->
-				<td align="middle" width="30%"> 
-						<img src="/SWIM-web/Immagini/chiave.png" width="100%" height="60%">
-				</td>	
-
-				
-				<!-- QUARTA COLONNA ESTERNA-->
-				<td align="middle" width="20%" bgcolor=#007FFF> 
-					
-				</td>				
-			</tr>
-
-		</table> 
-		<!-- FINE TABELLA ESTERNA --> 
+				 
+					<img src="/SWIM-web/Immagini/chiave.png" width="20%" height="35%">
+			</body>
+	</html>
