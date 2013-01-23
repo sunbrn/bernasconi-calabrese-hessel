@@ -18,12 +18,13 @@ import javax.servlet.http.HttpServletResponse;
 import swim.entitybeans.Aiuto;
 import swim.entitybeans.Comp_dichiarate;
 import swim.entitybeans.User;
+import swim.entitybeans.Richieste_agg_comp;
 
 import swim.sessionbeans.Comp_dichiarateBeanRemote;
+import swim.sessionbeans.Richieste_agg_compBeanRemote;
 import swim.sessionbeans.UserBeanRemote;
 import swim.sessionbeans.ValutazioniBeanRemote;
 import swim.sessionbeans.AiutoBeanRemote;
-
 
 /**
  * Servlet implementation class LoginServlet
@@ -64,10 +65,12 @@ public class LoginServlet extends HttpServlet {
 			ValutazioniBeanRemote remoteFeedback;
 			AiutoBeanRemote remoteHelp;
 			Comp_dichiarateBeanRemote compDichiarate;
+			Richieste_agg_compBeanRemote remoteRequest;
 			
 			remoteUser= (UserBeanRemote) ctx.lookup("UserBean/remote");
 			remoteFeedback= (ValutazioniBeanRemote) ctx.lookup("ValutazioniBean/remote");
 			remoteHelp= (AiutoBeanRemote) ctx.lookup("AiutoBean/remote");
+			remoteRequest= (Richieste_agg_compBeanRemote) ctx.lookup("Richieste_agg_compBean/remote");
 			
 			String nickname=request.getParameter("username");
 			String password=request.getParameter("password");
@@ -92,6 +95,7 @@ public class LoginServlet extends HttpServlet {
 					int v3=remoteFeedback.getPrezzoPrestazione(id);
 					Collection<String> elencoCommenti=remoteFeedback.getCommenti(id);
 					ArrayList<Aiuto> elencoAiuti=remoteHelp.getAiuti(id);
+					ArrayList<Richieste_agg_comp> mieRichieste= remoteRequest.getMieRichieste(id);
 					
 					ArrayList<User> elencoClienti=new ArrayList<User>();
 					for(Aiuto a : elencoAiuti){
@@ -109,7 +113,7 @@ public class LoginServlet extends HttpServlet {
 					request.getSession().setAttribute("UserComments", elencoCommenti);
 					request.getSession().setAttribute("UserActiveHelps", elencoAiuti);
 					request.getSession().setAttribute("UserHelpClients", elencoClienti);
-					
+					request.getSession().setAttribute("UserRequestToAdmin", mieRichieste);
 					
 					response.sendRedirect("/SWIM-web/homePageUtente.jsp");
 				}
