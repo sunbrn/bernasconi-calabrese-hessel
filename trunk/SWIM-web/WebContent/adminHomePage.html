@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>SWIMv2 - Home Admin</title>
+</head>
+
+<body>
+
+		
+		<!-- INIZIO TABELLA ESTERNA --> 
+		<table width="100%" height="100%" border="1">
+			<!--RIGA SOPRA-->
+			<tr height="20%" >
+				<td align="left" width="20%"><img src="/SWIM-web/Immagini/chiave.png" width="50%" height="100"></td>
+				<td align="middle" width="60%"><H1><u><b> Home Amministratore </b></u></H1></td>
+				<td align="right" width="20%"><img src="/SWIM-web/Immagini/chiave.png" width="50%" height="100"></td>
+			</tr>
+			<!--RIGA SOTTO-->
+			<tr height="80%" >
+				<!--PRIMA COLONNA ESTERNA-->
+				<td align="middle" width="20%" bgcolor=#007FFF> 
+				<form action="LogoutServlet" method="get"><input type="submit" value="Log-Out"></form>					
+				</td>
+				
+				<!-- SECONDA COLONNA ESTERNA-->
+				<td width="40%">
+					<!-- INIZIO TABELLA INTERNA -->
+					<table height="100%" width="100%" border="1" >  
+						<tr>
+						
+							<td>							
+							<form action="adminAggiungiCompetenza.jsp" method="get"><input type="submit" value="Aggiungi nuova competenza"></form>							
+							</td>
+												
+					
+							<td>
+							<form action="ShowAbilityListServlet" method="post"><input type="submit" value="Vai alla lista competenze"></form>
+							<br>
+							</td>
+							
+							<td>
+							<form action="ShowAbilityRequestServlet" method="post"><input type="submit" value="Vai a lista richieste competenze"></form>
+							<br>
+							</td>
+							
+							
+						</tr>
+					</table> 
+					<!-- FINE TABELLA INTERNA -->
+				</td>
+				
+				<!-- TERZA COLONNA ESTERNA-->
+				<td width="40%" bgcolor=#007FFF> 
+					
+				</td>
+			</tr>
+
+		</table> 
+		<!-- FINE TABELLA ESTERNA --> 
+
+</body>
+</html>

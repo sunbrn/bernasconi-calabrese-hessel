@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title> Swimv2 - Registrazione </title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div id="cont">
+	<div id="layout">
+	
+		<div id="header">
+			<img src="/SWIM-web/ImmaginiNuove/logo.png" alt="mio logo" 	class="logo" /> 
+		</div>
+			
+		<div id="nav">
+            <ul>
+            <li>
+            <a href="index.html">Home </a>
+            </li>
+            </ul>
+		</div>
+			
+		<br><br>
+        <H1 align="middle" >
+            <u>
+            <b>Registrazione:</b>
+            </u>
+            <div class="adv">
+	            <H6 align="middle">
+	            <p >(i campi segnati con asterisco sono obbligatori)</p>
+	            </H6>
+            </div>
+        </H1>
+			
+				
+				<!--SCRIPT CHE SARA' LANCIATO DALL?INPUT FORM-->
+				<script type='text/javascript'>
+					function checkInputReg(username, password1, password2, nome, cognome, città, mail, nascita)
+					{
+							if(username.value.length==0)
+							{
+								alert("ATTENZIONE: nickname non inserito");
+								elem.focus();
+							}
+							if(password1.value.length==0)
+							{
+								alert("ATTENZIONE: password non inserita");
+								elem.focus();
+							}
+							if(password2.value.length==0)
+							{
+								alert("ATTENZIONE: controllo della password mancante");
+								elem.focus();
+							}
+							if(password1.value.length<6)
+							{
+								alert("ATTENZIONE: password troppo corta, almeno 6 caratteri");
+								elem.focus();
+							}
+							if(password1.value!=password2.value)
+							{
+								alert("ATTENZIONE: le due password non coincidono");
+								elem.focus();
+							}
+							if(nome.value.length==0)
+							{
+								alert("ATTENZIONE: nome non inserito");
+								elem.focus();
+							}
+							if(cognome.value.length==0)
+							{
+								alert("ATTENZIONE: cognome non inserito");
+								elem.focus();
+							}
+							if(città.value.length==0)
+							{
+								alert("ATTENZIONE: città non inserita");
+								elem.focus();
+							}
+							if(mail.value.length==0)
+							{
+								alert("ATTENZIONE: mail non inserita");
+								elem.focus();
+							}
+							if(nascita.value.length==0)
+							{
+								alert("ATTENZIONE: anno di nascita non inserito");
+								elem.focus();
+							}
+							if(isNaN(nascita.value))
+							{
+								alert("ATTENZIONE: nel campo <<anno di nascita>> hai inserito dei caratteri e non dei numeri");
+								elem.focus();
+							}						
+							if(nascita.value.length<4||nascita.value.length>4)
+							{
+								alert("ATTENZIONE: formato anno di nascita errato: è richiesto un formato a 4 cifre");
+								elem.focus();
+							}						
+							if(nascita.value<1900||nascita.value>2000)
+							{
+								alert("ATTENZIONE: anno di nascita impossibile");
+								elem.focus();
+							}
+	
+	
+					}
+				</script>
+				
+		<!--INPUT FORM REGISTRAZIONE-->
+		<form name="Registrazione" action="RegistrationServlet" method="post">
+					
+		<table border="0" cellpadding="1" cellspacing="2" width="100%">
+	
+		<TBODY>
+								
+	        <tr>
+        <td align="right" width="50%"> Nickname*: </td>
+        <td align="left" width="100%"><INPUT id="username" name="username" style="height: 33" type="text" value=""></td>
+        </tr>
+                         
+        <tr>
+        <td align="right" width="0%">Password*: </td>
+        <td align="left" width="100%"><INPUT id="password1" style="height: 33" name="password1" type="password" value=""></td>
+        </tr>
+
+        <tr>
+        <td align="right" width="0%">Password (controllo)*: </td>
+        <td align="left" width="100%"><INPUT id="password2" style="height: 33" name="password2" type="password" value=""></td>
+        </tr>
+        
+        <tr>
+        <td align="right" width="0%"> Nome*: </td>
+        <td align="left" width="100%"><INPUT id="nome" name="nome" style="height: 33" type="text" value=""></td>
+        </tr>			
+        
+        <tr>
+        <td align="right" width="0%"> Cognome*:</td>
+        <td align="left" width="100%"><INPUT id="cognome" name="cognome" style="height: 33" type="text" value=""></td>
+        </tr>
+
+        <tr>
+        <td align="right" width="0%">Sesso:</td>
+        <td>
+        <select name="sesso">
+        <option value="Maschio"> M </option>
+        <option value="Femmina"> F </option>
+        <option value="NonDichiarato"> - </option>				
+        </select>
+        </td>
+        </tr>
+        
+        <tr>
+        <td align="right" width="0%">Città*:</td>
+        <td align="left" width="100%"><INPUT id="città" name="città" style="height: 33" type="text" value=""></td>
+        </tr>			
+                    
+        <tr>
+        <td align="right" width="0%">Mail*:</td>
+        <td align="left" width="100%"><INPUT id="mail" name="mail" style="height: 33" type="text" value=""></td>
+        </tr>
+        
+
+        <tr>
+        <td align="right" width="0%">Anno nascita*:</td>
+        <td align="left" width="100%"><INPUT id="nascita" name="nascita" style="height: 33" type="text" value=""></td>
+        </tr>			
+
+        <tr>
+        <td align="right" width="0%">Diploma:</td>
+        <td align="left" width="100%"><INPUT id="diploma" name="diploma" style="height: 33" type="text" value=""></td>
+        </tr>
+        
+        <tr>
+        <td align="right" width="0%">Laurea:</td>
+        <td align="left" width="100%"><INPUT id="laurea" name="laurea" style="height: 33" type="text" value=""></td>
+        </tr>
+        
+        <tr>
+        <td align="right" width="0%">Altro:</td>
+        <td align="left" width="100%"><INPUT id="altro" name="altro" style="height: 33" type="text" value=""></td>
+        </tr>
+        
+        <tr>
+        <td align="right" width="0%"></td>
+        <td align="left" width="50%"><input type="submit" style="width:70;height: 33" value="submit"></td>
+        </tr>		
+				
+		</TBODY>
+							
+		</table>
+		
+		<br><br>
+	
+		</form>	
+	</div>
+	</div>
+</body>
+</html>
+
+
+<!-- onClick="checkInput(document.getElementById('username'), document.getElementById('password1'), document.getElementById('password2'),document.getElementById('nome'),document.getElementById('cognome'),document.getElementById('città'),document.getElementById('mail'),document.getElementById('nascita'))" -->

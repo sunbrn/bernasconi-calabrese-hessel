@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title> Cerca Utenti </title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	
+	<div id="cont">
+	<div id="layout">
+	
+		<div id="header">
+			<img src="/SWIM-web/ImmaginiNuove/logo.png" alt="mio logo" 	class="logo" /> 
+		</div>
+		
+		<div id="nav">	
+			<ul>
+			<li>
+			<a href="index.html">Home </a>
+			</li>
+			</ul>
+		</div>
+		
+		<H4 align="left">
+			<p >	cerchi un utente in particolare? inserisci il suo nome e cognome oppure cerca la competenza che desideri fra tutti i nostri utenti!</p>
+		</H4>
+				
+		<form name="Cerca_persone" action="ShowSearchResultsServlet" method="get">
+			<table  width="50%" align="middle" border="0" cellpadding="2" cellspacing="2" >
+							
+				<TBODY>									
+					<tr>
+					<td align="right" width="50%"> Nome: </td>
+					<td align="middle" ><INPUT id="nomeCercato" name="nomeCercato"  type="text" value=""></td>
+					</tr>			
+					
+					<tr>
+					<td align="right" width="0%">  Cognome: </td>
+					<td align="middle" width="0"><INPUT id="cognomeCercato" name="cognomeCercato" type="text" value="">
+					<input type="hidden" value="fraTutti" name="check">
+					</td>
+					</tr>
+					
+					<tr>
+					<td align="middle" width="0%"></td>
+					<td align="right" width="50%"><input type="submit" style="width:70;height: 33" value="submit" onClick=""></td>
+					</tr>	
+					<br><br><br>	
+					<tr>
+					<td align="right" width="0%">  Competenza: </td>
+					<td align="middle" width="100%"><INPUT id="competenzaCercata" name="competenzaCercata"  type="text" value=""></td>
+					</tr>
+					
+					<tr>
+					<td align="middle" width="0%"></td>
+					<td align="right" width="50%"><input type="submit" style="width:70;height: 33" value="submit" onClick=""></td>
+					</tr>		
+				</TBODY>
+					
+			</table>
+		</form>	
+		
+		<br><br><br>
+	</div>
+	</div>	
+	
+</body>
+</html>
+							
+		

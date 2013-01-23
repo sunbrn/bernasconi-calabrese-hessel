@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>InserisciFeedback</title>		
+	</head>
+	
+	<body>				
+		
+		<!-- INIZIO TABELLA ESTERNA --> 
+		<table width="100%" height="100%" border="1" frame=void> 
+			<tr width="100%" >			
+			
+				<!-- colonna1 -->				
+				<td align="middle" width="20%" bgcolor=#007FFF>
+
+
+				</td>
+					
+				<!-- colonna2 -->
+				<td align="middle" width="60%" frame=void border="1">
+					<table width="100%" height="100%">
+					<tr><td align="left">
+					
+					<!--SCRIPT CHE SARA' LANCIATO DALL'INPUT FORM-->
+					<script type='text/javascript'>
+						function checkInput(P1,P2,P3,P4,P5,D1,D2,D3,D4,D5,R1,R2,R3,R4,R5)
+						{
+						if(!document.getElementById('P1').checked AND !document.getElementById('P2').checked AND !document.getElementById('P3').checked AND !document.getElementById('P4').checked AND !document.getElementById('P5').checked)
+						{
+							alert("ATTENZIONE: VALUTAZIONE PROFESSIONALITA' NON INSERITA");
+							elem.focus();
+						}
+						if(!document.getElementById('D1').checked AND !document.getElementById('D2').checked AND !document.getElementById('D3').checked AND !document.getElementById('D4').checked AND !document.getElementById('D5').checked)
+						{
+							alert("ATTENZIONE: VALUTAZIONE DISPONIBILITA' NON INSERITA");
+							elem.focus();
+						}
+						if(!document.getElementById('R1').checked AND !document.getElementById('R2').checked AND !document.getElementById('R3').checked AND !document.getElementById('R4').checked AND !document.getElementById('R5').checked)
+						{
+							alert("ATTENZIONE: VALUTAZIONE PREZZO PRESTAZIONE NON INSERITA");
+							elem.focus();
+						}
+						}
+					</script>
+			
+					<form name="Feedback" action="CreateFeedbackServlet" method="get"><h3>&nbsp;Inserisci feedback sull'aiuto ricevuto:</h3><br><br>
+					<table border="0" cellpadding="1" cellspacing="2" width="100%">
+
+					<TBODY>
+					<tr><td>					
+							<h4> Professionalita':</h4>
+							<input type="radio" name="group1" value="uno" id="P1">1
+							<input type="radio" name="group1" value="due" id="P2">2
+							<input type="radio" name="group1" value="tre" id="P3">3
+							<input type="radio" name="group1" value="quattro" id="P4">4
+							<input type="radio" name="group1" value="cinque" id="P5">5
+							<br><br>
+					</td></tr>
+					<tr><td>
+						<h4> Disponibilita':</h4>
+							<input type="radio" name="group2" value="uno" id="D1">1
+							<input type="radio" name="group2" value="due" id="D2">2
+							<input type="radio" name="group2" value="tre" id="D3">3
+							<input type="radio" name="group2" value="quattro" id="D4">4
+							<input type="radio" name="group2" value="cinque" id="D5">5
+							<br><br>
+					</td></tr>
+					<tr><td>
+						<h4> Prezzo Prestazione: </h4>
+							<input type="radio" name="group3" value="uno" id="R1">1
+							<input type="radio" name="group3" value="due" id="R2">2
+							<input type="radio" name="group3" value="tre" id="R3">3
+							<input type="radio" name="group3" value="quattro" id="R4">4
+							<input type="radio" name="group3" value="cinque" id="R5">5
+							<br><br>
+					</td></tr>
+					<tr><td>
+						<h4> Commento: </h4>
+							<textarea cols="40" rows="5" id="messaggio" name="messaggio"></textarea><br>
+							<p align="middle">
+							<input type="button"  value="Invia valutazione" onClick="checkInput(document.getElementById('professionalita'),document.getElementById('disponibilita'),document.getElementById('prezzo'),document.getElementById('messaggio'))">					
+					</td></tr>
+					</TBODY>
+					</table>
+					</form>
+					</td></tr>
+					</table>
+				</td>					
+				
+				<!-- colonna3 -->				
+				<td align="middle" width="20%" bgcolor=#007FFF>
+						
+				</td>	
+				
+			</tr>
+		</table> <!-- FINE TABELLA ESTERNA --> 
+		
+	</body>
+	</html>
