@@ -34,7 +34,7 @@ public class CreateFeedbackServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		Context ctx=(Context)request.getAttribute("context");
+		Context ctx=(Context)request.getSession().getAttribute("context");
 		
 		try{
 			ValutazioniBeanRemote remoteFeedback=(ValutazioniBeanRemote) ctx.lookup("ValutazioniBean/remote");
@@ -43,12 +43,12 @@ public class CreateFeedbackServlet extends HttpServlet {
 			long offerente_ID=(Long)request.getSession().getAttribute("offerente_ID");
 			
 			String commento=request.getParameter("commento");
-			int professionalità=Integer.parseInt(request.getParameter("professionalità"));
-			int disponibilità=Integer.parseInt(request.getParameter("disponibilità"));
-			int prezzo=Integer.parseInt(request.getParameter("prezzo"));
+			int professionalità=Integer.parseInt(request.getParameter("group1"));
+			int disponibilità=Integer.parseInt(request.getParameter("group2"));
+			int prezzo=Integer.parseInt(request.getParameter("group3"));
 			
 			remoteFeedback.insertNewFeedback(help_ID,offerente_ID,commento,professionalità,disponibilità,prezzo);
-			
+			response.sendRedirect("homePageUtente.jsp");
 			
 		}catch (NamingException e) {
 			// TODO Auto-generated catch block
