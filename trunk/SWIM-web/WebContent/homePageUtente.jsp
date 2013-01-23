@@ -112,7 +112,7 @@
 									<li><h4> Professionalita': </h4> 
 									
 									<%
-											long id=(Long) request.getSession().getAttribute("user_ID");
+											long id=(Long) request.getSession().getAttribute("idUser");
  											int v1=0;
  											int v2=0;
  											int v3=0;

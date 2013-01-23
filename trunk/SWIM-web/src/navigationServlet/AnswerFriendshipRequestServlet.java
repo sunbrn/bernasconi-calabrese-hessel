@@ -1,6 +1,7 @@
 package navigationServlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.NamingException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import swim.entitybeans.Aiuto;
 import swim.sessionbeans.AmicizieBeanRemote;
 
 /**
@@ -51,9 +53,7 @@ public class AnswerFriendshipRequestServlet extends HttpServlet {
 			}
 			
 			response.sendRedirect("homePageUtente.jsp");
-			//ServletContext sc = getServletContext();  
-			//RequestDispatcher rd = sc.getRequestDispatcher("ShowFriendsRequestSuggestionsServlet");
-			//rd.forward(request,response);  
+	  
 			
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block

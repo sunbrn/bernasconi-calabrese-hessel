@@ -14,6 +14,7 @@
 <html>	
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 <title> Aiuto </title>
 </head>	
 	
@@ -40,7 +41,7 @@
 								
 								<p>	Offerente: 
 								
-								
+								 
 								<% String nomeOff=(String) request.getSession().getAttribute("nomeOfferente"); %>
 								<%=nomeOff %>
 								<% String cognomeOff=(String) request.getSession().getAttribute("cognomeOfferente"); %>
