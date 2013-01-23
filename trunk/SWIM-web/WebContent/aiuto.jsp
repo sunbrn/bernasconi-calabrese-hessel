@@ -21,21 +21,12 @@
 	
 	<body>
 		
-		<!-- INIZIO TABELLA ESTERNA --> 
-		<table width="100%" height="100%" border="1">    
-			<tr width="100%"  >
-				<!--PRIMA COLONNA ESTERNA-->
-				<td align="middle" width="20%" bgcolor=#007FFF> 
-					<a href="///C:/Users/Hessel/Desktop/Home_Tabelle 8.html"><img height="40%" src="///C:/Users/Hessel/Desktop/swimv2-button.png"> </a>
-				</td>
-				
-				<!-- SECONDA COLONNA ESTERNA-->
-				<td width="60%">
-					<!-- INIZIO TABELLA INTERNA -->
+		 
+					<a href="homePageUtente.jsp"></a><br>
+					<H1><u><b> Aiuto </b></u></H1>
 					<table width="100%" border="1" >  
 						<tr>
-							<td align="middle">
-								<H1><u><b> Aiuto </b></u></H1>
+							<td align="middle">							
 								
 								<p> Richiedente: 
 								
@@ -43,8 +34,7 @@
 								<% String nomeRich=(String) request.getSession().getAttribute("nomeRichiedente"); %> 
 								<%=nomeRich %>
 								<% String cognomeRich=(String) request.getSession().getAttribute("cognomeRichiedente"); %>
-								<%=cognomeRich %>								
-
+								<%=cognomeRich %>	
 								
 								</p> 
 								
@@ -88,7 +78,8 @@
 									<% String mexRich=(String) request.getSession().getAttribute("messaggioRichiedenteAiuto"); %>
 									<%=mexRich %>
 
-									</td></tr>
+									</td>
+									</tr>
 									
 									<%
 									boolean accettato = (Boolean) request.getSession().getAttribute("accettato");
@@ -111,7 +102,6 @@
 														"<table border=\"0\" cellpadding=\"1\" cellspacing=\"2\" width=\"100%\">"+
 															"<TBODY>"+
 																"<tr><td align=\"left\" width=\"0%\"></td>"+
-																"<td align=\"left\" width=\"50%\">"+
 																"<td align=\"left\" width=\"50%\"> <input type=\"hidden\" value=\"rifiutato\" name=\"rispostaAiuto\">"+
 																"<input type=\"submit\" style=\"width:70;height: 33\" value=\"rifiuta\">"+
 																"</td></tr>	"+
@@ -134,29 +124,21 @@
 										}
 									}
 									
-									out.println("<p><a href=\"homePageUtente.jsp\"> Torna alla Home </a></p><br><br><br>");
-									%>									
+									%>
 									
-
-									</td>
-									</tr>
+														
+									
+									
+									
+									
+									
+									
 								</table>
 								
 							</td>
 						</tr>
 					</table> 
-					<!-- FINE TABELLA INTERNA -->
-				</td>
-				
-				<!-- TERZA COLONNA ESTERNA-->
-				<td align="middle" width="20%" bgcolor=#007FFF> 
 					
-				</td>				
-			</tr>
-
-		</table> 
-		<!-- FINE TABELLA ESTERNA --> 
-
 
 	</body>
 </html>

@@ -15,23 +15,12 @@
 
 
 <body>					
-		<!-- INIZIO TABELLA ESTERNA --> 
-		<table width="100%" height="100%" border="1" frame=void> 
-			<tr width="100%" >			
-			
-				<!-- colonna1 -->				
-				<td align="middle" width="20%" bgcolor=#007FFF>
-					<form action="homePageUtente.jsp" method="get">
-					<input type="submit" value="Home">
-					</form>
-					<br>
-				</td>
-					
-				<!-- colonna2 -->
-				<td align="middle" width="60%" frame=void border="1">
-					<table width="100%" height="100%">
+				<a href action="homePageUtente.jsp"> Home </a>
+				<br>
+				
+				<table width="100%" height="100%">
 					<tr><td align="middle">
-						<h3>&nbsp;Utenti che corrispondono alla ricerca:</h3>
+						<h3> Utenti che corrispondono alla ricerca:</h3>
 						<br>
 						
 	
@@ -57,16 +46,8 @@
 							%>
 							
 					</td></tr>
-					</table>
-				</td>					
+				</table>
 				
-				<!-- colonna3 -->				
-				<td align="middle" width="20%" bgcolor=#007FFF>
-						
-				</td>	
-				
-			</tr>
-		</table> <!-- FINE TABELLA ESTERNA --> 		
 </body>
 
 </html>
