@@ -14,8 +14,14 @@
 					<a href="homePageUtente.jsp"> Home </a>
 					<br>
 					
-				<td align="middle" width="40%" frame=void border="1">
-								<h3>&nbsp;Richieste di amicizia:</h3>
+			<table width="100%" height="100%">
+				<tr>
+					
+					
+						<td align="middle" width="40%" frame=void border="1">
+							<h3> Richieste di amicizia:</h3>
+							<br>
+					
 								<%
 									ArrayList<User> richiesteAmicizia= (ArrayList<User>) request.getSession().getAttribute("richiesteAmicizia");
 									
@@ -45,12 +51,12 @@
 										out.println("non ci sono richieste di amicizia pendenti");
 									}
 								%>
-				</td>		
+						</td>		
 				
 									
 				
-				<td align="middle" width="40%" frame=void border="1">
-							<h3>&nbsp;SWIM Consiglia:</h3>
+						<td align="middle" width="40%" frame=void border="1">
+							<h3>SWIM Consiglia:</h3>
 					
 							<%
 								ArrayList<User> consigliAmicizia= (ArrayList<User>) request.getSession().getAttribute("consigliAmicizia");
@@ -81,8 +87,9 @@
 								}
 					
 							%>
-				</td>
-				
+						</td>
+				</tr>
+			</table>
 				
 				
 </body>
