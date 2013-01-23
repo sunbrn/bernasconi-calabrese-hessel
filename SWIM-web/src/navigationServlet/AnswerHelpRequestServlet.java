@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import swim.entitybeans.Aiuto;
+import swim.entitybeans.User;
 import swim.sessionbeans.AiutoBeanRemote;
+import swim.sessionbeans.UserBeanRemote;
 
 /**
  * Servlet implementation class HelpAnswerServlet
@@ -35,6 +37,7 @@ public class AnswerHelpRequestServlet extends HttpServlet {
 		Context ctx= (Context)request.getSession().getAttribute("context");
 		try {
 			AiutoBeanRemote remoteHelp = (AiutoBeanRemote) ctx.lookup("AiutoBean/remote");
+			UserBeanRemote remoteUser= (UserBeanRemote) ctx.lookup("UserBean/remote");
 			
 			long userID=(Long)request.getSession().getAttribute("idUser");
 			boolean accettato;
@@ -52,8 +55,19 @@ public class AnswerHelpRequestServlet extends HttpServlet {
 				accettato=true;
 				remoteHelp.rispostaAiuto(helpID, accettato, mexRisp);
 				
-				ArrayList<Aiuto> elencoClienti=remoteHelp.getAiuti(userID);
-				request.getSession().setAttribute("UserHelpClients", elencoClienti);
+				ArrayList<User> elencoClienti;
+				ArrayList<Aiuto> elencoAiuti=remoteHelp.getAiuti(userID);
+				
+				elencoClienti=new ArrayList<User>();
+				for(Aiuto a : elencoAiuti){
+					if(a.getRichiedente()==userID){
+						elencoClienti.add(remoteUser.getUser(a.getOfferente()));
+					}else{
+						elencoClienti.add(remoteUser.getUser(a.getRichiedente()));
+					}
+				}
+				request.getSession().setAttribute("UserActiveHelps", elencoAiuti);
+				
 				response.sendRedirect("/SWIM-web/homePageUtente.jsp");
 			}
 		} catch (NamingException e) {

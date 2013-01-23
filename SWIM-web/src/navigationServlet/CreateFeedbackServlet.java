@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.util.ArrayList;
 import java.util.Date;
 
+import swim.entitybeans.Aiuto;
 import swim.sessionbeans.AiutoBeanRemote;
 import swim.sessionbeans.ValutazioniBeanRemote;
 
@@ -48,6 +50,11 @@ public class CreateFeedbackServlet extends HttpServlet {
 			int prezzo=Integer.parseInt(request.getParameter("group3"));
 			
 			remoteFeedback.insertNewFeedback(help_ID,offerente_ID,commento,professionalità,disponibilità,prezzo);
+			
+			AiutoBeanRemote remoteHelp= (AiutoBeanRemote) ctx.lookup("AiutoBean/remote");
+			ArrayList<Aiuto> elencoAiuti=remoteHelp.getAiuti((Long)request.getSession().getAttribute("idUser"));
+			request.getSession().setAttribute("UserActiveHelps", elencoAiuti);
+			
 			response.sendRedirect("homePageUtente.jsp");
 			
 		}catch (NamingException e) {
