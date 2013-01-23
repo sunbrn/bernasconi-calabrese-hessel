@@ -13,26 +13,14 @@
 	
 	<body>				
 		
-		<!-- INIZIO TABELLA ESTERNA --> 
-		<table width="100%" height="100%" border="1" frame=void> 
-			<tr width="100%" >			
-			
-				<!-- colonna1 -->				
-				<td align="middle" width="20%" bgcolor=#007FFF>
-					<form action="homePageUtente.jsp" method="get">
-					<input type="submit" value="Home">
-					</form>
-					<br>
-				</td>
+		
+					<p><a href="homePageUtente.jsp"> Home </a></p><br>
 					
-				<!-- colonna2 -->
-				<td align="middle" width="60%" frame=void border="1">
 					<table width="100%" height="100%">
 					<tr><td align="middle">
-						<h3>&nbsp;Amici:</h3>
+						<h3>Amici:</h3>
 						<br>
 						<%
-							System.out.println("sono nella jsp");
 							ArrayList<User> lista_amici=(ArrayList<User>) request.getSession().getAttribute("listaAmici");
 							if(lista_amici!=null){
 								for (User u: lista_amici){
@@ -50,15 +38,6 @@
 						%>
 					</td></tr>
 					</table>
-				</td>					
 				
-				<!-- colonna3 -->				
-				<td align="middle" width="20%" bgcolor=#007FFF>
-						
-				</td>	
-				
-			</tr>
-		</table> <!-- FINE TABELLA ESTERNA --> 
-		
 	</body>
 	</html>

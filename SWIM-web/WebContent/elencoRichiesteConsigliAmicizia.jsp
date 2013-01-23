@@ -10,19 +10,10 @@
 <title> SWIMv2 - Richieste e Consigli di Amicizia</title>
 </head>
 <body>
-		<!-- INIZIO TABELLA ESTERNA --> 
-		<table width="100%" height="100%" border="1" frame=void> 
-			<tr width="100%" >			
-			
-				<!-- colonna1 -->				
-				<td align="middle" width="10%" bgcolor=#007FFF>
-					<form action="homePageUtente.jsp" method="get">
-					<input type="submit" value="Home">
-					</form>
+		
+					<a href="homePageUtente.jsp"> Home </a>
 					<br>
-				</td>
 					
-				<!-- colonna2 -->
 				<td align="middle" width="40%" frame=void border="1">
 								<h3>&nbsp;Richieste di amicizia:</h3>
 								<%
@@ -57,7 +48,7 @@
 				</td>		
 				
 									
-				<!-- colonna3 -->
+				
 				<td align="middle" width="40%" frame=void border="1">
 							<h3>&nbsp;SWIM Consiglia:</h3>
 					
@@ -93,12 +84,6 @@
 				</td>
 				
 				
-				<!-- colonna4 -->				
-				<td align="middle" width="10%" bgcolor=#007FFF>
-						
-				</td>	
 				
-			</tr>
-		</table> <!-- FINE TABELLA ESTERNA --> 
 </body>
 </html>
