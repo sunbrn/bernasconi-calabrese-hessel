@@ -17,6 +17,13 @@
 </head>
 <body>				
 		
+					<p><a href="adminHomePage.html"> Home</a></p><br>
+						
+					<p><a href="ShowAblityListServlet"> Lista competenze</a></p><br>
+						
+					<p><a href="ShowAblityRequestListServlet"> Richieste competenze </a></p><br>
+					
+					
 					<%					
 						String esito=(String)request.getSession().getAttribute("esitoAggiuntaCompetenzaAdmin");
 					
@@ -27,11 +34,7 @@
 						}
 					%>
 						
-						<p><a href="adminHomePage.html"> Home</a></p><br>
 						
-						<p><a href="ShowAblityListServlet"> Lista competenze</a></p><br>
-						
-						<p><a href="ShowAblityRequestListServlet"> Richieste competenze </a></p><br>
 						
 								
 				

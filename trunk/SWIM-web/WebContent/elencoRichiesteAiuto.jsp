@@ -20,7 +20,7 @@
 				
 				<table width="100%" height="100%">
 					<tr><td align="middle">
-						<h3> Utenti che corrispondono alla ricerca:</h3>
+						<h3> Richieste di aiuto:</h3>
 						<br>
 						
 	

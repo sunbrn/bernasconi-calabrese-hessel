@@ -23,8 +23,10 @@
 		
 		 
 					<a href="homePageUtente.jsp"></a><br>
-					<H1><u><b> Aiuto </b></u></H1>
-					<table width="100%" border="1" >  
+					
+					<table width="100%" border="1" >
+					<H1><u><b> Aiuto </b></u></H1>  
+						
 						<tr>
 							<td align="middle">							
 								
