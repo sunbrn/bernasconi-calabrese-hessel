@@ -3,18 +3,37 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>SWIMv2 - Home Admin</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
+	<div id="cont">
+	<div id="layout">
+	
+		<div id="header">
+			<img src="/SWIM-web/ImmaginiNuove/logo.png" alt="mio logo" 	class="logo" /> 
+		</div>	
+		
+		<div id="nav">
+            <ul>
+            <li>
+            <a href="LogoutServlet" align="right"> Log-out</a>
+            </li>
+            <li>
+            <a href="ShowAbilityListServlet"> Lista competenze </a>
+            </li>
+            <li>
+            <a href="adminAggiungiCompetenza.jsp"> Aggiungi competenza </a>
+            </li>
+            <li>
+            <a href="ShowAbilityRequestServlet"> Richieste competenze</a>
+            </li>
+            </ul>
+		</div>
 
 		
-				<img src="/SWIM-web/Immagini/chiave.png" width="20%" height="35%">
-				<H1><u><b> Home Amministratore </b></u></H1>
-				
-				<p><a href="LogoutServlet"> Log-out </a></p><br>					
-				<p><a href="adminAggiungiCompetenza.jsp"> Nuova competenza </a></p><br>							
-				<p><a href="ShowAbilityListServlet"> Lista competenze </a></p><br>
-				<p><a href="ShowAbilityRequestServlet"> Richieste competenze</a></p><br>
+		<img src="/SWIM-web/Immagini/chiave.png" width="20%" height="35%">
+
 	
 </body>
 </html>

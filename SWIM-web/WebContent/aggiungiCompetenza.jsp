@@ -11,33 +11,56 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>SWIMv2 - Aggiungi Competenza</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-				<p>Nuova Competenza:</p>
-				<p>Scegli una nuova competenza da aggiungere: </p>
-				<br>
-				<br> 
-				<p>
-						<%						
-						ArrayList<Archivio_comp> elenco= (ArrayList<Archivio_comp>) request.getSession().getAttribute("listaCodiciECompetenze");
-						
-						if(elenco.size()!=0){
-							out.println("<form name=\"DichiaraCompetenze\" action=\"AbilitySetUpServlet\" method=\"get\">");
-							out.println("<select name=\"nuovaCompetenza\">");
-							for(Archivio_comp c: elenco){
-								out.println("<option value=\""+ c.getNome() +"\"> "+ c.getNome() +" </option>");				
-							}
-							out.println("<input type=\"submit\" style=\"width:70;height: 33\" value=\"submit\">");
-							out.println("</select>");
-							out.println("</form>");
-						}else{
-							out.println("non sono ancora state definite competenze dichiarabili");
-						}
-						%>
-				</p>
-				<br><br><br>
+	<div id="cont">
+	<div id="layout">
+	
+		<div id="header">
+			<img src="/SWIM-web/ImmaginiNuove/logo.png" alt="mio logo" 	class="logo" /> 
+		</div>
+		
+		<div id="nav">	
+			<ul>
+			<li>
+			<a href="index.html">Home </a>
+			</li>
+			<li>
+			<a href="/SWIM-web/richiediCompetenza.html"> Richiedi Competenza </a>
+			</li>
+			</ul>
+		</div>
+		
+		<br><br>
+		<p>Nuova Competenza:</p>
+		<p>Scegli una nuova competenza da aggiungere: </p>
+		<br>
+		<br> 
+		<p>
+		
+		<%						
+			ArrayList<Archivio_comp> elenco= (ArrayList<Archivio_comp>) request.getSession().getAttribute("listaCodiciECompetenze");
+			
+			if(elenco.size()!=0){
+				out.println("<form name=\"DichiaraCompetenze\" action=\"AbilitySetUpServlet\" method=\"get\">");
+				out.println("<select name=\"nuovaCompetenza\">");
+				for(Archivio_comp c: elenco){
+					out.println("<option value=\""+ c.getNome() +"\"> "+ c.getNome() +" </option>");				
+				}
+				out.println("<input type=\"submit\" style=\"width:70;height: 33\" value=\"submit\">");
+				out.println("</select>");
+				out.println("</form>");
+			}else{
+				out.println("non sono ancora state definite competenze dichiarabili");
+			}
+		%>
+		
+	</p>
+	<br><br><br>
+	
+	<div class="adv">
 				<p> se non hai trovato la competenza che desideravi dichiarare, invia una richiesta all'amministratore! </p>
-				<p> <a href="/SWIM-web/richiediCompetenza.html"> Richiedi Competenza </a> </p>
-				<p><a href="homePageUtente.jsp"> Home </a></p>
+	</div>
 </body>
 </html>

@@ -14,65 +14,84 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>SWIMv2 - Lista di richieste aggiunta competenza</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>				
-					<p><a href="adminAggiungiCompetenza.jsp"> Nuova competenza </a></p><br>
+<body>	
+	<div id="cont">
+	<div id="layout">
+	
+		<div id="header">
+			<img src="/SWIM-web/ImmaginiNuove/logo.png" alt="mio logo" 	class="logo" /> 
+		</div>		
 		
-					<p><a href="adminHomePage.html"> Home </a></p><br>
+		<div id="nav">
+            <ul>
+            <li>
+            <a href="adminHomePage.html"> Home </a>
+            </li>
+            <li>
+         	<a href="ShowAbilityListServlet"> Lista competenze</a>
+            </li>
+            <li>
+           	<a href="adminAggiungiCompetenza.jsp"> Aggiungi Competenza </a>
+            </li>
+            <li>
+           	<a href="ShowAbilityRequestServlet"> Richieste Competenze </a>
+            </li>
+            </ul>
+		</div>
 					
-					<p><a href="LogoutServlet"> Log-Out </a></p><br>
+		
+		<table width="100%" height="100%">
+		<tr><td align="middle">
+			<h3>Richieste aggiunta competenza pervenute dagli utenti:</h3>
+			<br>
+			
+			<%							
+			ArrayList<Richieste_agg_comp> lista=(ArrayList<Richieste_agg_comp>) request.getSession().getAttribute("richiesteAggCompList");
 					
-					
-					<table width="100%" height="100%">
-					<tr><td align="middle">
-						<h3>Richieste aggiunta competenza pervenute dagli utenti:</h3>
-						<br>
+				out.println("<table>");
+				
+				for (Richieste_agg_comp a: lista){
+						out.println("<tr> <td>"+ a.getData().toString() + "</td>");
+						out.println("<td>" + a.getTesto_richiesta() + "</td>");
+						String s=Long.toString(a.getRichiesta_ID());
 						
-						<%							
-						ArrayList<Richieste_agg_comp> lista=(ArrayList<Richieste_agg_comp>) request.getSession().getAttribute("richiesteAggCompList");
-								
-							out.println("<table>");
-							
-							for (Richieste_agg_comp a: lista){
-									out.println("<tr> <td>"+ a.getData().toString() + "</td>");
-									out.println("<td>" + a.getTesto_richiesta() + "</td>");
-									String s=Long.toString(a.getRichiesta_ID());
-									
-									out.println("<td>");
-									
-									out.println("<form action=\"RemoveAbilityRequestServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idRichiesta\"><input type=\"submit\" value=\"Esiste gia'!\"> </form>");
-									
-									out.println("<form action=\"RemoveAbilityRequestServlet\" method=\"post\"><input type=\"hidden\" value=\""+s+"\" name=\"idRichiesta\"><input type=\"submit\" value=\"Rifiuta!\"> </form>");
-									
-									out.println("<nobr><form name=\"AccettaRichiesta\" action=\"AddAbilityAdminServlet\" method=\"get\">" +
-													"<table border=\"0\" cellpadding=\"1\" cellspacing=\"2\" width=\"100%\">" +
-														"<TBODY>" +	
-															"<tr>" +
-															"<td align=\"left\" width=\"0%\">Competenza:</td>" +
-															"<td align=\"left\" width=\"100%\"><INPUT id=\"nuovaCompetenzaAdmin\" name=\"nuovaCompetenzaAdmin\" style=\"height: 23\" type=\"text\" value=\"\"></td>" +
-															"</tr>" +			
-															"<tr>" +
-															"<td align=\"left\" width=\"0%\">Codice competenza:</td>" +
-															"<td align=\"left\" width=\"100%\"><INPUT id=\"nuovoCodiceAdmin\" name=\"nuovoCodiceAdmin\" style=\"height: 23\" type=\"text\" value=\"\"></td>" +
-															"</tr>" +
-															"<tr>" +
-															"<td align=\"left\" width=\"0%\"></td>" +
-															"<td align=\"left\" width=\"50%\"><input type=\"submit\" style=\"width:70;height: 23\" value=\"submit\" onClick=\"\"></td>" +
-															"</tr>" +	
-														"</TBODY>" +
-													"</table>" +
-												"</form></nobr>");	
-									
-									out.println("</td></tr>");
-								}
-							
-							out.println("</table>");
-							out.println("<br>");
+						out.println("<td>");
 						
-						%>
-							
-					</td></tr>
-					</table>
+						out.println("<form action=\"RemoveAbilityRequestServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idRichiesta\"><input type=\"submit\" value=\"Esiste gia'!\"> </form>");
+						
+						out.println("<form action=\"RemoveAbilityRequestServlet\" method=\"post\"><input type=\"hidden\" value=\""+s+"\" name=\"idRichiesta\"><input type=\"submit\" value=\"Rifiuta!\"> </form>");
+						
+						out.println("<nobr><form name=\"AccettaRichiesta\" action=\"AddAbilityAdminServlet\" method=\"get\">" +
+										"<table border=\"0\" cellpadding=\"1\" cellspacing=\"2\" width=\"100%\">" +
+											"<TBODY>" +	
+												"<tr>" +
+												"<td align=\"left\" width=\"0%\">Competenza:</td>" +
+												"<td align=\"left\" width=\"100%\"><INPUT id=\"nuovaCompetenzaAdmin\" name=\"nuovaCompetenzaAdmin\" style=\"height: 23\" type=\"text\" value=\"\"></td>" +
+												"</tr>" +			
+												"<tr>" +
+												"<td align=\"left\" width=\"0%\">Codice competenza:</td>" +
+												"<td align=\"left\" width=\"100%\"><INPUT id=\"nuovoCodiceAdmin\" name=\"nuovoCodiceAdmin\" style=\"height: 23\" type=\"text\" value=\"\"></td>" +
+												"</tr>" +
+												"<tr>" +
+												"<td align=\"left\" width=\"0%\"></td>" +
+												"<td align=\"left\" width=\"50%\"><input type=\"submit\" style=\"width:70;height: 23\" value=\"submit\" onClick=\"\"></td>" +
+												"</tr>" +	
+											"</TBODY>" +
+										"</table>" +
+									"</form></nobr>");	
+						
+						out.println("</td></tr>");
+					}
+				
+				out.println("</table>");
+				out.println("<br>");
+			
+			%>
+				
+		</td></tr>
+		</table>
 				
 		
 </body>	

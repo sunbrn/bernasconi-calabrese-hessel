@@ -11,42 +11,59 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title> SWIMv2 - Aggiungi Competenza Admin </title>
-	</head>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title> SWIMv2 - Aggiungi Competenza Admin </title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
 	
-	<body>		
+<body>
+	<div id="cont">
+	<div id="layout">
+	
+		<div id="header">
+			<img src="/SWIM-web/ImmaginiNuove/logo.png" alt="mio logo" 	class="logo" /> 
+		</div>		
 				
-					<p><a href="adminHomePage.html"> Home </a></p>
-					<br>
-					<p><a href="LogoutServlet" align="right"> Log-out</a></p>
-				
-					<form name="Aggiungi_comp" action="AddAbilityAdminServlet" method="get">
-							
-							<table border="0" cellpadding="1" cellspacing="2" width="100%">
-							
-								<TBODY>									
-										<tr>
-										<td align="left" width="0%">Competenza:</td>
-										<td align="left" width="100%"><INPUT id="nuovaCompetenzaAdmin" name="nuovaCompetenzaAdmin" style="height: 33" type="text" value=""></td>
-										</tr>			
-										
-										<tr>
-										<td align="left" width="0%">Codice Competenza:</td>
-										<td align="left" width="100%"><INPUT id="nuovoCodiceAdmin" name="nuovoCodiceAdmin" style="height: 33" type="text" value=""></td>
-										</tr>
+		<div id="nav">
+            <ul>
+            <li>
+            <a href="adminHomePage.html"> Home </a>
+            </li>
+            <li>
+         	<a href="ShowAbilityListServlet"> Lista competenze</a>
+            </li>
+            <li>
+           	<a href="adminAggiungiCompetenza.jsp"> Aggiungi Competenza </a>
+            </li>
+            <li>
+           	<a href="ShowAbilityRequestServlet"> Richieste Competenze </a>
+            </li>
+            </ul>
+		</div>
 
-										<tr>
-										<td align="left" width="0%"></td>
-										<td align="left" width="50%"><input type="submit" style="width:70;height: 33" value="submit" onClick=""></td>
-										</tr>		
-								</TBODY>
-										
-							</table>
-					</form>				
 				
-				 
-					<img src="/SWIM-web/Immagini/chiave.png" width="20%" height="35%">
-			</body>
-	</html>
+		<form name="Aggiungi_comp" action="AddAbilityAdminServlet" method="get">
+				
+				<table border="0" cellpadding="1" cellspacing="2" width="100%">
+					<TBODY>									
+							<tr>
+							<td width="25%"></td>
+							<td widht="50%"><p>Competenza:</p>
+							<p><INPUT id="nuovaCompetenzaAdmin" name="nuovaCompetenzaAdmin" style="height: 33" type="text" value=""></p>
+							
+							<br>
+							<p>Codice Competenza:</p>
+							<p><INPUT id="nuovoCodiceAdmin" name="nuovoCodiceAdmin" style="height: 33" type="text" value=""></p>
+							
+							<br>
+							<p><input type="submit" style="width:70;height: 33" value="submit" onClick=""></p>
+							</td>
+							<td width="25%"></td>
+							</tr>		
+					</TBODY>
+				</table>
+		</form>			
+
+</body>
+</html>
