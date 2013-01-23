@@ -1,5 +1,6 @@
 package swim.sessionbeans;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -52,7 +53,7 @@ public class ValutazioniBean implements ValutazioniBeanRemote {
     	try{
 	    	Query q=manager.createNativeQuery("SELECT avg(v.professionalità) FROM Valutazioni v WHERE v.user_ID=:new_userID");
 	    	q.setParameter("new_userID", user_ID);
-    		float p=(Float)q.getSingleResult();
+    		BigDecimal p=(BigDecimal) q.getSingleResult();
     		return getValutazioneIntera(p);
     	} catch(NullPointerException e) {
        		return 0;
@@ -64,7 +65,7 @@ public class ValutazioniBean implements ValutazioniBeanRemote {
     	try{
 	    	Query q=manager.createNativeQuery("SELECT avg(v.disponibilità) FROM Valutazioni v WHERE v.user_ID=:new_userID");
 	    	q.setParameter("new_userID", user_ID);
-    		float d=(Float)q.getSingleResult();
+    		BigDecimal d=(BigDecimal) q.getSingleResult();
     		return getValutazioneIntera(d);
     	} catch(NullPointerException e) {
        		return 0;
@@ -76,7 +77,7 @@ public class ValutazioniBean implements ValutazioniBeanRemote {
     	try{
 	       	Query q=manager.createNativeQuery("SELECT avg(v.prezzo_prestazioni) FROM Valutazioni v WHERE v.user_ID=:new_userID");
 	       	q.setParameter("new_userID", user_ID);
-       		float r=(Float)q.getSingleResult();
+    		BigDecimal r=(BigDecimal) q.getSingleResult();
        		return getValutazioneIntera(r);
        	} catch(NullPointerException e) {
        		return 0;
@@ -84,7 +85,8 @@ public class ValutazioniBean implements ValutazioniBeanRemote {
     }
 
        	
-    private int getValutazioneIntera(float p){
+    private int getValutazioneIntera(BigDecimal d){
+    	float p=d.floatValue();
     	if (p>=0 && p<0.5){ 
     		p=0;
     	}else if (p>=0.5 && p<1.5){ 

@@ -100,9 +100,10 @@ public class AiutoBean implements AiutoBeanRemote {
         
     public ArrayList<Aiuto> getAiuti(long userID){
     	try{
-			Query q=manager.createQuery("FROM Aiuto a WHERE (a.richiedente=:new_user_ID OR a.offerente=:new_user_ID) AND a.accettato=:true");
+			Query q=manager.createQuery("FROM Aiuto a WHERE (a.richiedente=:new_user_ID OR a.offerente=:new_user_ID) AND a.accettato=:true AND a.concluso=:false");
 			q.setParameter("new_user_ID",userID);
 			q.setParameter("true", true);
+			q.setParameter("false", false);
 			ArrayList<Aiuto> aiuti=(ArrayList<Aiuto>) q.getResultList();
 			return aiuti;
     	}catch(NullPointerException e){
