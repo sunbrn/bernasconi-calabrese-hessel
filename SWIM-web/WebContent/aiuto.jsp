@@ -130,24 +130,14 @@
 										long helpID=(Long)request.getSession().getAttribute("help_ID");
 										
 										if(userID==richiedenteID){
-											out.println("<form action=\"HelpTerminationServlet?offerente_ID="+userID+"&help_ID="+helpID+"\" method=\"get\"> input type=\"submit\" value=\"Concludi Aiuto e Inserisci Feedback!\"> </form>");
+											out.println("<form action=\"HelpTerminationServlet?offerente_ID="+userID+"&help_ID="+helpID+"\" method=\"get\"> <input type=\"submit\" value=\"Concludi Aiuto e Inserisci Feedback!\"> </form>");
 										}
 									}
 									
 									out.println("<p><a href=\"homePageUtente.jsp\"> Torna alla Home </a></p><br><br><br>");
-									%>
+									%>									
 									
-									<%
-									
-									
-									%>
-									
-									
-									
-									
-									
-									
-									
+
 									</td>
 									</tr>
 								</table>
