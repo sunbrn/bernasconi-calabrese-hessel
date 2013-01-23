@@ -32,16 +32,13 @@ public class HelpTerminationServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Context ctx=(Context)request.getAttribute("context");
+		Context ctx=(Context)request.getSession().getAttribute("context");
 		
 		try{
 			AiutoBeanRemote remoteHelp=(AiutoBeanRemote) ctx.lookup("AiutoBean/remote");
-			
-			long help_ID=Long.parseLong(request.getParameter("help_ID"));
-			long offerente_ID=Long.parseLong(request.getParameter("offerente_ID"));
-			request.getSession().setAttribute("help_ID",help_ID);
-			request.getSession().setAttribute("offerente_ID",offerente_ID);
-			
+			long help_ID= (Long)request.getSession().getAttribute("help_ID");
+			long offerente_ID= (Long)request.getSession().getAttribute("offerente_ID");
+			long richiedente_ID= (Long)request.getSession().getAttribute("richiedente_ID");
 			remoteHelp.concludiAiuto(help_ID);
 			response.sendRedirect("inserisciFeedback.html");
 			

@@ -56,6 +56,7 @@ public class HelpPageServlet extends HttpServlet {
 			request.getSession().setAttribute("richiedente_ID",remoteHelp.getAiuto(help_ID).getRichiedente());
 			request.getSession().setAttribute("nomeRichiedente", nome_richiedente);
 			request.getSession().setAttribute("cognomeRichiedente",cognome_richiedente);
+			request.getSession().setAttribute("offerente_ID",remoteHelp.getAiuto(help_ID).getOfferente());
 			request.getSession().setAttribute("nomeOfferente", nome_offerente);
 			request.getSession().setAttribute("cognomeOfferente",cognome_offerente);
 			request.getSession().setAttribute("competenzaRichiestaAiuto", competenza );	
