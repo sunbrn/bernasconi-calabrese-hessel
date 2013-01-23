@@ -52,8 +52,8 @@ public class Valutazioni implements java.io.Serializable {
 		return user_ID;
 	}
 
-	public void setUser_ID(long help_ID){
-		this.help_ID=help_ID;
+	public void setUser_ID(long new_user_ID){
+		this.user_ID=new_user_ID;
 	}
 	
 	Date getData() {
