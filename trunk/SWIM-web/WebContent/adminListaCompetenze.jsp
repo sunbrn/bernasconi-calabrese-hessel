@@ -27,7 +27,7 @@
 					<br>
 					<form action="adminHomePage.html" method="get"><input type="submit" value="Torna alla home"></form>
 					<br>
-					<form action="LogoutServlet" method="post"><input type="submit" value="Log-Out"></form>
+					<form action="LogoutServlet" method="get"><input type="submit" value="Log-Out"></form>
 				</td>
 					
 				<!-- colonna2 -->
