@@ -45,8 +45,6 @@ public class DataModificationServlet extends HttpServlet {
 		try {
 			
 			UserBeanRemote remoteUser= (UserBeanRemote) ctx.lookup("UserBean/remote");
-			LingueBeanRemote remoteLingua=(LingueBeanRemote) ctx.lookup("LinguaBean/remote");
-			ImpreseBeanRemote remoteImpresa=(ImpreseBeanRemote) ctx.lookup("ImpreseBean/remote");
 			
 			String nome= request.getParameter("nuovoNome");
 			String cognome= request.getParameter("nuovoCognome");
@@ -100,9 +98,6 @@ public class DataModificationServlet extends HttpServlet {
 				}
 				
 				remoteUser.updateUser(userID, nome, cognome, sesso, mail, nickname, password, Integer.parseInt(dataDiNascita), città, diploma, laurea, altro);
-				
-				remoteLingua.insertNewLanguage(userID, lingua);
-				remoteImpresa.insertNewCompany(userID, impresa, periodo);
 				
 				response.sendRedirect("/SWIM-web/homePageUtente.jsp");
 				

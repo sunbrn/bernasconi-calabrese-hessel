@@ -67,6 +67,7 @@ public class AnswerHelpRequestServlet extends HttpServlet {
 					}
 				}
 				request.getSession().setAttribute("UserActiveHelps", elencoAiuti);
+				request.getSession().setAttribute("UserHelpClients", elencoClienti);
 				
 				response.sendRedirect("/SWIM-web/homePageUtente.jsp");
 			}
