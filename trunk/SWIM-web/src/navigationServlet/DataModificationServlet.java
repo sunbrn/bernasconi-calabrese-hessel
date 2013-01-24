@@ -60,6 +60,9 @@ public class DataModificationServlet extends HttpServlet {
 			long userID=(Long)request.getSession().getAttribute("idUser");
 			
 			if(password.equals("")||passwordVecchia.equals(remoteUser.getUser(userID).getPassword())){
+				if(password.equals("")){
+					password=remoteUser.getUser(userID).getPassword();
+				}
 				if(nome.equals("")){
 					nome=remoteUser.getUser(userID).getNome();
 				}

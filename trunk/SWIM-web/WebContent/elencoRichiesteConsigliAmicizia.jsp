@@ -8,19 +8,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title> SWIMv2 - Richieste e Consigli di Amicizia</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
+					
+	<body>
+	<div id="cont">
+	<div id="layout">
+	
+		<div id="header">
+			<img src="/SWIM-web/ImmaginiNuove/logo.png" alt="mio logo" 	class="logo" /> 
+		</div>	
 		
-					<a href="homePageUtente.jsp"> Home </a>
-					<br>
+		<div id="nav">
+            <ul>
+            <li>
+            <a href="homePageUtente.jsp">Home</a>
+            </li>
+            </ul>
+		</div>
 					
 			<table width="100%" height="100%">
 				<tr>
 					
 					
-						<td align="middle" width="40%" frame=void border="1">
+						<td align="middle" width="40%" frame=void >
 							<h3> Richieste di amicizia:</h3>
-							<br>
+
 					
 								<%
 									ArrayList<User> richiesteAmicizia= (ArrayList<User>) request.getSession().getAttribute("richiesteAmicizia");
@@ -31,7 +44,9 @@
 											String cognomeRichiesta = u.getCognome();
 											String nascitaRichiesta = Integer.toString(u.getData_nascita());
 											String s=Long.toString(u.getUser_ID());
-											
+											out.println("<tr><td align=\"right\">"
+													 +"<img src=\"/SWIM-web/ImmaginiNuove/add-user.png\" alt=\"user\" class=\"user\" width=\"90px\" height=\"90px\"/>"
+													+"</td>"+"<td align=\"middle\">");
 											out.println("<p>");
 											out.println(nomeRichiesta+"  ");
 											out.println(cognomeRichiesta+"  "+nascitaRichiesta);
@@ -55,7 +70,7 @@
 				
 									
 				
-						<td align="middle" width="40%" frame=void border="1">
+						<td align="center" width="40%" frame=void >
 							<h3>SWIM Consiglia:</h3>
 					
 							<%
@@ -66,7 +81,9 @@
 										String cognomeSuggerito = u.getCognome();
 										String nascitaSuggerito = Integer.toString(u.getData_nascita());
 										String s=Long.toString(u.getUser_ID());
-									
+										out.println("<tr><td align=\"right\">"
+												 +"<img src=\"/SWIM-web/ImmaginiNuove/questionmark.jpg\" alt=\"user\" class=\"user\" width=\"90px\" height=\"90px\"/>"
+												+"</td>"+"<td align=\"middle\">");
 										out.println("<p>");
 										out.println(nomeSuggerito+"  ");
 										out.println(cognomeSuggerito+"  "+nascitaSuggerito);
@@ -90,7 +107,7 @@
 						</td>
 				</tr>
 			</table>
-				
-				
+	</div>				
+	</div>			
 </body>
 </html>

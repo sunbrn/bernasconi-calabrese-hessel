@@ -33,7 +33,7 @@
 		</div>	
 				
 				<table width="100%" height="100%">
-					<tr><td align="middle">
+					<tr><td align="center">
 						<h3> Richieste di aiuto:</h3>
 						<br>
 						
@@ -47,6 +47,9 @@
 								for (Aiuto a: elencoRichiesteAiuto){
 									String idAiuto=Long.toString(a.getHelp_ID());
 									String richiedente=elencoRichiedentiAiuto.get(i-1);
+									out.println("<tr><td align=\"right\">"
+											 +"<img src=\"/SWIM-web/ImmaginiNuove/questionmark.jpg\" alt=\"user\" class=\"user\" width=\"90px\" height=\"90px\"/>"
+											+"</td>"+"<td align=\"middle\">");
 									out.println("<p>"+i+". "+richiedente+" ");
 									out.println("<p><form action=\"HelpPageServlet\" method=\"get\"><input type=\"hidden\" value=\""+idAiuto+"\" name=\"help_ID\"><input type=\"submit\" value=\"Ask!\"> </form></p>");
 									out.println("<br><br>");
