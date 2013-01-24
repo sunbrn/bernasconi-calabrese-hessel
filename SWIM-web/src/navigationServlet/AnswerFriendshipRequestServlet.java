@@ -1,18 +1,14 @@
 package navigationServlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.NamingException;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import swim.entitybeans.Aiuto;
 import swim.sessionbeans.AmicizieBeanRemote;
 
 /**
@@ -43,21 +39,18 @@ public class AnswerFriendshipRequestServlet extends HttpServlet {
 			long id1= (long)request.getSession().getAttribute("idUser");
 			String id2=request.getParameter("amicoFuturo_ID");
 			
-			System.out.println("answer friend servlet");
 			if(request.getParameter("accettazione").equalsIgnoreCase(ACCETTATA)){
 				remoteFriendship.accettaAmicizia(id1, Long.parseLong(id2));
-				System.out.println("son nell'if");
 			}else if(request.getParameter("accettazione").equals(RIFUTATA)){
 				remoteFriendship.rifiutaAmicizia(id1, Long.parseLong(id2));
-				System.out.println("son nell'else");
 			}
 			
 			response.sendRedirect("homePageUtente.jsp");
 	  
 			
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.getSession().setAttribute("errore", 1);
+			response.sendRedirect("/SWIM-web/errore.jsp");
 		}
 	}
 

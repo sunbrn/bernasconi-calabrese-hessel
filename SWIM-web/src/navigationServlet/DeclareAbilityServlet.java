@@ -33,7 +33,6 @@ public class DeclareAbilityServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Context ctx=(Context) request.getSession().getAttribute("context");
 		try {
-			System.out.println("sono in declare abilityservlet");
 			Archivio_compBeanRemote remoteAbility=(Archivio_compBeanRemote) ctx.lookup("Archivio_compBean/remote");
 			
 			ArrayList<Archivio_comp> abilityList=remoteAbility.getCodiciECompetenze();
@@ -41,8 +40,8 @@ public class DeclareAbilityServlet extends HttpServlet {
 			
 			response.sendRedirect("/SWIM-web/aggiungiCompetenza.jsp");
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.getSession().setAttribute("errore", 1);
+			response.sendRedirect("/SWIM-web/errore.jsp");
 		}
 	}
 

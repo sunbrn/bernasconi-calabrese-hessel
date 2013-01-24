@@ -46,7 +46,7 @@
 											String s=Long.toString(u.getUser_ID());
 											out.println("<tr><td align=\"right\">"
 													 +"<img src=\"/SWIM-web/ImmaginiNuove/add-user.png\" alt=\"user\" class=\"user\" width=\"90px\" height=\"90px\"/>"
-													+"</td>"+"<td align=\"right\">");
+													+"</td>"+"<td align=\"left\">");
 											out.println("<p>");
 											out.println(nomeRichiesta+"  ");
 											out.println(cognomeRichiesta+"  "+nascitaRichiesta);
@@ -83,7 +83,7 @@
 										String s=Long.toString(u.getUser_ID());
 										out.println("<tr><td align=\"right\">"
 												 +"<img src=\"/SWIM-web/ImmaginiNuove/questionmark.jpg\" alt=\"user\" class=\"user\" width=\"90px\" height=\"90px\"/>"
-												+"</td>"+"<td align=\"right\">");
+												+"</td>"+"<td align=\"left\">");
 										out.println("<p>");
 										out.println(nomeSuggerito+"  ");
 										out.println(cognomeSuggerito+"  "+nascitaSuggerito);

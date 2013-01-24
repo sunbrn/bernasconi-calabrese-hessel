@@ -1,21 +1,18 @@
 package accessServlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import swim.sessionbeans.UserBeanRemote;
-import swim.sessionbeans.ValutazioniBeanRemote;
 
 
 /**
@@ -42,7 +39,6 @@ public class RegistrationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("sono nella servlet");
-		PrintWriter out = response.getWriter();
 		
 		try {
 			Context ctx = getInitialContext();
@@ -80,12 +76,10 @@ public class RegistrationServlet extends HttpServlet {
 			}else{		
 				long id=remoteUser.insertNewUser(nome,cognome,sesso,mail,nickname,password,Integer.parseInt(dataDiNascita),città,diploma,laurea,altro);
 				
-				System.out.println(id);
-				System.out.println("dopo l'inserimento");
 				
 				if(id==-1){
-					out.print("<h1>Cambiare Nickname o Password</h1>");
-					out.print("<br><br><a href=\"index.html\"><b>Torna alla Home</b></a><br><br>");
+					request.getSession().setAttribute("errore", 2);
+					response.sendRedirect("/SWIM-web/errore.jsp");
 				}else{
 					request.getSession().setAttribute("idUser", remoteUser.getUser(id).getUser_ID());
 					System.out.println(remoteUser.getUser(id).getUser_ID());
@@ -100,8 +94,8 @@ public class RegistrationServlet extends HttpServlet {
 		}
 		
 		catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.getSession().setAttribute("errore", 1);
+			response.sendRedirect("/SWIM-web/errore.jsp");
 		}
 		
 	

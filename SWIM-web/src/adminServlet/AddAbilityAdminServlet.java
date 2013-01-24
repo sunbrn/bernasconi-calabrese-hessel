@@ -77,8 +77,8 @@ public class AddAbilityAdminServlet extends HttpServlet {
 						
 			
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.getSession().setAttribute("errore", 1);
+			response.sendRedirect("/SWIM-web/errore.jsp");
 		}
 	}
 

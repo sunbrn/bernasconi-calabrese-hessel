@@ -36,15 +36,18 @@ public class HelpTerminationServlet extends HttpServlet {
 		
 		try{
 			AiutoBeanRemote remoteHelp=(AiutoBeanRemote) ctx.lookup("AiutoBean/remote");
+			
 			long help_ID= (Long)request.getSession().getAttribute("help_ID");
 			long offerente_ID= (Long)request.getSession().getAttribute("offerente_ID");
 			long richiedente_ID= (Long)request.getSession().getAttribute("richiedente_ID");
+			
 			remoteHelp.concludiAiuto(help_ID);
+			
 			response.sendRedirect("inserisciFeedback.html");
 			
 		}catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.getSession().setAttribute("errore", 1);
+			response.sendRedirect("/SWIM-web/errore.jsp");
 		}
 	}
 	

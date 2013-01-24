@@ -39,14 +39,15 @@ public class CreateAbilityRequestServlet extends HttpServlet {
 			long userID=(long) request.getSession().getAttribute("idUser");
 			
 			remoteAbilityRequest.insertNewRequest(userID,request.getParameter("competenzaRichiesta"));
-			
-			
+						
 			ArrayList<Richieste_agg_comp> lista= remoteAbilityRequest.getMieRichieste(userID);
 			request.getSession().setAttribute("UserAbilityRequest", lista);
+			
 			response.sendRedirect("/SWIM-web/homePageUtente.jsp");
+		
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.getSession().setAttribute("errore", 1);
+			response.sendRedirect("/SWIM-web/errore.jsp");
 		}
 	}
 

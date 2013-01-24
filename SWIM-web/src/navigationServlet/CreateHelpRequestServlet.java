@@ -1,8 +1,6 @@
 package navigationServlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.naming.Context;
@@ -12,11 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import swim.entitybeans.Aiuto;
 import swim.sessionbeans.AiutoBeanRemote;
 import swim.sessionbeans.Archivio_compBeanRemote;
 import swim.sessionbeans.Comp_dichiarateBeanRemote;
-import swim.sessionbeans.UserBean;
 
 /**
  * Servlet implementation class HelpRequestServlet
@@ -37,7 +33,6 @@ public class CreateHelpRequestServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Context ctx=(Context)request.getSession().getAttribute("context");
-		PrintWriter out = response.getWriter();
 		
 		try {
 			AiutoBeanRemote remoteHelp=(AiutoBeanRemote) ctx.lookup("AiutoBean/remote");
@@ -62,14 +57,14 @@ public class CreateHelpRequestServlet extends HttpServlet {
 				remoteHelp.richiediAiuto(competenzaRichiesta, idUser, idProfilo, messRich);
 				response.sendRedirect("profiloPubblico.jsp");
 			}else{
-				out.println("l'utente al quale ha richiesto aiuto, non possiede la competenza desiderata");
-				out.println("<a href=\"/SWIM-web/homePageUtente.jsp\"> Torna alla Home </a>");
+				request.getSession().setAttribute("errore", 4);
+				response.sendRedirect("/SWIM-web/errore.jsp");
 			}
 			
 			
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.getSession().setAttribute("errore", 1);
+			response.sendRedirect("/SWIM-web/errore.jsp");
 		}
 	}
 

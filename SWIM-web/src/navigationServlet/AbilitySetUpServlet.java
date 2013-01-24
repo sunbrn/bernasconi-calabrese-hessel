@@ -1,7 +1,6 @@
 package navigationServlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.naming.Context;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import swim.sessionbeans.Archivio_compBeanLocal;
 import swim.sessionbeans.Archivio_compBeanRemote;
 import swim.sessionbeans.Comp_dichiarateBeanRemote;
 import swim.sessionbeans.UserBeanRemote;
@@ -35,7 +33,6 @@ public class AbilitySetUpServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Context ctx=(Context) request.getSession().getAttribute("context");
-		PrintWriter out = response.getWriter();
 		
 		try {
 			Comp_dichiarateBeanRemote remoteAbilityAdder=(Comp_dichiarateBeanRemote) ctx.lookup("Comp_dichiarateBean/remote");
@@ -54,10 +51,12 @@ public class AbilitySetUpServlet extends HttpServlet {
 			}
 			
 			long id=(Long)request.getSession().getAttribute("idUser");
+			
 			if(!declared){
 				remoteAbilityAdder.insertNewComp(id, abilityID);
 			}else{
-				out.println("competenza già dichiarata!");
+				request.getSession().setAttribute("errore", 3);
+				response.sendRedirect("/SWIM-web/errore.jsp");
 			}
 			
 			ArrayList<String> elencoCompetenze=user.getNomiCompetenzeUtente(id);
@@ -65,8 +64,8 @@ public class AbilitySetUpServlet extends HttpServlet {
 			response.sendRedirect("/SWIM-web/homePageUtente.jsp");
 			
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.getSession().setAttribute("errore", 1);
+			response.sendRedirect("/SWIM-web/errore.jsp");
 		}
 	}
 

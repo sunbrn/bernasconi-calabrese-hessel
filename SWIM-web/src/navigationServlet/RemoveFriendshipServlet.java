@@ -49,12 +49,15 @@ public class RemoveFriendshipServlet extends HttpServlet {
 			remoteFriend.eliminaAmicizia(id1, id2);
 			
 			ArrayList<User> lista_amici=remoteFriend.getAmici(id1);
+			
 			request.getSession().setAttribute("chi", id1);
 			request.getSession().setAttribute("listaAmici", lista_amici);
+			
 			response.sendRedirect("/SWIM-web/amici.jsp");
+			
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.getSession().setAttribute("errore", 1);
+			response.sendRedirect("/SWIM-web/errore.jsp");
 		} 
 	}
 
