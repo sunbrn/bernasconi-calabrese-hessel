@@ -53,7 +53,9 @@
 				out.println("<table>");
 				
 				for (Richieste_agg_comp a: lista){
-						out.println("<tr> <td>"+ a.getData().toString() + "</td>");
+						String aData=a.getData().toString();
+						String aDataCorta = aData.substring(0, Math.min(aData.length(), 16));  
+						out.println("<tr> <td>"+ aDataCorta + "</td>");
 						out.println("<td>" + a.getTesto_richiesta() + "</td>");
 						String s=Long.toString(a.getRichiesta_ID());
 						

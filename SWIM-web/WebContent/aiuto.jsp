@@ -77,8 +77,11 @@
 					<% 
 						Date data=(Date)request.getSession().getAttribute("dataRichiestaAiuto");
 						String d=data.toString();
+						String dCorta = d.substring(0, Math.min(d.length(), 16));  
+						
+						
 					%>
-					<%=d %>
+					<%=dCorta %>
 
 					
 					</p>												
