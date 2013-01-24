@@ -1,4 +1,4 @@
- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="javax.naming.*"%>
 <%@page import="javax.persistence.*"%>
@@ -16,7 +16,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>HomePageUtente</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>				
 		
@@ -77,8 +76,11 @@
           	<table cellpadding="20" >
           	<tr>
           	<td >
-              	<FONT SIZE="3"><b>Competenze:</b></FONT><a href="DeclareAbilityServlet?param=ciao" >Aggiungi</a><br>
-				<div>										 <a href="rimuoviCompetenza.jsp" >Elimina</a><br>
+              	<FONT SIZE="3"><b>Competenze:</b></FONT> <a href="DeclareAbilityServlet?param=ciao">Aggiungi</a>
+														 <a href="rimuoviCompetenza.jsp">Elimina</a><br>
+							
+				<div>
+				
 				<ul type="circle">
 					<% ArrayList<String> elencoCompetenze=(ArrayList<String>)request.getSession().getAttribute("UserAbilities"); 
 						if(elencoCompetenze==null){
@@ -95,7 +97,7 @@
 			</tr>
 			</table>
               	<FONT SIZE="3"><b>Informazioni:</b></FONT> 
-              	<a href="modificaDati.jsp" >Modifica</a><br>
+              	<a href="modificaDati.jsp">Modifica</a><br>
               	<ul type="circle">
                   <li > età: </li>
                   <li> vive a: </li>
@@ -111,11 +113,13 @@
 				
 			<br><br><br><br>						
 						
-			<!-- TERZO RIQUADRO style="border:medium groove rgb(0, 153, 255)"-->						
-			<table width="600px" border="1" cellpadding="20" >
-                <tr  frame=box border="4"  bordercolor=#004eff>
-                    <td width="40%" valign="top"  bordercolor=#004eff align="left">
-					<h2>&nbsp;Valutazioni</h2><br>
+			<!-- TERZO RIQUADRO -->						
+			<table width="600px" cellpadding="20">			
+			
+                <tr  width="100%" frame=box border="4"  bordercolor=#004eff>
+				
+                    <td width="40%"  valign="top"  bordercolor=#004eff align="left">
+					<h2>Valutazioni</h2><br>
 					<ul>
 						<li><h4> Professionalita': </h4> 
 						
