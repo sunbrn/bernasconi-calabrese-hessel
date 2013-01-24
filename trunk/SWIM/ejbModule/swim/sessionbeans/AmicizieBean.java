@@ -274,4 +274,20 @@ public class AmicizieBean implements AmicizieBeanRemote {
 		return false;
 		
 	}
+
+	@Override
+	public void eliminaAmicizia(long id1, long id2) {
+		try{
+			Query q=manager.createQuery("FROM Amicizie a WHERE (a.user_ID1=:new_user_ID1 AND a.user_ID2=:new_user_ID2 OR a.user_ID1=:new_user_ID2 AND a.user_ID2=:new_user_ID1) AND a.stato=:accettata");
+			q.setParameter("new_user_ID1",id1);
+			q.setParameter("new_user_ID2",id2);
+			q.setParameter("accettata", ACCETTATA);
+			Amicizie a=(Amicizie) q.getSingleResult();
+			manager.remove(a);
+			return;
+		}catch(NoResultException e){
+			return;
+		}
+		
+	}
 }
