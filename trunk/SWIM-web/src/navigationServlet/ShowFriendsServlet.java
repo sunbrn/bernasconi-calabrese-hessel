@@ -45,11 +45,12 @@ public class ShowFriendsServlet extends HttpServlet {
 			
 			remoteAmicizie = (AmicizieBeanRemote) ctx.lookup("AmicizieBean/remote");
 			
-			long user_ID=(Long)request.getSession().getAttribute("idUser");
+			long chi=Long.parseLong(request.getParameter("chi"));
 			
-			ArrayList<User> lista_amici=remoteAmicizie.getAmici(user_ID);
+			ArrayList<User> lista_amici=remoteAmicizie.getAmici(chi);
 			
 			request.getSession().setAttribute("listaAmici", lista_amici);
+			request.getSession().setAttribute("chi", chi);
 			
 			response.sendRedirect("/SWIM-web/amici.jsp");
 			

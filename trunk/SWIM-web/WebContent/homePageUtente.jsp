@@ -20,6 +20,12 @@
 </head>
 <body>				
 		
+		<%
+			long idUser=(Long) request.getSession().getAttribute("idUser");
+			User u = (User) request.getSession().getAttribute("User");
+		%>
+		
+		
 <div id="cont">
 <div id="layout">
 	
@@ -30,7 +36,10 @@
 		<div id="nav">	 
 	        <ul>
 	        <li>
-	        <a href="ShowFriendsServlet">Amici </a>
+	        <a href="LogoutServlet">Log-Out</a>
+	        </li>
+	        <li>
+	        <a href="ShowFriendsServlet?chi=<%=+idUser%>">Amici </a>
 	        </li>
 	        <li>
 	        <a href="HelpRequestListServlet">Richieste d'Aiuto </a>
@@ -44,9 +53,6 @@
 	        </ul>
 		</div>
 		
-		<form action="LogoutServlet" method="post">
-			<input type="submit" value="Log-Out">
-		</form>
 		
 		<div id="left">
           <table cellpadding="10">
@@ -57,7 +63,6 @@
              <img src="SWIM-web/ImmaginiNuove/utente.png" width="90" height="90" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
           
 			<%
-			User u = (User) request.getSession().getAttribute("User");
 			String nome = u.getNome();
 			String cognome = u.getCognome();
 			String età = Long.toString(u.getData_nascita());

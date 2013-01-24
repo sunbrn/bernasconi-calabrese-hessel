@@ -26,6 +26,15 @@
             <li>
             <a href="homePageUtente.jsp">Home</a>
             </li>
+            <%
+            	long chi= (Long) request.getSession().getAttribute("chi");
+            	long idUser= (Long) request.getSession().getAttribute("idUser");
+            	if(chi!=idUser){
+            		out.println("<li>");
+            		out.println("<a href=\"profiloPubblico.jsp\"> Torna al Profilo </a>");
+            		out.println("</li>");
+            	}
+            %>
             </ul>
 		</div>			
 

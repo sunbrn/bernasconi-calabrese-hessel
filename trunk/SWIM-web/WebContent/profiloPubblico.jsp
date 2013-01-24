@@ -33,6 +33,7 @@
 						if(idUser!=idProfilo){
 							out.println("<form action=\"homePageUtente.jsp\" method=\"get\"><input type=\"submit\" value=\"Home\"></form><br>");
 							out.println("<form action=\"richiediAiuto.jsp\" method=\"get\"><input type=\"submit\" value=\"Richiedi Aiuto\"></form><br>");
+							out.println("<a href=\"ShowFriendsServlet?chi="+idProfilo+"\"> Amici </a>");
 							if(!gi‡Amico){
 								out.println("<form action=\"CreateFriendshipRequestServlet\" method=\"get\"><input type=\"submit\" value=\"Richiedi Amicizia\"></form><br>");
 							}
