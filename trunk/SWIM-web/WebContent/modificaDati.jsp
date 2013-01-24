@@ -93,29 +93,14 @@
 							
 							<tr>
 							<td align="left" width="0%">  Laurea:  </td>
-							<td align="left" width="80%"><INPUT id="nuovalaurea" name="nuovalaurea" style="height: 33" type="text" value=""></td>
+							<td align="left" width="80%"><INPUT id="nuovaLaurea" name="nuovaLaurea" style="height: 33" type="text" value=""></td>
 							</tr>
 							
 							<tr>
 							<td align="left" width="0%">  Altro:  </td>
 							<td align="left" width="80%"><INPUT id="nuovoAltro" name="nuovoAltro" style="height: 33" type="text" value=""></td>
 							</tr>
-							
-							<tr>
-							<td align="left" width="0%">  Aggiungi Lingua:  </td>
-							<td align="left" width="80%"><INPUT id="nuovalingua" name="nuovaLingua" style="height: 33" type="text" value=""></td>
-							</tr>
-							
-							<tr>
-							<td align="left" width="0%">  Aggiungi Impresa:  </td>
-							<td align="left" width="80%"><INPUT id="nuovaImpresa" name="nuovaImpresa" style="height: 33" type="text" value=""></td>
-							</tr>
-							
-							<tr>
-							<td align="left" width="0%">  Aggiungi periodo in cui hai lavorato in tale impresa:  </td>
-							<td align="left" width="80%"><INPUT id="nuovoPeriodoImpresa" name="nuovoPeriodoImpresa" style="height: 33" type="text" value=""></td>
-							</tr>
-							
+														
 							<tr>
 							<td align="left" width="0%"></td>
 							<td align="left" width="50%"><input type="submit" style="width:70;height: 33" value="submit"></td>
