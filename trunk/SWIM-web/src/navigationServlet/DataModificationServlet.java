@@ -97,6 +97,8 @@ public class DataModificationServlet extends HttpServlet {
 				
 				remoteUser.updateUser(userID, nome, cognome, sesso, mail, nickname, password, Integer.parseInt(dataDiNascita), città, diploma, laurea, altro);
 				
+				request.getSession().setAttribute("User", remoteUser.getUser(userID));
+				
 				response.sendRedirect("/SWIM-web/homePageUtente.jsp");
 				
 			}else{
