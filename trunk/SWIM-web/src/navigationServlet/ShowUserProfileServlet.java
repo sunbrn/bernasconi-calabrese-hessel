@@ -46,10 +46,8 @@ public class ShowUserProfileServlet extends HttpServlet {
 			remoteUser = (UserBeanRemote) ctx.lookup("UserBean/remote");		
 			remoteFeedback=(ValutazioniBeanRemote) ctx.lookup("ValutazioniBean/remote");
 			remoteFriend=(AmicizieBeanRemote) ctx.lookup("AmicizieBean/remote");
-
 			
 			long idProfilo=Long.parseLong(request.getParameter("idProfilo"));
-			System.out.println(idProfilo);
 
 			User u=remoteUser.getUser(idProfilo);
 			ArrayList<String> elencoNomiCompetenze=remoteUser.getNomiCompetenzeUtente(idProfilo);	
@@ -75,8 +73,8 @@ public class ShowUserProfileServlet extends HttpServlet {
 			
 			response.sendRedirect("/SWIM-web/profiloPubblico.jsp");
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.getSession().setAttribute("errore", 1);
+			response.sendRedirect("/SWIM-web/errore.jsp");
 		}		
 		
 

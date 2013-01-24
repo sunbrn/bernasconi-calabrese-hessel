@@ -1,7 +1,6 @@
 package navigationServlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.naming.Context;
 import javax.naming.NamingException;
@@ -38,7 +37,6 @@ public class DataModificationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Context ctx= (Context) request.getSession().getAttribute("context");
-		PrintWriter out = response.getWriter();
 		
 		try {
 			
@@ -102,11 +100,12 @@ public class DataModificationServlet extends HttpServlet {
 				response.sendRedirect("/SWIM-web/homePageUtente.jsp");
 				
 			}else{
-				out.println("errore nella modifica della password! controllare che la password nuova sia uguale alla vecchia oppure che tutti i campi siano vuoti");
+				request.getSession().setAttribute("errore", 5);
+				response.sendRedirect("/SWIM-web/errore.jsp");
 			}
-			} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (NamingException e) {
+				request.getSession().setAttribute("errore", 1);
+				response.sendRedirect("/SWIM-web/errore.jsp");
 		}
 	}
 

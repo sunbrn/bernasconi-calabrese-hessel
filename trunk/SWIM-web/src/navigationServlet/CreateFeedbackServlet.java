@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import swim.entitybeans.Aiuto;
 import swim.sessionbeans.AiutoBeanRemote;
@@ -58,8 +57,8 @@ public class CreateFeedbackServlet extends HttpServlet {
 			response.sendRedirect("homePageUtente.jsp");
 			
 		}catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.getSession().setAttribute("errore", 1);
+			response.sendRedirect("/SWIM-web/errore.jsp");
 		}
 	}
 

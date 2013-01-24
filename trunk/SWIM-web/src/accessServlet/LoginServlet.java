@@ -9,18 +9,15 @@ import java.util.Hashtable;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import swim.entitybeans.Aiuto;
-import swim.entitybeans.Comp_dichiarate;
 import swim.entitybeans.User;
 import swim.entitybeans.Richieste_agg_comp;
 
-import swim.sessionbeans.Comp_dichiarateBeanRemote;
 import swim.sessionbeans.Richieste_agg_compBeanRemote;
 import swim.sessionbeans.UserBeanRemote;
 import swim.sessionbeans.ValutazioniBeanRemote;
@@ -54,7 +51,6 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
 		
 		try {
 			
@@ -64,7 +60,6 @@ public class LoginServlet extends HttpServlet {
 			UserBeanRemote remoteUser;
 			ValutazioniBeanRemote remoteFeedback;
 			AiutoBeanRemote remoteHelp;
-			Comp_dichiarateBeanRemote compDichiarate;
 			Richieste_agg_compBeanRemote remoteRequest;
 			
 			remoteUser= (UserBeanRemote) ctx.lookup("UserBean/remote");
@@ -82,9 +77,8 @@ public class LoginServlet extends HttpServlet {
 				long id=remoteUser.verificaCredenziali(nickname, password);
 				
 				if(id==-1){
-					out.println("<p>Combinazione nickname-Password inesistente</p>");
-					out.println("<p>ritorni alla home e inserisca nuovamente le sue credenziali di accesso</p>");
-					out.print("<p><a href=\"index.html\"><b> Home </b></a><br><br></p>");
+					request.getSession().setAttribute("errore", 6);
+					response.sendRedirect("/SWIM-web/errore.jsp");
 				}else{
 					request.getSession().setAttribute("idUser", remoteUser.getUser(id).getUser_ID());
 					request.getSession().setAttribute("User", remoteUser.getUser(id));
@@ -119,8 +113,8 @@ public class LoginServlet extends HttpServlet {
 				}
 			}
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.getSession().setAttribute("errore", 1);
+			response.sendRedirect("/SWIM-web/errore.jsp");
 		}
 		
 	}

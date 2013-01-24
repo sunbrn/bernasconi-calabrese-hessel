@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import swim.sessionbeans.AiutoBeanRemote;
 import swim.sessionbeans.UserBeanRemote;
-import swim.entitybeans.User;
 import swim.entitybeans.Aiuto;
 
 
@@ -34,14 +33,12 @@ public class HelpRequestListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Context ctx= (Context) request.getSession().getAttribute("context");
 		
 		try {
-			
-			Context ctx= (Context) request.getSession().getAttribute("context");
 			AiutoBeanRemote remoteHelp= (AiutoBeanRemote) ctx.lookup("AiutoBean/remote");
 			UserBeanRemote remoteUser= (UserBeanRemote) ctx.lookup("UserBean/remote");
 			
-			User u = (User) request.getSession().getAttribute("User");
 			long idUser= (Long) request.getSession().getAttribute("idUser");
 			
 			ArrayList<Aiuto> elencoRichiesteAiuto=new ArrayList<Aiuto>();
@@ -62,8 +59,8 @@ public class HelpRequestListServlet extends HttpServlet {
 			response.sendRedirect("elencoRichiesteAiuto.jsp");
 						
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.getSession().setAttribute("errore", 1);
+			response.sendRedirect("/SWIM-web/errore.jsp");
 		}
 	}
 
