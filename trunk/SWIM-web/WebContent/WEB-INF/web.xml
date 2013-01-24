@@ -259,4 +259,14 @@
     <servlet-name>RemoveAbilityServlet</servlet-name>
     <url-pattern>/RemoveAbilityServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RemoveFriendshipServlet</display-name>
+    <servlet-name>RemoveFriendshipServlet</servlet-name>
+    <servlet-class>navigationServlet.RemoveFriendshipServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveFriendshipServlet</servlet-name>
+    <url-pattern>/RemoveFriendshipServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
