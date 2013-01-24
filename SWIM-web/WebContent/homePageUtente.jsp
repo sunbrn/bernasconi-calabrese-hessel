@@ -97,16 +97,18 @@
 			</td>
 			</tr>
 			</table>
-              	<FONT SIZE="3"><b>Informazioni:</b></FONT> 
-              	<a href="modificaDati.jsp">Modifica</a><br>
-              	<ul type="circle">
-                  <li > età: </li>
-                  <li> vive a: </li>
-                  <li> mail: </li>
-                  <li> diploma: </li>
-                  <li> laurea: </li>
-                  <li> altro: </li>
-              	</ul>
+              	<FONT SIZE="3"><b>Informazioni:</b></FONT><a href="modificaDati.jsp">Modifica</a><br>
+              	
+              	
+							<ul type="circle">
+							
+								<li> età: <%=età%> </li>
+								<li> vive a: <%=città%></li>
+								<li> mail: <%=mail%></li>
+								<li> diploma: <%=diploma%></li>
+								<li> laurea: <%=laurea%></li>
+								<li> altro: <%=altro%></li>
+							</ul>
                   
           </td>
           </tr>
