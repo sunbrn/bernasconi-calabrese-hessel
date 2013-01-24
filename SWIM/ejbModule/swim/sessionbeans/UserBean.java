@@ -47,7 +47,7 @@ public class UserBean implements UserBeanRemote, UserBeanLocal {
     	User u=getUser(user_ID);
     	u=createUser(u, nome, cognome, sesso, mail, nickname, password, data_nascita, città, diploma, laurea, altro);
     	
-    	manager.refresh(u);
+    	manager.merge(u);
     }
     
     public void deleteUser (long id){
