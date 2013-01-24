@@ -11,12 +11,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title> SWIMv2 - Elenco richieste d'Aiuto </title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 
 <body>					
-				<a href action="homePageUtente.jsp"> Home </a>
-				<br>
+	<body>
+	<div id="cont">
+	<div id="layout">
+	
+		<div id="header">
+			<img src="/SWIM-web/ImmaginiNuove/logo.png" alt="mio logo" 	class="logo" /> 
+		</div>	
+		
+		<div id="nav">
+            <ul>
+            <li>
+            <a href="homePageUtente.jsp">Home</a>
+            </li>
+            </ul>
+		</div>	
 				
 				<table width="100%" height="100%">
 					<tr><td align="middle">
@@ -47,7 +61,8 @@
 							
 					</td></tr>
 				</table>
-				
+	</div>
+	</div>				
 </body>
 
 </html>
