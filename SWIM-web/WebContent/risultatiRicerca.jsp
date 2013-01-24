@@ -33,14 +33,14 @@
 		
 		<table width="50%" height="100%" valign="top">
 		<tr><td>
-		<h3>&nbsp;Utenti che corrispondono alla ricerca:</h3> <br>
+		<h3>Utenti che corrispondono alla ricerca:</h3> <br>
 		</td></tr>
 			<font size="5">
 				<%
 				ArrayList<User> lista=(ArrayList<User>) request.getSession().getAttribute("risultatiRicerca");
 				if(lista!=null){
 					for (User u: lista){
-						out.println("<tr><td align=\"middle\">"
+						out.println("<tr><td align=\"right\">"
 								 +"<img src=\"/SWIM-web/ImmaginiNuove/utente.png\" alt=\"user\" class=\"user\" width=\"90px\" height=\"90px\"/>"
 								+"</td>"+"<td align=\"middle\">");
 						out.println("<p>"+u.getNome());
