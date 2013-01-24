@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import swim.sessionbeans.ImpreseBeanRemote;
-import swim.sessionbeans.LingueBeanRemote;
 import swim.sessionbeans.UserBeanRemote;
 
 /**
@@ -58,9 +56,6 @@ public class DataModificationServlet extends HttpServlet {
 			String diploma= request.getParameter("nuovoDiploma");
 			String laurea= request.getParameter("nuovaLaurea");
 			String altro= request.getParameter("nuovoAltro");
-			String lingua=request.getParameter("nuovaLingua");
-			String impresa=request.getParameter("nuovaImpresa");
-			String periodo=request.getParameter("periodo");
 			
 			long userID=(Long)request.getSession().getAttribute("idUser");
 			
