@@ -15,12 +15,26 @@
 	
 		<div id="header">
 			<img src="/SWIM-web/ImmaginiNuove/logo.png" alt="mio logo" 	class="logo" /> 
-		</div>			
-
+		</div>	
+		
+		<div id="nav">
+            <ul>
+            <li>
+            <a href="homePageUtente.jsp">Home</a>
+            </li>
+            </ul>
+		</div>		
+					<h1>
+					<u><b>Richiedi Aiuto</b></u>
+					</h1>
+					<div class="adv"><p><h6>Riempi i campi sottostanti con la competenza richiesta e inserisci un messaggio con i particolari della tua richiesta. ATTENZIONE:nel campo competenza devi inserire solo la competenza posseduta dall'utente a cui hai chiesto aiuto!
+					</h6></p>
+					</div>
+					
 					<form name="richiediAiuto" action="CreateHelpRequestServlet" method="get">
-						<FONT SIZE="14"> Competenza richiesta: </FONT> <br>
+						Competenza richiesta: <br>
 						<INPUT id="competenzaRichiesta" name="competenzaRichiesta" style="height: 33" type="text" value=""><br><br><br>
-						<FONT SIZE="14"> Messaggio Richiesta: </FONT><br>
+						Messaggio Richiesta:<br>
 						<textarea cols="40" rows="5" id="messaggioRichiesta" name="messaggioRichiesta"></textarea><br>
 						<input type="submit" style="width:70;height: 33" value="Invia">	<br>
 					</form>	

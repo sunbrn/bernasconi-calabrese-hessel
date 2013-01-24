@@ -33,7 +33,22 @@ public class LogoutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Context ctx=(Context) request.getSession().getAttribute("context");
+		if(request.getSession().getAttribute("idUser")!=null){
+			try {
+				Richieste_agg_compBeanRemote remoteAbilityAdd;
+				
+				remoteAbilityAdd = (Richieste_agg_compBeanRemote) ctx.lookup("Richieste_agg_compBean/remote");
+				
+				long userID=(Long) request.getSession().getAttribute("idUser");
+				
+				remoteAbilityAdd.removeRequest(userID);
+			} catch (NamingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
+		request.getSession().removeAttribute("context");
 		request.getSession().invalidate();			
 		response.sendRedirect("index.html");
 	}
@@ -43,23 +58,7 @@ public class LogoutServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		Context ctx=(Context) request.getSession().getAttribute("context");
-		
-		try {
-			Richieste_agg_compBeanRemote remoteAbilityAdd=(Richieste_agg_compBeanRemote) ctx.lookup("Richieste_agg_compBean/remote");
-			long userID=(Long) request.getSession().getAttribute("idUser");
-			
-			remoteAbilityAdd.removeRequest(userID);
-			
-			request.getSession().removeAttribute("context");
-			request.getSession().invalidate();
-			
-			response.sendRedirect("index.html");
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
 	}
 
 }

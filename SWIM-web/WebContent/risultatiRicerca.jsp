@@ -21,7 +21,7 @@
 			<li>
 				<%
 				if(request.getSession().getAttribute("idUser")!=null){
-					out.println("<a href=\"homePageUtente.jsp\"> MioProfilo </a>");
+					out.println("<a href=\"homePageUtente.jsp\"> Home </a>");
 				}else{
 					out.println("<a href=\"index.html\"> Home </a>");
 				}
