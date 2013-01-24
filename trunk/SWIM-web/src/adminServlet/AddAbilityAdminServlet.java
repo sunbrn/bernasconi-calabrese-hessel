@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import swim.entitybeans.Archivio_comp;
+import swim.entitybeans.Richieste_agg_comp;
 import swim.sessionbeans.Archivio_compBeanRemote;
 import swim.sessionbeans.Richieste_agg_compBeanRemote;
 
@@ -58,14 +59,20 @@ public class AddAbilityAdminServlet extends HttpServlet {
 			}else{
 				if(richiesta!=null){
 					long richiestaID=Long.parseLong(richiesta);
-					remoteRequest.acceptRequest(richiestaID);
+					remoteRequest.acceptRequest(richiestaID);					
+					
+					request.getSession().setAttribute("esitoAggiuntaCompetenzaAdmin", INSERITA);
+					request.getSession().setAttribute("statoRichiestaAggCompetenza", ACCETTATA);
+					
+					ArrayList<Richieste_agg_comp> listaRichieste=remoteRequest.getTutteRichiesteAggiuntaCompetenze();			
+					request.getSession().setAttribute("richiesteAggCompList", listaRichieste);			
+					response.sendRedirect("/SWIM-web/adminListaRichiesteCompetenza.jsp");
+				}else{
+							
+					ArrayList<Archivio_comp> lista=remoteAbilityFolder.getCodiciECompetenze();
+					request.getSession().setAttribute("listaCodiciECompetenze",lista);
+					response.sendRedirect("/SWIM-web/adminListaCompetenze.jsp");
 				}
-				request.getSession().setAttribute("esitoAggiuntaCompetenzaAdmin", INSERITA);
-				request.getSession().setAttribute("statoRichiestaAggCompetenza", ACCETTATA);
-				
-				ArrayList<Archivio_comp> lista=remoteAbilityFolder.getCodiciECompetenze();
-				request.getSession().setAttribute("listaCodiciECompetenze",lista);
-				response.sendRedirect("/SWIM-web/adminListaCompetenze.jsp");
 			}
 						
 			

@@ -55,17 +55,20 @@
 				for (Richieste_agg_comp a: lista){
 						String aData=a.getData().toString();
 						String aDataCorta = aData.substring(0, Math.min(aData.length(), 16));  
-						out.println("<tr> <td>"+ aDataCorta + "</td>");
-						out.println("<td>" + a.getTesto_richiesta() + "</td>");
+						out.println("<tr> <td>"+ aDataCorta + "<br><br><br></td>");
+						out.println("<td>" + a.getTesto_richiesta() + "<br><br><br></td>");
 						String s=Long.toString(a.getRichiesta_ID());
 						
 						out.println("<td>");
+						out.println("<form action=\"RemoveAbilityRequestServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idRichiesta\"><input type=\"submit\" value=\"Esiste già\"> </form>");
+						out.println("<br><br><br></td>");
 						
-						out.println("<form action=\"RemoveAbilityRequestServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idRichiesta\"><input type=\"submit\" value=\"Esiste gia'!\"> </form>");
+						out.println("<td>");
+						out.println("<form action=\"RemoveAbilityRequestServlet\" method=\"post\"><input type=\"hidden\" value=\""+s+"\" name=\"idRichiesta\"><input type=\"submit\" value=\"Rifiuta\"> </form>");
+						out.println("<br><br><br></td>");
 						
-						out.println("<form action=\"RemoveAbilityRequestServlet\" method=\"post\"><input type=\"hidden\" value=\""+s+"\" name=\"idRichiesta\"><input type=\"submit\" value=\"Rifiuta!\"> </form>");
-						
-						out.println("<nobr><form name=\"AccettaRichiesta\" action=\"AddAbilityAdminServlet\" method=\"get\">" +
+						out.println("<td>");
+						out.println("<form name=\"AccettaRichiesta\" action=\"AddAbilityAdminServlet\" method=\"get\">" +
 										"<table border=\"0\" cellpadding=\"1\" cellspacing=\"2\" width=\"100%\">" +
 											"<TBODY>" +	
 												"<tr>" +
@@ -78,13 +81,16 @@
 												"</tr>" +
 												"<tr>" +
 												"<td align=\"left\" width=\"0%\"></td>" +
-												"<td align=\"left\" width=\"50%\"><input type=\"submit\" style=\"width:70;height: 23\" value=\"submit\" onClick=\"\"></td>" +
+												"<td align=\"left\" width=\"50%\">" +
+													"<input type=\"hidden\" value=\""+s+"\" name=\"idRichiesta\">" +
+													"<input type=\"submit\" style=\"width:70;height: 23\" value=\"Aggiungi\" onClick=\"\"></td>" +
 												"</tr>" +	
 											"</TBODY>" +
 										"</table>" +
-									"</form></nobr>");	
+									"</form>");
+						out.println("</td>");
 						
-						out.println("</td></tr>");
+						out.println("<br><br><br></td></tr>");
 					}
 				
 				out.println("</table>");
