@@ -24,7 +24,7 @@
 		<div id="nav">	
 			<ul>
 			<li>
-			<a href="index.html">Home </a>
+			<a href="homePageUtente.jsp">Home</a>
 			</li>
 			<li>
 			<a href="/SWIM-web/richiediCompetenza.html"> Richiedi Competenza </a>

@@ -35,7 +35,7 @@
 		</div>
 		
 					
-		<table width="100%" border="1" >
+		<table width="50%" align="center" >
 		<H1><u><b> Aiuto </b></u></H1>  
 			
 			<tr>
