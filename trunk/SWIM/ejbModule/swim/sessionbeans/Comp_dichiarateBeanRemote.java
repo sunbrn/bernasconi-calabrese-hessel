@@ -12,5 +12,4 @@ public interface Comp_dichiarateBeanRemote {
 	public ArrayList<String> getCompetenzeDichiarate(long user_ID);
     public int insertNewComp(long user_ID,String codice_comp);
     public void rimuoviCompetenza(long user_ID,String codice_comp);
-    public ArrayList<Archivio_comp> getCompetenzeECodiciDichiarate(long user_ID);
 }

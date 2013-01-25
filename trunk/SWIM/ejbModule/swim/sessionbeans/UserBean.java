@@ -51,8 +51,25 @@ public class UserBean implements UserBeanRemote, UserBeanLocal {
     }
     
     public void deleteUser (long id){
-    	User u=getUser(id);
-    	manager.remove(u);
+    	InitialContext ctx;
+		try {
+			ctx = new InitialContext();
+	    	AmicizieBeanLocal localFriendship=(AmicizieBeanLocal) ctx.lookup("AmicizieBean/local");
+	    	Comp_dichiarateBeanLocal localAbility=(Comp_dichiarateBeanLocal)ctx.lookup("Comp_dichiarateBean/local");
+	    	AiutoBeanLocal localHelp=(AiutoBeanLocal) ctx.lookup("AiutoBean/local");
+	    	Richieste_agg_compBeanLocal localRequest=(Richieste_agg_compBeanLocal) ctx.lookup("Richieste_agg_compBean/local");
+	    	
+	    	localFriendship.eliminaTutteAmicizie(id);
+	    	localAbility.eliminaTutteCompetenze(id);
+	    	localHelp.eliminaTuttiAiuti(id);
+	    	localRequest.eliminaTutteRichieste(id);
+	    	
+	    	User u=getUser(id);
+	    	manager.remove(u);
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
     private User createUser(User user,String nome, String cognome,String sesso, String mail, String nickname, String password, int data_nascita, String città, String diploma, String laurea, String altro){
