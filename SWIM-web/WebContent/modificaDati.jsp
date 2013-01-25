@@ -25,6 +25,7 @@
 	
 			 
 				<!-- TITOLO -->
+				<div id="center">
 				<H1>
 					
 					<u><b>Modifica Dati Personali</b></u>
@@ -38,7 +39,7 @@
 				<!--INPUT FORM REGISTRAZIONE-->
 				<form name="Registrazione" action="DataModificationServlet" method="post">
 				
-					<table border="0" cellpadding="1" cellspacing="2" width="100%">
+					<table border="0" cellpadding="1" cellspacing="2" width="100%" align ="center">
 					
 						<TBODY>
 							
@@ -125,7 +126,12 @@
 					<br><br>
 	
 				</form>	
+				</div>
+		<div id=chiusura>
+		</div>	
+		
 	
-			
+</div>
+</div>			
 </body>
 </html>

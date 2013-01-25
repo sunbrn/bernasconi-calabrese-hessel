@@ -30,9 +30,9 @@
 			</ul>
 		</div>	
 		
-		<br><br><br><br>
 		
-		<table  align="middle">
+		<div id="center">
+		<table  >
 		<tr>
 		<td align="right" width="40%">
 		<img src="/SWIM-web/ImmaginiNuove/error.png" alt="errore">
@@ -62,6 +62,10 @@
 		</td>
 		</tr>
 		</table>
+		</div>
+		
+		<div id=chiusura>
+		</div>
 
 	</div>
 	</div>

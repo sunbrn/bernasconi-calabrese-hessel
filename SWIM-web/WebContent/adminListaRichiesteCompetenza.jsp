@@ -62,7 +62,7 @@
 						
 						
 						out.println("<form action=\"ShowUserProfileServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idProfilo\"><input type=\"submit\" value=\"Guarda profilo\"> </form>");
-						out.println("<br><br><br></tr>");
+						out.println("<br><br><br></td>");
 						
 						out.println("<td>"+ aDataCorta + "<br><br><br></td>");
 						out.println("<td>" + a.getTesto_richiesta() + "<br><br><br></td>");
@@ -110,7 +110,11 @@
 				
 		</td></tr>
 		</table>
-				
 		
+		<div id=chiusura>
+		</div>
+				
+</div>
+</div>		
 </body>	
 </html>

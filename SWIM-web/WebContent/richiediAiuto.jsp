@@ -24,10 +24,14 @@
             </li>
             </ul>
 		</div>		
+		
+			<div id="center">
 					<h1>
 					<u><b>Richiedi Aiuto</b></u>
 					</h1>
-					<div class="adv"><p><h6>Riempi i campi sottostanti con la competenza richiesta e inserisci un messaggio con i particolari della tua richiesta. ATTENZIONE:nel campo competenza devi inserire solo la competenza posseduta dall'utente a cui hai chiesto aiuto!
+					<div class="adv"><p>
+					<h6>
+					Riempi i campi sottostanti con la competenza richiesta e inserisci un messaggio con i particolari della tua richiesta. ATTENZIONE:nel campo competenza devi inserire solo la competenza posseduta dall'utente a cui hai chiesto aiuto!
 					</h6></p>
 					</div>
 					
@@ -38,6 +42,12 @@
 						<textarea cols="40" rows="5" id="messaggioRichiesta" name="messaggioRichiesta"></textarea><br>
 						<input type="submit" style="width:70;height: 33" value="Invia">	<br>
 					</form>	
+			</div>
+			
+			
+			<div id=chiusura>
+			</div>
+			
 	</div>
 	</div>			
 </body>

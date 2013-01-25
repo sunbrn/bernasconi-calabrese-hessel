@@ -116,3 +116,13 @@
 			color:#FFF;
 			font-size-adjust:inherit;
 		}
+		#center{
+			width:560px;
+			margin:20px 300px 20px 200px
+		}
+		#chiusura{
+			height:10px;
+			width:960px;
+			background-image: url(/SWIM-web/ImmaginiNuove/barrafinale.gif);
+			margin-bottom: 20px;
+		}

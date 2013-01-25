@@ -32,6 +32,7 @@
 			</ul>
 		</div>
 		
+					<div id="center">
 					<table width="100%" height="100%">
 					<tr><td align="middle">
 						<h3>Rimuovi competenze:</h3>
@@ -59,6 +60,9 @@
 							
 					</td></tr>
 					</table>
+					</div>
+				<div id=chiusura>
+				</div>	
 		</div>
 		</div>
 </body>	

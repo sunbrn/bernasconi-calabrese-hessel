@@ -38,10 +38,10 @@
             </li>
             </ul>
 		</div>
-				
+		
+		<div id="center">		
 		<table width="100%" height="100%">
-		<tr><td height="20px"></td></tr>
-		<tr><td align="middle">
+		<tr><td >
 			<h3>&nbsp;Competenze disponibili:</h3>
 			<br>
 			
@@ -58,6 +58,12 @@
 				
 		</td></tr>
 		</table>
+		</div>
 		
+		<div id=chiusura>
+		</div>
+
+</div>
+</div>		
 </body>	
 </html>
