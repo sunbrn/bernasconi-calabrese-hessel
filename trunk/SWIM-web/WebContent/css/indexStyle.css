@@ -16,48 +16,49 @@
 
 	#header{
 			width:960px;
-			height:290px;
-			position:relative;
-		}
-	#nav{
-			widht:960px;
-			height:600px;
+			height:550px;
 			position :relative;
 			background-image:url(/SWIM-web/ImmaginiNuove/index.png);
-			background-repeat:repeat-x;
-		}
-	.nav2{
-			widht:960px;
-			height:50px;
-			position :relative;
-			background-image:url(/SWIM-web/ImmaginiNuove/barraIndex);
-			background-color:#00F;
-		}
-	#nav ul{
-			margin:0 10px;
 		}
 
-	#nav ul li{
+	#nav{
+			width:960px;
+			height: 50px;
+			position :relative;
+			font-size:27px;
+			color:#ffffff;
+			background-image:url(/SWIM-web/ImmaginiNuove/barraIndex.gif);
+			
+		}
+	#accesso{
+			width:960px;
+			height: 30px;
+			top:430px;
+			position :absolute;
+			font-size:27px;
+			color:#ffffff;
+			text-decoration:none;
+			background-color:#004eff;
+		}
+		
+	#accesso ul{
+			margin:10px;
+		}
+
+	#accesso ul li{
 			list-style-type:none;
 			float:left;
 		}
 		
-	#nav a:link,#nav a:visited{
+	#accesso a:link,#accesso a:visited{
 			display:block;
-			font-size:25px;
-			color:#00F;
+			font-size:20px;
+			color:#ffffff;
 			text-decoration:none;
 			height:30px;
 			padding:10px;
 		}
-	#nav a:hover{
+	#accesso a:hover{
 			background-image:url(../swim-images/nab-over.png);
 			color:#00F;
-		}
-	#nav3{
-			widht:960px;
-			height:50px;
-			position :relative;
-			background-image:url(/SWIM-web/ImmaginiNuove/barraIndex);
-			background-color:#00F;
 		}
