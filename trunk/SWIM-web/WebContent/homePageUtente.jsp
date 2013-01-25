@@ -258,17 +258,21 @@
 					<%
 						int k=1;
 						ArrayList<Richieste_agg_comp> mieRichieste=(ArrayList<Richieste_agg_comp>) request.getSession().getAttribute("UserRequestToAdmin");
-						if(mieRichieste.size()!=0){
-							for(Richieste_agg_comp r : mieRichieste){
-								out.println(i+". ");
-								out.println(r.getTesto_richiesta());
-								if(r.getStato().equals("accettata")){
-									out.println("<img src=\"/SWIM-web/ImmaginiNuove/pallino_verde.gif\">");
-								}else if(r.getStato().equals("attesa")){
-									out.println("<img src=\"/SWIM-web/ImmaginiNuove/pallino_giallo.gif\">");
-								}else if(r.getStato().equals("rifiutata")){
-									out.println("<img src=\"/SWIM-web/ImmaginiNuove/pallino_giallo.gif\">");
+						if(mieRichieste!=null){
+							if(mieRichieste.size()!=0){
+								for(Richieste_agg_comp r : mieRichieste){
+									out.println(i+". ");
+									out.println(r.getTesto_richiesta());
+									if(r.getStato().equals("accettata")){
+										out.println("<img src=\"/SWIM-web/ImmaginiNuove/pallino_verde.gif\">");
+									}else if(r.getStato().equals("attesa")){
+										out.println("<img src=\"/SWIM-web/ImmaginiNuove/pallino_giallo.gif\">");
+									}else if(r.getStato().equals("rifiutata")){
+										out.println("<img src=\"/SWIM-web/ImmaginiNuove/pallino_giallo.gif\">");
+									}
 								}
+							}else{
+								out.println("non hai inviato richieste all'Admin");
 							}
 						}else{
 							out.println("non hai inviato richieste all'Admin");
