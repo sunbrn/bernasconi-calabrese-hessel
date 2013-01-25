@@ -43,25 +43,18 @@ public class AbilitySetUpServlet extends HttpServlet {
 			String abilityID=remoteAbilityFolder.getCodiceCompetenza(newAbility);
 			ArrayList<String> abilitiesDeclared=remoteAbilityAdder.getCompetenzeDichiarate((Long)request.getSession().getAttribute("idUser"));
 			
-			boolean declared=false;
-			for(String ability: abilitiesDeclared){
-				if(ability.equalsIgnoreCase(newAbility)){
-					declared=true;
-				}
-			}
-			
 			long id=(Long)request.getSession().getAttribute("idUser");
 			
-			if(!declared){
-				remoteAbilityAdder.insertNewComp(id, abilityID);
+			int result =remoteAbilityAdder.insertNewComp(id, abilityID);
+			
+			if(result==1){
+				ArrayList<String> elencoCompetenze=user.getNomiCompetenzeUtente(id);
+				request.getSession().setAttribute("UserAbilities", elencoCompetenze);
+				response.sendRedirect("/SWIM-web/homePageUtente.jsp");
 			}else{
 				request.getSession().setAttribute("errore", 3);
 				response.sendRedirect("/SWIM-web/errore.jsp");
 			}
-			
-			ArrayList<String> elencoCompetenze=user.getNomiCompetenzeUtente(id);
-			request.getSession().setAttribute("UserAbilities", elencoCompetenze);
-			response.sendRedirect("/SWIM-web/homePageUtente.jsp");
 			
 		} catch (NamingException e) {
 			request.getSession().setAttribute("errore", 1);
