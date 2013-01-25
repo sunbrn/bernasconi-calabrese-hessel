@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page import="javax.naming.*"%>
 <%@page import="javax.persistence.*"%>
 <%@page import="javax.persistence.*"%>
@@ -72,21 +71,23 @@
 			String laurea = u.getLaurea();
 			String altro = u.getAltro();
 			%><%=nome %> <%=cognome %>      
-			    
-          </b></u></H1><br>
+		  </b></u></H1>	    
+          <br>
           </td>
           </tr>
+          
+          
 		<!-- COMPETENZE E INFO -->
           <tr>
           <td >
-          	<table cellpadding="20" >
+          	<div class="testo">
+          	<table cellpadding="20px" >
           	<tr>
           	<td >
+          	
               	<FONT SIZE="3"><b>Competenze:</b></FONT> <a href="DeclareAbilityServlet?param=ciao">Aggiungi</a>
-														 <a href="rimuoviCompetenza.jsp">Elimina</a><br>
-							
+														 <a href="rimuoviCompetenza.jsp">Elimina</a><br>		
 				<div>
-				
 				<ul type="circle">
 					<% ArrayList<String> elencoCompetenze=(ArrayList<String>)request.getSession().getAttribute("UserAbilities"); 
 						if(elencoCompetenze==null){
@@ -102,6 +103,9 @@
 			</td>
 			</tr>
 			</table>
+			</div>
+			
+			<div class="testo">
               	<FONT SIZE="3"><b>Informazioni:</b></FONT><a href="modificaDati.jsp">Modifica</a><br>
               	
               	
@@ -114,20 +118,20 @@
 								<li> laurea: <%=laurea%></li>
 								<li> altro: <%=altro%></li>
 							</ul>
-                  
+            </div>     
           </td>
           </tr>
           </table>
-				
+
+		  	
 			<br><br><br><br>						
 						
-			<!-- TERZO RIQUADRO -->						
-			<table width="600px" cellpadding="20">			
-			
+			<!-- TERZO RIQUADRO -->	
+			<div class="testo">					
+			<table width="600px" cellpadding="20px">			
                 <tr  width="100%" frame=box border="4"  bordercolor=#004eff>
-				
-                    <td width="40%"  valign="top"  bordercolor=#004eff align="left">
-					<h2>Valutazioni</h2><br>
+                    <td width="250px"  valign="top"  bordercolor=#004eff align="left" >
+					<h2 align="center">Valutazioni</h2><br>
 					<ul>
 						<li><h4> Professionalita': </h4> 
 						
@@ -177,8 +181,8 @@
 							%>
 				</ul>
 				</td>
-				<td width="60%" valign="top" bordercolor=#004eff align="left">
-					<h2>Commenti</h2><br>
+				<td width="350px" valign="top" bordercolor=#004eff align="left" cellpadding="20px">
+					<h2 align="center">Commenti</h2><br>
 					<%	
 						Collection<String> elencoCommenti= (Collection<String>) request.getSession().getAttribute("UserComments");
 						if(elencoCommenti!=null){
@@ -195,9 +199,10 @@
 										
 					<br><br><br><br><br><br><br><br>
 			
-				</td>										
+				</td>									
 				</tr>						
-				</table> 						
+				</table>
+				</div> 						
 			</div>	
 			
 			<div id="right" align="center">	

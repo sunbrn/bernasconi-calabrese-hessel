@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import swim.entitybeans.Richieste_agg_comp;
+import swim.entitybeans.User;
 import swim.sessionbeans.Richieste_agg_compBeanRemote;
+import swim.sessionbeans.UserBeanRemote;
 
 /**
  * Servlet implementation class ShowAbilityRequestServlet
@@ -35,9 +37,18 @@ public class ShowAbilityRequestServlet extends HttpServlet {
 		
 		try {
 			Richieste_agg_compBeanRemote remoteAbilityRequest=(Richieste_agg_compBeanRemote) ctx.lookup("Richieste_agg_compBean/remote");
-		
+			UserBeanRemote remoteUser=(UserBeanRemote) ctx.lookup("UserBean/remote");
+			
 			ArrayList<Richieste_agg_comp> richiesteAggCompList=remoteAbilityRequest.getTutteRichiesteAggiuntaCompetenze();
+			ArrayList<User> utenti=new ArrayList<User>();
+			
+			for(Richieste_agg_comp ric:richiesteAggCompList){
+				utenti.add(remoteUser.getUser(ric.getUser_ID()));
+			}
+			
+			request.getSession().setAttribute("NomiCognomiUtenti", utenti);
 			request.getSession().setAttribute("richiesteAggCompList", richiesteAggCompList); 
+			
 			response.sendRedirect("/SWIM-web/adminListaRichiesteCompetenza.jsp");
 		
 		} catch (NamingException e) {

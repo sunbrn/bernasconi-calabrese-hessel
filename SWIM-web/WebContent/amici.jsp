@@ -49,7 +49,7 @@
 								for (User u: lista_amici){
 									out.println("<tr><td align=\"right\">"
 											 +"<img src=\"/SWIM-web/ImmaginiNuove/utente.png\" alt=\"user\" class=\"user\" width=\"90px\" height=\"90px\"/>"
-											+"</td>"+"<td align=\"middle\">");
+											+"</td>"+"<td align=\"center\">");
 									out.println("<p>"+u.getNome());
 									out.println(u.getCognome()+"</p>");
 									String s=Long.toString(u.getUser_ID());
@@ -58,7 +58,7 @@
 									out.println("<br><br><br>");
 								}
 							}else{
-								out.println("<p>non hai amici</p> <p> Usa la nostra funzionalità di ricerca per cercare i tuoi contatti di lavoro su SWIM! </p>");
+								out.println("<p>Non hai ancora amici</p> <p> Usa la nostra funzionalità di ricerca per cercare i tuoi contatti di lavoro su SWIM! </p>");
 							}
 							
 							
