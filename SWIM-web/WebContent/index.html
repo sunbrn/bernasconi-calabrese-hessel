@@ -6,22 +6,8 @@
 <link rel="stylesheet" type="text/css" href="css/indexStyle.css">
 </head>
 	<body>		
-		<div id="cont">
-		
-			<div id="nav">
-	            <ul>
-	            <li>
-	            <a href="/SWIM-web/registrazione.html"> REGISTRATI </a>
-	            </li>
-	            <ul>
-	            <li>
-	            <a href="/SWIM-web/cercaPersone.html"> CERCA PERSONE</a>
-	            </li>
-	            </ul>
-			</div>	
-					
-						
-							<div class="nav2">		
+		<div id="cont">		
+							<div id="nav">		
 									<form name="Login" action="LoginServlet" method="post">
 						
 											<table border="0" cellpadding="1" cellspacing="2" width="100%">
@@ -29,10 +15,11 @@
 												<TBODY>
 												
 													<tr>
-													<td align="left" width="30%"><p> <FONT SIZE="14"> Nickname: </FONT></p> 
+																										
+													<td align="left" width="30%"> Nickname:  
 													<INPUT id="username" name="username" style="height: 33" type="text" value=""></td>
 													
-													<td align="left" width="30%"> <p><FONT SIZE="14"> Password: </FONT> </p>
+													<td align="left" width="30%">  Password:
 													<INPUT id="password" style="height: 33" name="password" type="password" value=""></td>
 												
 													<td align="left" width="20%"><input type="submit" style="width:70;height: 33" value="Log-in"></td>
@@ -40,13 +27,25 @@
 
 										
 												</TBODY>
-												
 											</table>	
 											
 									</form>	
 							</div>
+							<div id="header">
 		
-			</div>
+			<div id="accesso" align="center">
+            <ul>
+            <li>
+            <a href="/SWIM-web/registrazione.html" > REGISTRATI </a>
+            </li>
+	        <li>
+	        <a href="/SWIM-web/cercaPersone.html"> CERCA PERSONE</a>
+	        </li>
+	        </ul>
+			</div>	
+					
+		</div>	
+				</div>
 	
 	</body>
 </html>
