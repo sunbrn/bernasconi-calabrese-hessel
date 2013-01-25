@@ -58,8 +58,8 @@
           <tr>
           <td>
   		<!-- IMMAGINE E NOME UTENTE -->
-          <H1></H1>
-             <img src="SWIM-web/ImmaginiNuove/utente.png" width="120" height="120" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
+                    
+             <img src="/SWIM-web/ImmaginiNuove/utente.png" width="90px" height="90px" border="5" style="border:medium groove rgb(0, 153, 255)">
           
 			<%
 			String nome = u.getNome();
@@ -70,9 +70,10 @@
 			String diploma = u.getDiploma();
 			String laurea = u.getLaurea();
 			String altro = u.getAltro();
-			%>&nbsp;&nbsp;<u><b><%=nome %> <%=cognome %>      
+			%>
+			
+			&nbsp;&nbsp;<b><FONT size="8"><%=nome %> <%=cognome %>   </FONT>   
 		  </b>
-		  </u></H1>	    
           <br>
           </td>
           </tr>
@@ -84,9 +85,9 @@
           	<div class="testo">
           	<table cellpadding="20px" >
           	<tr>
-          	<td >
+          	<td>
           	
-              	<FONT SIZE="3"><b>Competenze:</b></FONT> <a href="DeclareAbilityServlet?param=ciao">Aggiungi</a>
+              	<FONT SIZE="3"><br><br><b>Competenze:</b></FONT> <a href="DeclareAbilityServlet?param=ciao">Aggiungi</a>
 														 <a href="rimuoviCompetenza.jsp">Elimina</a><br>		
 				<div>
 				<ul type="circle">
@@ -107,18 +108,16 @@
 			</div>
 			
 			<div class="testo">
-              	<FONT SIZE="3"><b>Informazioni:</b></FONT><a href="modificaDati.jsp"> Modifica</a><br>
-              	
-              	
-							<ul type="circle">
+				<br><br><br>
+              	<FONT SIZE="3"><b>Informazioni:</b></FONT> <a href="modificaDati.jsp">Modifica</a><br>
 							
-								<li> età: <%=età%> </li>
-								<li> vive a: <%=città%></li>
-								<li> mail: <%=mail%></li>
-								<li> diploma: <%=diploma%></li>
-								<li> laurea: <%=laurea%></li>
-								<li> altro: <%=altro%></li>
-							</ul>
+								Età: <%=età%> <br>
+								Vive a: <%=città%> <br>
+								Mail: <%=mail%> <br>
+								Diploma: <%=diploma%> <br>
+								Laurea: <%=laurea%> <br>
+								Altro: <%=altro%><br>
+							
             </div>     
           </td>
           </tr>
@@ -128,13 +127,16 @@
 			<br><br><br><br>						
 						
 			<!-- TERZO RIQUADRO -->	
-			<div class="testo">					
-			<table width="600px" cellpadding="20px">			
-                <tr  width="100%" frame=box border="4"  bordercolor=#004eff>
-                    <td width="250px"  valign="top"  bordercolor=#004eff align="left" >
+			<div class="testo">		
+					
+			<table width="600px">			
+                <tr width="100%">
+                    <td width="40%" height="100%">
+                    <table width="100%" height="100%" style="border: 5px solid #004eff">
+					<tr><td width="10%"></td><td>
 					<h2 align="center">Valutazioni</h2><br>
-					<ul>
-						<li><h4> Professionalita': </h4> 
+						
+						<h4> Professionalita': </h4> 
 						
 						<%
 								long id=(Long) request.getSession().getAttribute("idUser");
@@ -159,8 +161,9 @@
 									else if (v1==4) out.println("<img src=\"/SWIM-web/Immagini/quattro.jpg\" width=\"100\" height=\"20\">");
 									else if (v1==5) out.println("<img src=\"/SWIM-web/Immagini/cinque.jpg\" width=\"100\" height=\"20\">");
 							%>
+						<br><br>
 						
-						<li><h4> Disponibilita': </h4> 
+						<h4> Disponibilita': </h4> 
 						<%													
 									if (v2==0) out.println("<img src=\"/SWIM-web/Immagini/zero.jpg\" width=\"100\" height=\"20\">");
 									else if (v2==1) out.println("<img src=\"/SWIM-web/Immagini/uno.jpg\" width=\"100\" height=\"20\">");
@@ -169,9 +172,9 @@
 									else if (v2==4) out.println("<img src=\"/SWIM-web/Immagini/quattro.jpg\" width=\"100\" height=\"20\">");
 									else if (v2==5) out.println("<img src=\"/SWIM-web/Immagini/cinque.jpg\" width=\"100\" height=\"20\">");
 							%>	
+						<br><br>
 						
-						
-						<li><h4> Prezzo Prestazione: </h4> 
+						<h4> Prezzo Prestazione: </h4> 
 						<%																		
 									if (v3==0) out.println("<img src=\"/SWIM-web/Immagini/zero.jpg\" width=\"100\" height=\"20\">");
 									else if (v3==1) out.println("<img src=\"/SWIM-web/Immagini/uno.jpg\" width=\"100\" height=\"20\">");
@@ -180,9 +183,13 @@
 									else if (v3==4) out.println("<img src=\"/SWIM-web/Immagini/quattro.jpg\" width=\"100\" height=\"20\">");
 									else if (v3==5) out.println("<img src=\"/SWIM-web/Immagini/cinque.jpg\" width=\"100\" height=\"20\">");
 							%>
-				</ul>
+						<br><br>
+				</td></tr>
+				</table>
 				</td>
-				<td width="350px" valign="top" bordercolor=#004eff align="left" cellpadding="20px">
+				<td width="60%" height="100%">
+				<table width="100%" height="100%" style="border: 5px solid #004eff">
+				<tr><td width="10%"></td><td>
 					<h2 align="center">Commenti</h2><br>
 					<%	
 						Collection<String> elencoCommenti= (Collection<String>) request.getSession().getAttribute("UserComments");
@@ -194,12 +201,12 @@
 								out.println("<br>");
 							}
 						}else{
-							out.println("non ci sono commenti <br> <br>");
+							out.println("Non ci sono commenti");
 						}
 					%>
 										
-					<br><br><br><br><br><br><br><br>
-			
+				</td></tr>	
+				</table>
 				</td>									
 				</tr>						
 				</table>
