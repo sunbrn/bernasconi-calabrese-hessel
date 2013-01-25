@@ -38,9 +38,9 @@
             </ul>
 		</div>			
 
-					
+					<div id="center">
 					<table width="100%" height="100%">
-					<tr><td align="center">
+					<tr><td >
 						<h3>Amici:</h3>
 						<br>
 						<%
@@ -65,6 +65,11 @@
 						%>
 					</td></tr>
 					</table>
+					</div>
+					
+					<div id=chiusura>
+					</div>
+					
 	</div>	
 	</div>		
 </body>

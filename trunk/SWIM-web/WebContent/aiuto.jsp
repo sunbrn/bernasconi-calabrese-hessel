@@ -147,6 +147,10 @@
 				</td>
 			</tr>
 		</table> 
+		
+		<div id=chiusura>
+		</div>
+		
 	</div>				
 	</div>
 	</body>

@@ -32,6 +32,7 @@
 			</ul>
 		</div>
 		
+		<div id="center">
 		<br><br>
 		<p>Nuova Competenza:</p>
 		<p>Scegli una nuova competenza da aggiungere: </p>
@@ -62,5 +63,12 @@
 	<div class="adv">
 				<p> se non hai trovato la competenza che desideravi dichiarare, invia una richiesta all'amministratore! </p>
 	</div>
+	</div>
+
+	<div id=chiusura>
+	</div>
+
+</div>
+</div>
 </body>
 </html>

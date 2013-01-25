@@ -42,14 +42,13 @@
             </ul>
 		</div>
 
-				
+		<div id="center">		
 		<form name="Aggiungi_comp" action="AddAbilityAdminServlet" method="get">
 				
 				<table border="0" cellpadding="1" cellspacing="2" width="100%">
 					<TBODY>									
 							<tr>
-							<td width="25%"></td>
-							<td widht="50%"><p>Competenza:</p>
+							<td widht="100%"><p>Competenza:</p>
 							<p><INPUT id="nuovaCompetenzaAdmin" name="nuovaCompetenzaAdmin" style="height: 33" type="text" value=""></p>
 							
 							<br>
@@ -59,11 +58,16 @@
 							<br>
 							<p><input type="submit" style="width:70;height: 33" value="submit" onClick=""></p>
 							</td>
-							<td width="25%"></td>
 							</tr>		
 					</TBODY>
 				</table>
-		</form>			
-
+		</form>		
+		</div>	
+		
+		<div id=chiusura>
+		</div>
+		
+</div>
+</div>
 </body>
 </html>

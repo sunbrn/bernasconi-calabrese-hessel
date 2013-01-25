@@ -32,6 +32,7 @@
             </ul>
 		</div>	
 				
+				<div id="center">
 				<table width="100%" height="100%">
 					<tr><td align="center">
 						<h3> Richieste di aiuto:</h3>
@@ -64,6 +65,11 @@
 							
 					</td></tr>
 				</table>
+				</div>
+				
+				<div id=chiusura>
+				</div>
+				
 	</div>
 	</div>				
 </body>

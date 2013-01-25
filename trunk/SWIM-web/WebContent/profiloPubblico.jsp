@@ -51,15 +51,16 @@
 					
 			</ul>
 		</div>
-					
+				
+				<div id="left">	
 				<!-- colonna2 -->
-					<table width="100%" height="100%" >  
+					<table width="100%" height="100%" cellpadding="10px">  
 						
 						<!-- PRIMO RIQUADRO -->
 						<tr>
 							<td width="50%">
 									<H1><u><b>
-									<img src="SWIM-web" width="90" height="90" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
+									<img src="SWIM-web/ImmaginiNuove/uente.png" width="120" height="120" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
 									<%
 									User u= (User)request.getSession().getAttribute("visitedUser"); 
 									String nomeProfilo=u.getNome();
@@ -94,7 +95,6 @@
 									for(String s : elencoNomiCompetenze)
 									{
 										out.println("<li>"+s+"</li>");
-										out.println("<br>");
 									}						
 									out.println("</ul>");
 								}else{
@@ -119,6 +119,7 @@
 						</tr>					
 						</table>
 						
+						<br><br><br><br>
 						
 						
 						<!-- TERZO RIQUADRO -->	
@@ -194,6 +195,34 @@
 					
 					</table> 	
 					</div>				
+					</div>
+				<%if(request.getSession().getAttribute("idUser")!=null){
+					
+					out.println("<div id=\"right\" align=\"center\">"+	
+										
+							"<div class=\"search\" align=\"center\">"+				
+			
+											"<form name=\"Cerca_persone\" action=\"ShowSearchResultsServlet\" method=\"get\">"+
+													"<br><br>"+
+													"<p><INPUT id=\"nomeCercato\" name=\"nomeCercato\" style=\"height: 33\" type=\"text\" value=\"\"></p>Nome"+
+													"<p><INPUT id=\"cognomeCercato\" name=\"cognomeCercato\" style=\"height: 33\" type=\"text\" value=\"\"></p>Cognome"+
+													"<br>"+
+													"<p><input type=\"submit\" style=\"width:70;height: 33\" value=\"submit\"></p>"+
+													"<br>"+
+													"<p><INPUT id=\"competenzaCercata\" name=\"competenzaCercata\" style=\"height: 33\" type=\"text\" value=\"\r\"></p>Competenza"+
+													"<br>"+
+													"<p><input type=\"submit\" style=\"width:70;height: 33\" value=\"submit\"></p>"+
+													"<br>"+
+													"<input type=\"radio\" name=\"check\" value=\"fraTutti\" checked> Cerca fra Tutti <br>"+
+													"<input type=\"radio\" name=\"check\" value=\"soloFraAmici\"> Cerca solo fra Amici <br>"+
+											"</form>"+				
+			             	"</div></div>");
+             	
+             	}
+				%>
+				
+				<div id=chiusura>
+				</div>
 		</div>
 		</div>
 					

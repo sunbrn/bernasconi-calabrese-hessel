@@ -59,7 +59,7 @@
           <td>
   		<!-- IMMAGINE E NOME UTENTE -->
           <H1><u><b>
-             <img src="SWIM-web/ImmaginiNuove/utente.png" width="90" height="90" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
+             <img src="SWIM-web/ImmaginiNuove/utente.png" width="120" height="120" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
           
 			<%
 			String nome = u.getNome();
@@ -276,6 +276,10 @@
 					%>
 							
 			</div>
+			
+			<div id=chiusura>
+			</div>
+			
 		</div>
 		</div>
 	</body>

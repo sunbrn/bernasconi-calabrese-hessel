@@ -43,7 +43,7 @@
 		
 
 		
-		
+		<div id="center">
 		<%					
 			String esito=(String)request.getSession().getAttribute("esitoAggiuntaCompetenzaAdmin");
 		
@@ -53,6 +53,10 @@
 				out.println("<h3>&nbsp;La competenza e' stata aggiunta correttamente.</h3>");
 			}
 		%>
+		</div>
+		
+		<div id=chiusura>
+		</div>
 		
 	</div>
 	</div>				

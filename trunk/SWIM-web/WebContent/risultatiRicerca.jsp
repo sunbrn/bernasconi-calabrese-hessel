@@ -30,8 +30,8 @@
 			</ul>
 		</div>	
 		
-		
-		<table width="50%" height="100%" valign="top">
+		<div id="center">
+		<table width="100%" height="100%" valign="top">
 		<tr><td>
 		<h3>Utenti che corrispondono alla ricerca:</h3> <br>
 		</td></tr>
@@ -57,7 +57,12 @@
 				</font>
 
 		</table>
+		</div>
 	
-		
+	<div id=chiusura>
+	</div>
+	
+	</div>
+	</div>	
 	</body>
 </html>
