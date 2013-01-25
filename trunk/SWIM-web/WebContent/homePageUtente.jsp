@@ -268,7 +268,7 @@
 									}else if(r.getStato().equals("attesa")){
 										out.println("<img src=\"/SWIM-web/ImmaginiNuove/pallino_giallo.gif\">");
 									}else if(r.getStato().equals("rifiutata")){
-										out.println("<img src=\"/SWIM-web/ImmaginiNuove/pallino_giallo.gif\">");
+										out.println("<img src=\"/SWIM-web/ImmaginiNuove/pallino_rosso.gif\">");
 									}
 								}
 							}else{
