@@ -54,12 +54,12 @@
 							</tr>
 							
 							<tr>
-							<td align="right" width="0%"> nuova Password:  </td>
+							<td align="right" width="0%"> Nuova Password:  </td>
 							<td align="left" width="80%"><INPUT id="nuovaPassword1" style="height: 33" name="nuovaPassword1" type="password" value=""></td>
 							</tr>
 							
 							<tr>
-							<td align="right" width="0%">  Verifica nuova Password:  </td>
+							<td align="right" width="0%">  Conferma nuova Password:  </td>
 							<td align="left" width="80%"><INPUT id="nuovaPassword2" style="height: 33" name="nuovaPassword2" type="password" value=""></td>
 							</tr>
 							

@@ -24,14 +24,14 @@
 		<br><br>
 		
 		<div id="center">
-        <H1 >
+        <H1>
             <u>
             <b>Registrazione:</b>
             </u>
          </H1>
             <div class="adv">
 	            <font size="3" align="middle">
-	            <p >(i campi segnati con asterisco sono obbligatori)</p>
+	            <p> (i campi segnati con asterisco sono obbligatori)</p>
 	            </font>
             </div>
 			
@@ -52,7 +52,7 @@
 							}
 							if(password2.value.length==0)
 							{
-								alert("ATTENZIONE: controllo della password mancante");
+								alert("ATTENZIONE: conferma della password mancante");
 								elem.focus();
 							}
 							if(password1.value.length<6)
@@ -128,7 +128,7 @@
         </tr>
 
         <tr>
-        <td align="right" width="0%">Password (controllo)*: </td>
+        <td align="right" width="0%"> Conferma password*: </td>
         <td align="left" width="100%"><INPUT id="password2" style="height: 33" name="password2" type="password" value=""></td>
         </tr>
         
@@ -192,7 +192,7 @@
         
         <tr>
         <td align="right" width="0%"></td>
-        <td align="left" width="50%"><input type="submit" style="width:70;height: 33" value="submit"></td>
+        <td align="left" width="50%"><input type="submit" style="width:70;height: 33" value="submit" onClick="checkInputReg(document.getElementById('username'), document.getElementById('password1'), document.getElementById('password2'),document.getElementById('nome'),document.getElementById('cognome'),document.getElementById('città'),document.getElementById('mail'),document.getElementById('nascita'))" ></td>
         </tr>		
 				
 		</TBODY>
@@ -212,4 +212,3 @@
 </html>
 
 
-<!-- onClick="checkInput(document.getElementById('username'), document.getElementById('password1'), document.getElementById('password2'),document.getElementById('nome'),document.getElementById('cognome'),document.getElementById('città'),document.getElementById('mail'),document.getElementById('nascita'))" -->
