@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0;padding:0;}
+	body{
+			font-family:"Lusida Sans Unicode","Lusida Grande",sans-serif;
+			color:#666;
+			font-size:13px;
+			background-image:url(/SWIM-web/ImmaginiNuove/sfondo.gif);
+			background-repeat:repeat-x;
+			background-color:#004eff;
+		}
+	#cont{
+			margin:20px auto;
+			width:960px;
+		}
+
+	#header{
+			width:960px;
+			height:290px;
+			position:relative;
+		}
+	#nav{
+			widht:960px;
+			height:600px;
+			position :relative;
+			background-image:url(/SWIM-web/ImmaginiNuove/index.png);
+			background-repeat:repeat-x;
+		}
+	.nav2{
+			widht:960px;
+			height:50px;
+			position :relative;
+			background-image:url(/SWIM-web/ImmaginiNuove/barraIndex);
+			background-color:#00F;
+		}
+	#nav ul{
+			margin:0 10px;
+		}
+
+	#nav ul li{
+			list-style-type:none;
+			float:left;
+		}
+		
+	#nav a:link,#nav a:visited{
+			display:block;
+			font-size:25px;
+			color:#00F;
+			text-decoration:none;
+			height:30px;
+			padding:10px;
+		}
+	#nav a:hover{
+			background-image:url(../swim-images/nab-over.png);
+			color:#00F;
+		}
+	#nav3{
+			widht:960px;
+			height:50px;
+			position :relative;
+			background-image:url(/SWIM-web/ImmaginiNuove/barraIndex);
+			background-color:#00F;
+		}
