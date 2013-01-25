@@ -51,32 +51,27 @@
 			ArrayList<Richieste_agg_comp> lista=(ArrayList<Richieste_agg_comp>) request.getSession().getAttribute("richiesteAggCompList");
 			ArrayList<User> listaUtenti=(ArrayList<User>)request.getSession().getAttribute("NomiCognomiUtenti");		
 			
-				out.println("<table>");
+				out.println("<table style=\"border: 1px solid #004eFF\">");
 				int i=0;
 				for (Richieste_agg_comp a: lista){
+						
 						String aData=a.getData().toString();
 						String aDataCorta = aData.substring(0, Math.min(aData.length(), 16)); 
 						
-						out.println("<tr> <td>"+ listaUtenti.get(i).getNome()+" "+listaUtenti.get(i).getCognome() + "<br><br><br><br>");
+						out.println("<tr>&nbsp;&nbsp;<td width=\"5%\">");
+						
+						out.println("<td width=\"15%\">&nbsp;"+ listaUtenti.get(i).getNome()+" "+listaUtenti.get(i).getCognome());
 						String s=Long.toString(a.getUser_ID());
 						
 						
-						out.println("<form action=\"ShowUserProfileServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idProfilo\"><input type=\"submit\" value=\"Guarda profilo\"> </form>");
-						out.println("<br><br><br></td>");
+						out.println("<form action=\"ShowUserProfileServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idProfilo\"><input type=\"submit\" value=\"Guarda profilo\"></form>");
+						out.println("</td>");
 						
-						out.println("<td>"+ aDataCorta + "<br><br><br></td>");
-						out.println("<td>" + a.getTesto_richiesta() + "<br><br><br></td>");
+						out.println("&nbsp;<td width=\"15%\">&nbsp;"+ aDataCorta + "</td>");
+						out.println("&nbsp;<td width=\"15%\">&nbsp;" + a.getTesto_richiesta() + "</td>");
 						s=Long.toString(a.getRichiesta_ID());
 						
-						out.println("<td>");
-						out.println("<form action=\"RemoveAbilityRequestServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idRichiesta\"><input type=\"submit\" value=\"Esiste già\"> </form>");
-						out.println("<br><br><br></td>");
-						
-						out.println("<td>");
-						out.println("<form action=\"RemoveAbilityRequestServlet\" method=\"post\"><input type=\"hidden\" value=\""+s+"\" name=\"idRichiesta\"><input type=\"submit\" value=\"Rifiuta\"> </form>");
-						out.println("<br><br><br></td>");
-						
-						out.println("<td>");
+						out.println("&nbsp;<td width=\"30%\">&nbsp;");
 						out.println("<form name=\"AccettaRichiesta\" action=\"AddAbilityAdminServlet\" method=\"get\">" +
 										"<table border=\"0\" cellpadding=\"1\" cellspacing=\"2\" width=\"100%\">" +
 											"<TBODY>" +	
@@ -92,19 +87,22 @@
 												"<td align=\"left\" width=\"0%\"></td>" +
 												"<td align=\"left\" width=\"50%\">" +
 													"<input type=\"hidden\" value=\""+s+"\" name=\"idRichiesta\">" +
-													"<input type=\"submit\" style=\"width:70;height: 23\" value=\"Aggiungi\" onClick=\"\"></td>" +
+													"<input type=\"submit\" style=\"width:70;height: 23\" value=\"Aggiungi\" align=\"right\" onClick=\"\"></td>" +
 												"</tr>" +	
 											"</TBODY>" +
 										"</table>" +
 									"</form>");
 						out.println("</td>");
 						
-						out.println("<br><br><br></td></tr>");
+						out.println("&nbsp;<td width=\"10%\">&nbsp;<form action=\"RemoveAbilityRequestServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idRichiesta\"><input type=\"submit\" value=\"Esiste già\"> </form></td>");
+						
+						out.println("&nbsp;<td width=\"10%\">&nbsp;<form action=\"RemoveAbilityRequestServlet\" method=\"post\"><input type=\"hidden\" value=\""+s+"\" name=\"idRichiesta\"><input type=\"submit\" value=\"Rifiuta\"> </form></td>");
+												
+						out.println("</td></tr>");
 						i++;
 					}
 				
 				out.println("</table>");
-				out.println("<br>");
 			
 			%>
 				

@@ -47,13 +47,15 @@
 			
 			<%							
 				ArrayList<Archivio_comp> lista=(ArrayList<Archivio_comp>) request.getSession().getAttribute("listaCodiciECompetenze");
-				out.println("<table>");
+				out.println("<table style=\"border: 1px solid #004eFF\" width=\"100%\">");
 				for (Archivio_comp a: lista){
-						out.println("<tr> <td>"+ a.getCodice_comp() + "</td>");
-						out.println("<td>" + a.getNome() + "</td> </tr>");							
-				}							
+						out.println("<tr>");
+						out.println("<td width=\"30%\" align=\"center\"><b>"+ a.getCodice_comp() + "</b></td>");
+						out.println("<td width=\"70%\" align=\"center\">" + a.getNome() + "</td>");
+						out.println("</tr>");
+				}			
+				
 				out.println("</table>");
-				out.println("<br>");
 			%>
 				
 		</td></tr>
