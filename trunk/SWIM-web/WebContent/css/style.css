@@ -2,14 +2,13 @@
 /* CSS Document */
 *{margin:0;padding:0;}
 		body{
-			font-family:"Lusida Sans Unicode","Lusida Grande",sans-serif;
+			font-family:"Klavika Md";
 			color:#666;
 			font-size:14px;
 			background-image:url(/SWIM-web/ImmaginiNuove/sfondo.gif);
 			background-repeat:repeat-x;
 			background-color:#004eff;
 		}
-
 		#cont{
 			margin:10px auto;
 			width:960px;
@@ -29,7 +28,7 @@
 			width:960px;
 			height:184px;
 			position:relative;
-			background-image:url(/SWIM-web/ImmaginiNuove/header1.png)
+			background-image:url(/SWIM-web/ImmaginiNuove/header1.png);
 		}
 
 		.logo{
@@ -72,7 +71,29 @@
 			float:left;
 			margin: 20px;
 		}
-	
+		.testo{
+			margin-left:20px;
+		}
+		.valutazioni{
+			height:50px;
+			widht:250px;
+			background-image:url(/SWIM-web/ImmaginiNuove/intestazione.png);
+			background-repeat:no-repeat;
+			position:relative;
+			padding:10px;
+			color:#FFF;
+			font-size-adjust:inherit;
+		}
+		.commenti{
+			height:50px;
+			widht:350px;
+			background-image:url(/SWIM-web/ImmaginiNuove/intestazione.png);
+			background-repeat:repeat-x;
+			position:relative;
+			padding:10px;
+			color:#FFF;
+			font-size-adjust:inherit;
+		}
 		#right{;
 			width:250px;
 			float:right;

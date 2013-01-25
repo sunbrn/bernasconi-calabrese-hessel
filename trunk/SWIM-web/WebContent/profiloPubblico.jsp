@@ -13,50 +13,53 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title> SWIMv2 - Profilo Pubblico </title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>		
+<body>	
+	<div id="cont">
+	<div id="layout">
+	
+		<div id="header">
+			<img src="/SWIM-web/ImmaginiNuove/logo.png" alt="mio logo" 	class="logo" /> 
+		</div>		
 		
-		<!-- INIZIO TABELLA ESTERNA --> 
-		<table width="100%" height="100%" border="1" frame=void> 
-			<tr width="100%" >			
+		<div id="nav">
+            <ul>
+
+			<%
+			long idProfilo=(Long) request.getSession().getAttribute("idProfilo");
 			
-				<!-- colonna1 -->
-				<td align="middle" width="20%" bgcolor="#007FFF">
-					<br><br><br><br><br><br><br><br><br>
-					
-					<%
-					long idProfilo=(Long) request.getSession().getAttribute("idProfilo");
-					
-					if(request.getSession().getAttribute("idUser")!=null){
-						boolean giàAmico=(Boolean) request.getSession().getAttribute("visitedUserStatoAmicizia");
-						long idUser=(Long) request.getSession().getAttribute("idUser");
-						if(idUser!=idProfilo){
-							out.println("<form action=\"homePageUtente.jsp\" method=\"get\"><input type=\"submit\" value=\"Home\"></form><br>");
-							out.println("<form action=\"richiediAiuto.jsp\" method=\"get\"><input type=\"submit\" value=\"Richiedi Aiuto\"></form><br>");
-							out.println("<a href=\"ShowFriendsServlet?chi="+idProfilo+"\"> Amici </a>");
-							if(!giàAmico){
-								out.println("<form action=\"CreateFriendshipRequestServlet\" method=\"get\"><input type=\"submit\" value=\"Richiedi Amicizia\"></form><br>");
-							}
-						}else if(idUser==idProfilo){
-							out.println("<form action=\"homePageUtente.jsp\" method=\"get\"><input type=\"submit\" value=\"Home\"></form><br>");
-						}
-					}else{
-						out.println("<form action=\"index.html\" method=\"get\"><input type=\"submit\" value=\"Home\"></form><br>");
+			if(request.getSession().getAttribute("idUser")!=null){
+				boolean giàAmico=(Boolean) request.getSession().getAttribute("visitedUserStatoAmicizia");
+				long idUser=(Long) request.getSession().getAttribute("idUser");
+				if(idUser!=idProfilo){
+					out.println("<li><a href=\"homePageUtente.jsp\">Home</a></li>");
+					out.println("<li><a href=\"richiediAiuto.jsp\">Richiedi Aiuto</a></li>");
+					out.println("<li><a href=\"ShowFriendsServlet?chi="+idProfilo+"\"> Amici </a></li>");
+					if(!giàAmico){
+						out.println("<li><a href=\"CreateFriendshipRequestServlet\">Richiedi Amicizia</a></li>");
 					}
-					%>
+				}else if(idUser==idProfilo){
+					out.println("<li><a href=\"homePageUtente.jsp\">Home</a></li>");
+				}
+			}else if(request.getSession().getAttribute("admin")!=null){
+				out.println("<a href=\"ShowAbilityRequestServlet\"> Torna alla lista</a>");
+			}else{
+				out.println("<li><a href=\"index.html\">Home</a></li>");
+			}
+			%>
 					
-				</td>
+			</ul>
+		</div>
 					
 				<!-- colonna2 -->
-				<td align="middle" width="60%" frame=void border="1">
 					<table width="100%" height="100%" >  
 						
 						<!-- PRIMO RIQUADRO -->
 						<tr>
 							<td width="50%">
-								<FONT SIZE="2">
 									<H1><u><b>
-									<img src="C:\Users\Anna\Dropbox\POLITECNICO\IS1\SWIMv2 HCB\IMPLEMENTAZIONE\SCHERMATE HTML\profiloUtenteNonAmico\utente.jpg" width="90" height="90" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
+									<img src="SWIM-web" width="90" height="90" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
 									<%
 									User u= (User)request.getSession().getAttribute("visitedUser"); 
 									String nomeProfilo=u.getNome();
@@ -68,15 +71,17 @@
 									String laureaProfilo=u.getLaurea();
 									String altroProfilo=u.getAltro();
 									%><%=nomeProfilo %> <%=cognomeProfilo %>
-									</b></u></H1></FONT>
+									</b></u></H1>
 								<br>
 								<br>
 							</td>
 						</tr>
-						
+						</table>
 						<!-- SECONDO RIQUADRO -->
-						
+						<div class="testo">
+						<table>
 						<tr>
+							
 							<td width="50%">
 								<FONT SIZE="3"><b>
 									Competenze:
@@ -99,18 +104,28 @@
 								
 								%>
 								<br>
-								<br>
 								<FONT SIZE="3"><b>
 									Informazioni:
 								</b></FONT> 
-								<ul type="circle"><li> età: <%=etàProfilo %> </li><li>vive a: <%=cittàProfilo%></li><li>mail: <%=mailProfilo %></li><li>diploma: <%=diplomaProfilo%></li><li>laurea: <%=laureaProfilo%></li><li>altro: <%=altroProfilo%></li></ul>
+								<ul type="circle">
+								<li> età: <%=etàProfilo %> </li>
+								<li>vive a: <%=cittàProfilo%></li>
+								<li>mail: <%=mailProfilo %></li>
+								<li>diploma: <%=diplomaProfilo%></li>
+								<li>laurea: <%=laureaProfilo%></li>
+								<li>altro: <%=altroProfilo%></li>
+								</ul>
 							</td>
 						</tr>					
+						</table>
 						
-						<!-- TERZO RIQUADRO -->						
-						<tr width="100%" frame=box border="4" bordercolor=#007FFF>
-							<td width="50%" height="100%" bordercolor=#007FFF align="left">
-								<h2>&nbsp;Valutazioni</h2><br><br><br><br>
+						
+						
+						<!-- TERZO RIQUADRO -->	
+						<table width="600px" cellpadding="20px">			
+                		<tr  width="100%" frame=box border="4"  bordercolor=#004eff>
+                		<td width="250px"  valign="top"  bordercolor=#004eff align="left">
+								<h2 align="center">Valutazioni</h2><br>
 								<ul>
 									<li>
 										professionalita':
@@ -155,9 +170,10 @@
 								</ul>
 							</td>
 							
-							<td width="50%" height="100%" bordercolor=#007FFF align="left">
+							<td width="350px" valign="top" bordercolor=#004eff align="left" cellpadding="20px">
 								<h2>
-									&nbsp;Commenti:
+									Commenti:
+								</h2>
 									<%
 										Collection<String> elencoCommenti= (Collection<String>)request.getSession().getAttribute("visitedUserComments");
 											out.println("ci sono "+elencoCommenti.size()+" commenti <br> <br>");
@@ -171,24 +187,16 @@
 									%>
 									
 									
-								</h2>
+								
 								<br><br><br><br><br><br><br><br>
 							</td>										
 						</tr>						
 					
-					</table> 					
-				</td>	
-				
-				
-				<!-- colonna3 -->				
-				<td align="middle" width="20%" frame=void border="1" bgcolor="#007FFF">
-					<table width="100%" height="100%" bgcolor=#007FFF>  
-						
-					</table>
-				</td>
-				
-			</tr>
-		</table> <!-- FINE TABELLA ESTERNA --> 
+					</table> 	
+					</div>				
+		</div>
+		</div>
+					
 		
 </body>
 </html>

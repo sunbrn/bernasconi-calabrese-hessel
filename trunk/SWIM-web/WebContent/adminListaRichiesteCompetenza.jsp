@@ -49,15 +49,24 @@
 			
 			<%							
 			ArrayList<Richieste_agg_comp> lista=(ArrayList<Richieste_agg_comp>) request.getSession().getAttribute("richiesteAggCompList");
-					
+			ArrayList<User> listaUtenti=(ArrayList<User>)request.getSession().getAttribute("NomiCognomiUtenti");		
+			
 				out.println("<table>");
-				
+				int i=0;
 				for (Richieste_agg_comp a: lista){
 						String aData=a.getData().toString();
-						String aDataCorta = aData.substring(0, Math.min(aData.length(), 16));  
-						out.println("<tr> <td>"+ aDataCorta + "<br><br><br></td>");
+						String aDataCorta = aData.substring(0, Math.min(aData.length(), 16)); 
+						
+						out.println("<tr> <td>"+ listaUtenti.get(i).getNome()+" "+listaUtenti.get(i).getCognome() + "<br><br><br><br>");
+						String s=Long.toString(a.getUser_ID());
+						
+						
+						out.println("<form action=\"ShowUserProfileServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idProfilo\"><input type=\"submit\" value=\"Guarda profilo\"> </form>");
+						out.println("<br><br><br></tr>");
+						
+						out.println("<td>"+ aDataCorta + "<br><br><br></td>");
 						out.println("<td>" + a.getTesto_richiesta() + "<br><br><br></td>");
-						String s=Long.toString(a.getRichiesta_ID());
+						s=Long.toString(a.getRichiesta_ID());
 						
 						out.println("<td>");
 						out.println("<form action=\"RemoveAbilityRequestServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idRichiesta\"><input type=\"submit\" value=\"Esiste già\"> </form>");
@@ -91,6 +100,7 @@
 						out.println("</td>");
 						
 						out.println("<br><br><br></td></tr>");
+						i++;
 					}
 				
 				out.println("</table>");

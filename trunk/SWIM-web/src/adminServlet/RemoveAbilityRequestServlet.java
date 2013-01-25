@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import swim.entitybeans.Richieste_agg_comp;
+import swim.entitybeans.User;
 import swim.sessionbeans.Richieste_agg_compBeanRemote;
+import swim.sessionbeans.UserBeanRemote;
 
 /**
  * Servlet implementation class RemoveAbilityRequestServlet
@@ -33,19 +35,28 @@ public class RemoveAbilityRequestServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Context ctx=(Context)request.getSession().getAttribute("context");
 		Richieste_agg_compBeanRemote remoteRequest;
+		UserBeanRemote remoteUser;
 		try {
 			remoteRequest = (Richieste_agg_compBeanRemote) ctx.lookup("Richieste_agg_compBean/remote");
+			remoteUser=(UserBeanRemote) ctx.lookup("UserBean/remote");
 			
 			String richiesta=request.getParameter("idRichiesta");
 			long richiestaID=Long.parseLong(richiesta);
 			remoteRequest.acceptRequest(richiestaID);	
 					
 
-			ArrayList<Richieste_agg_comp> listaRichieste=remoteRequest.getTutteRichiesteAggiuntaCompetenze();			
-			request.getSession().setAttribute("richiesteAggCompList", listaRichieste);			
+			ArrayList<Richieste_agg_comp> listaRichieste=remoteRequest.getTutteRichiesteAggiuntaCompetenze();
+			ArrayList<User> utenti=new ArrayList<User>();
+			
+			for(Richieste_agg_comp ric:listaRichieste){
+				utenti.add(remoteUser.getUser(ric.getUser_ID()));
+			}
+			
+			request.getSession().setAttribute("NomiCognomiUtenti", utenti);
+			request.getSession().setAttribute("richiesteAggCompList", listaRichieste);
+			
 			response.sendRedirect("/SWIM-web/adminListaRichiesteCompetenza.jsp");
 			  
-			
 		} catch (NamingException e) {
 			request.getSession().setAttribute("errore", 1);
 			response.sendRedirect("/SWIM-web/errore.jsp");

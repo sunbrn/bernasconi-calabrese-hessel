@@ -71,6 +71,7 @@ public class LoginServlet extends HttpServlet {
 			String password=request.getParameter("password");
 			
 			if(nickname.equalsIgnoreCase(ADMIN)&&password.equals(ADMIN_PASS)){
+				request.getSession().setAttribute("admin", 1);
 				response.sendRedirect("/SWIM-web/adminHomePage.html");
 			}else{
 				
