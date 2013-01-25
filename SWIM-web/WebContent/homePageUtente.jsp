@@ -234,7 +234,7 @@
 						ArrayList<Aiuto> elencoAiuti = (ArrayList<Aiuto>) request.getSession().getAttribute("UserActiveHelps");
 						ArrayList<User> elencoClienti = (ArrayList<User>) request.getSession().getAttribute("UserHelpClients");
 						if(elencoAiuti!=null){
-							out.println("ci sono "+elencoAiuti.size()+" commenti <br> <br>");
+							out.println("ci sono "+elencoAiuti.size()+" aiuti attivi <br> <br>");
 							for (Aiuto a: elencoAiuti){
 								String nomeCliente=elencoClienti.get(i-1).getNome();
 								String cognomeCliente=elencoClienti.get(i-1).getCognome();
@@ -258,7 +258,7 @@
 					<%
 						int k=1;
 						ArrayList<Richieste_agg_comp> mieRichieste=(ArrayList<Richieste_agg_comp>) request.getSession().getAttribute("UserRequestToAdmin");
-						if(mieRichieste!=null){
+						if(mieRichieste.size()!=0){
 							for(Richieste_agg_comp r : mieRichieste){
 								out.println(i+". ");
 								out.println(r.getTesto_richiesta());
