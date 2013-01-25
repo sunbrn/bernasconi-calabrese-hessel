@@ -58,7 +58,7 @@
           <tr>
           <td>
   		<!-- IMMAGINE E NOME UTENTE -->
-          <H1><u><b>
+          <H1></H1>
              <img src="SWIM-web/ImmaginiNuove/utente.png" width="120" height="120" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
           
 			<%
@@ -70,8 +70,9 @@
 			String diploma = u.getDiploma();
 			String laurea = u.getLaurea();
 			String altro = u.getAltro();
-			%><%=nome %> <%=cognome %>      
-		  </b></u></H1>	    
+			%>&nbsp;&nbsp;<u><b><%=nome %> <%=cognome %>      
+		  </b>
+		  </u></H1>	    
           <br>
           </td>
           </tr>
@@ -106,7 +107,7 @@
 			</div>
 			
 			<div class="testo">
-              	<FONT SIZE="3"><b>Informazioni:</b></FONT><a href="modificaDati.jsp">Modifica</a><br>
+              	<FONT SIZE="3"><b>Informazioni:</b></FONT><a href="modificaDati.jsp"> Modifica</a><br>
               	
               	
 							<ul type="circle">

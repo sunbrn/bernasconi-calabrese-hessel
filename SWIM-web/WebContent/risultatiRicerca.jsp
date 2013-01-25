@@ -47,7 +47,7 @@
 						out.println(u.getCognome()+"</p>");
 						out.println("<p>"+u.getData_nascita()+"</p>");
 						String s=Long.toString(u.getUser_ID());
-						out.println("<p><form action=\"ShowUserProfileServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idProfilo\"><input type=\"submit\" value=\"Ask!\"> </form></p></td></tr>");
+						out.println("<p><form action=\"ShowUserProfileServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idProfilo\"><input type=\"submit\" value=\"Visualizza profilo\" align=\"center\"> </form></p></td></tr>");
 						out.println("<br><br><br>");
 					}
 				}else{

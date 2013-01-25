@@ -16,18 +16,16 @@
 			<img src="/SWIM-web/ImmaginiNuove/logo.png" alt="mio logo" 	class="logo" /> 
 		</div>		
 		
-			<div id="nav">	
-			<ul>
-			<li>
+		<div id="nav">	
 				<%
 				if(request.getSession().getAttribute("idUser")!=null){
-					out.println("<a href=\"homePageUtente.jsp\"> Home </a>");
+					out.println("<ul><li><a href=\"homePageUtente.jsp\"> Home </a></li></ul>");
 				}else{
-					out.println("<a href=\"index.html\"> Home </a>");
+					out.println("<ul><li><a href=\"index.html\"> Home </a></li>");
+					out.println("<li><a href=\"registrazione.html\"> Registrati </a></li></ul>");
 				}
 				%>
-			</li>
-			</ul>
+			
 		</div>	
 		
 		

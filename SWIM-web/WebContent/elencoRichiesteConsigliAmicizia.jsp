@@ -57,7 +57,7 @@
 											out.println("<input type=\"hidden\" value=\""+s+"\" name=\"amicoFuturo_ID\">");
 											out.println("<input type=\"radio\" name=\"accettazione\" value=\"accettata\" checked> Accetta<br>");
 											out.println("<input type=\"radio\" name=\"accettazione\" value=\"rifiutata\"> Rifiuta<br>");
-											out.println("<input type=\"submit\" value=\"Accetta!\">");
+											out.println("<input type=\"submit\" value=\"Conferma scelta\">");
 											out.println("</form>");
 											out.println("</p>");
 											out.println("<br><br><br>");
@@ -92,9 +92,9 @@
 										out.println("<p>");
 										out.println("<form name=\"myform\" action=\"AnswerFriendshipRequestServlet\" method=\"get\">");
 										out.println("<input type=\"hidden\" value=\""+s+"\" name=\"amicoFuturo_ID\">");
-										out.println("<input type=\"radio\" name=\"accettazione\" value=\"accettata\" checked> Accetta <br>");
-										out.println("<input type=\"radio\" name=\"accettazione\" value=\"rifiutata\"> Rifiuta <br>");
-										out.println("<input type=\"submit\" value=\"Richiedi!\">");
+										out.println("<input type=\"radio\" name=\"accettazione\" value=\"accettata\" checked> Accetta consiglio <br>");
+										out.println("<input type=\"radio\" name=\"accettazione\" value=\"rifiutata\"> Rifiuta consiglio <br>");
+										out.println("<input type=\"submit\" value=\"Conferma scelta\">");
 										out.println("</form>");
 										out.println("</p>");
 										out.println("<br><br><br>");
