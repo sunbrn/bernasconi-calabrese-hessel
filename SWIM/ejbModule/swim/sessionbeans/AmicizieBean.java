@@ -19,7 +19,7 @@ import swim.entitybeans.User;
  * Session Bean implementation class AmicizieBean
  */
 @Stateless
-public class AmicizieBean implements AmicizieBeanRemote {
+public class AmicizieBean implements AmicizieBeanRemote,AmicizieBeanLocal {
 	
 	@PersistenceContext(unitName="swim_project") private EntityManager manager;
 	static final int RICHIESTA=0;
@@ -289,5 +289,17 @@ public class AmicizieBean implements AmicizieBeanRemote {
 			return;
 		}
 		
+	}
+
+	@Override
+	public void eliminaTutteAmicizie(long id) {
+		Query q=manager.createQuery("FROM Amicizie a WHERE a.user_ID1=:new_user_ID OR a.user_ID2=:new_user_ID");
+		q.setParameter("new_user_ID", id);
+		ArrayList<Amicizie> amicizie=(ArrayList<Amicizie>) q.getResultList();
+		if(amicizie.size()>0){
+			for(Amicizie amicizia:amicizie){
+				manager.remove(amicizia);
+			}
+		}
 	}
 }

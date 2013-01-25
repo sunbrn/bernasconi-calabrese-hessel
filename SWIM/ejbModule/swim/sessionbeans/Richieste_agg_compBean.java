@@ -13,7 +13,7 @@ import swim.entitybeans.Richieste_agg_comp;
  * Session Bean implementation class Richieste_agg_compBean
  */
 @Stateless
-public class Richieste_agg_compBean implements Richieste_agg_compBeanRemote {
+public class Richieste_agg_compBean implements Richieste_agg_compBeanRemote,Richieste_agg_compBeanLocal {
 	
 	@PersistenceContext(unitName="swim_project") private EntityManager manager;
 	
@@ -92,6 +92,16 @@ public class Richieste_agg_compBean implements Richieste_agg_compBeanRemote {
 			ArrayList<Richieste_agg_comp> r= new ArrayList<Richieste_agg_comp>();
 			return r;
 		}
+	}
+
+	@Override
+	public void eliminaTutteRichieste(long id) {
+		ArrayList<Richieste_agg_comp> mieRichieste=getMieRichieste(id);
+		for(Richieste_agg_comp richiesta: mieRichieste){
+			manager.remove(richiesta);
+		}
 		
 	}
+	
+	
 }	

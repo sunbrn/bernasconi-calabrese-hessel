@@ -19,7 +19,7 @@ import swim.entitybeans.Aiuto;
  * Session Bean implementation class AiutoBean
  */
 @Stateless
-public class AiutoBean implements AiutoBeanRemote {
+public class AiutoBean implements AiutoBeanRemote,AiutoBeanLocal {
 	
 	@PersistenceContext(unitName="swim_project") private EntityManager manager;
 
@@ -122,6 +122,14 @@ public class AiutoBean implements AiutoBeanRemote {
 		}catch(NullPointerException e){
 			ArrayList<Aiuto> richiesteAiuto=new ArrayList<Aiuto>();
 			return richiesteAiuto;
+		}
+	}
+
+	@Override
+	public void eliminaTuttiAiuti(long id) {
+		ArrayList<Aiuto> aiuti=getAiuti(id);
+		for(Aiuto a:aiuti){
+			manager.remove(a);
 		}
 	}
 }

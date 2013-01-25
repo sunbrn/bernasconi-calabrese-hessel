@@ -56,7 +56,6 @@ public class Comp_dichiarateBean implements Comp_dichiarateBeanRemote,Comp_dichi
     
     public ArrayList<String> getCompetenzeDichiarate(long user_ID){
     	try{
-	    	System.out.println("sono nel competenze dichiarate bean e ricevo in input:"+user_ID);
 	    	Query q=manager.createQuery("SELECT codice_comp FROM Comp_dichiarate c WHERE c.user_ID=:new_user_ID");
 	    	q.setParameter("new_user_ID",user_ID);  
 	    	ArrayList<String> competenze=(ArrayList<String>) q.getResultList();
@@ -64,20 +63,6 @@ public class Comp_dichiarateBean implements Comp_dichiarateBeanRemote,Comp_dichi
     	}catch(NullPointerException e){
     		ArrayList<String> competenze= new ArrayList<String>();
     		return competenze;
-    	} 
-    	
-
-    }
-    
-    public ArrayList<Archivio_comp> getCompetenzeECodiciDichiarate(long user_ID){
-    	try{	    	
-	    	Query q=manager.createQuery("FROM Comp_dichiarate c WHERE c.user_ID=:new_user_ID");
-	    	q.setParameter("new_user_ID",user_ID);  
-	    	ArrayList<Archivio_comp> competenzeECodici=(ArrayList<Archivio_comp>) q.getResultList();
-	   		return competenzeECodici; 
-    	}catch(NullPointerException e){
-    		ArrayList<Archivio_comp> competenzeECodici= new ArrayList<Archivio_comp>();
-    		return competenzeECodici;
     	} 
     	
 
@@ -109,5 +94,18 @@ public class Comp_dichiarateBean implements Comp_dichiarateBeanRemote,Comp_dichi
     	}catch(NoResultException e){
     	}
     }
+
+	@Override
+	public void eliminaTutteCompetenze(long id) {
+		Query q=manager.createQuery("FROM Comp_dichiarate c WHERE c.user_ID=:new_user_ID");
+    	q.setParameter("new_user_ID", id);
+		ArrayList<Comp_dichiarate> mieCompetenze=(ArrayList<Comp_dichiarate>) q.getResultList();
+		if(mieCompetenze.size()>0){
+			for(Comp_dichiarate competenza:mieCompetenze){
+				manager.remove(competenza);
+			}
+		}
+		
+	}
     
 }    
