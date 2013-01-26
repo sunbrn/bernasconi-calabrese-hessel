@@ -59,7 +59,7 @@
 					<td width="10px"></td>
 					<!-- IMMAGINE E NOME UTENTE -->
 									
-									<td><img src="SWIM-web/ImmaginiNuove/uente.png" width="120" height="120" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
+									<td><img src="/SWIM-web/ImmaginiNuove/utente.png" width="120" height="120" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
 									</td>
 									<td width="10px"></td>    
 									<td>
