@@ -54,7 +54,7 @@
 									out.println(u.getCognome()+"</p>");
 									String s=Long.toString(u.getUser_ID());
 									out.println("<form action=\"ShowUserProfileServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idProfilo\"><input type=\"submit\" value=\"Visita profilo\"></form>");
-									out.println("<form action=\"RemoveFriendServlet\" method=\"post\"><input type=\"hidden\" value=\""+s+"\" name=\"idProfilo\"><input type=\"submit\" value=\"Elimina amicizia\"></form>");
+									out.println("<form action=\"RemoveFriendshipServlet\" method=\"post\"><input type=\"hidden\" value=\""+s+"\" name=\"idProfilo\"><input type=\"submit\" value=\"Elimina amicizia\"></form>");
 									out.println("<br><br><br>");
 								}
 							}else{
