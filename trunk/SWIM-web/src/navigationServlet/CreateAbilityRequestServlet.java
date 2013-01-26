@@ -41,7 +41,7 @@ public class CreateAbilityRequestServlet extends HttpServlet {
 			remoteAbilityRequest.insertNewRequest(userID,request.getParameter("competenzaRichiesta"));
 						
 			ArrayList<Richieste_agg_comp> lista= remoteAbilityRequest.getMieRichieste(userID);
-			request.getSession().setAttribute("UserAbilityRequest", lista);
+			request.getSession().setAttribute("UserRequestToAdmin", lista);
 			
 			response.sendRedirect("/SWIM-web/homePageUtente.jsp");
 		
