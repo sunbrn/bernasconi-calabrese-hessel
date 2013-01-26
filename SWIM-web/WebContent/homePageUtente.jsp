@@ -54,14 +54,15 @@
 		
 		
 		<div id="left">
-          <table style="border: 1px solid #004eFF">
+          <table width="100%" height="100%" cellpadding="10px">
           <tr>
-          <td width="10px"></td>
+          <td></td>
   		<!-- IMMAGINE E NOME UTENTE -->
                     
-            <td><img src="/SWIM-web/ImmaginiNuove/utente.png" width="90px" height="90px" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
+            <td width="10px" align="left"><img src="/SWIM-web/ImmaginiNuove/utente.png" width="90px" height="90px" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
 			</td>
-			<td width="10px"></td>          
+			<td width="5px" align="left">
+			</td>          
           	<td>
 			<%
 			String nome = u.getNome();
@@ -79,13 +80,13 @@
           <br>
           </td>
           </tr>
+          </table>
           
           
 		<!-- COMPETENZE E INFO -->
-          <tr>
-          <td >
+          
           	<div class="testo">
-          	<table cellpadding="20px" >
+          	<table width="600px" cellpadding="20px" >
           	<tr>
           	<td>
           	
@@ -106,10 +107,8 @@
 				</div>
 			</td>
 			</tr>
-			</table>
-			</div>
-			
-			<div class="testo">
+			<tr>
+			<td>
 				<br><br><br>
               	<FONT SIZE="3"><b>Informazioni:</b></FONT> <a href="modificaDati.jsp">Modifica</a><br>
 							
@@ -120,10 +119,11 @@
 								Laurea: <%=laurea%> <br>
 								Descrizione personale: <%=altro%><br>
 							
-            </div>     
+                 
           </td>
           </tr>
           </table>
+          </div>
 
 		  	
 			<br><br><br><br>						
@@ -244,15 +244,15 @@
 						ArrayList<Aiuto> elencoAiuti = (ArrayList<Aiuto>) request.getSession().getAttribute("UserActiveHelps");
 						ArrayList<User> elencoClienti = (ArrayList<User>) request.getSession().getAttribute("UserHelpClients");
 						if(elencoAiuti!=null){
-							out.println("ci sono "+elencoAiuti.size()+" aiuti attivi <br> <br>");
+							out.println("Ci sono "+elencoAiuti.size()+" aiuti attivi <br> <br>");
 							for (Aiuto a: elencoAiuti){
 								String nomeCliente=elencoClienti.get(i-1).getNome();
 								String cognomeCliente=elencoClienti.get(i-1).getCognome();
 								long idCliente=elencoClienti.get(i-1).getUser_ID();
 								long idAiuto=a.getHelp_ID();
-								out.println("<p> Aiuto attivo: N."+i+"</p>");
-								out.println("<p>"+nomeCliente+cognomeCliente+"</p>");
-								out.println("<p><form action=\"HelpPageServlet\" method=\"get\"><input type=\"hidden\" value=\""+idAiuto+"\" name=\"help_ID\"><input type=\"submit\" value=\"Ask!\"> </form></p>");
+								out.println("<p> Aiuto attivo n. "+i+"</p>");
+								out.println("<p>"+nomeCliente+" "+cognomeCliente+"</p>");
+								out.println("<p><form action=\"HelpPageServlet\" method=\"get\"><input type=\"hidden\" value=\""+idAiuto+"\" name=\"help_ID\"><input type=\"submit\" value=\"Visualizza\"> </form></p>");
 								out.println("<br>");
 								i=i+1;
 							}

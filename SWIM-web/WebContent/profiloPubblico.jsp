@@ -54,14 +54,14 @@
 		</div>
 				
 				<div id="left">
-					<table>
+					<table width="100%" height="100%" cellpadding="10px">
 					<tr>
-					<td width="10px"></td>
+					<td></td>
 					<!-- IMMAGINE E NOME UTENTE -->
 									
-									<td><img src="/SWIM-web/ImmaginiNuove/utente.png" width="120" height="120" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
+									<td width="10px"><img src="/SWIM-web/ImmaginiNuove/utente.png" width="90" height="90" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
 									</td>
-									<td width="10px"></td>    
+									<td width="5px"></td>    
 									<td>
 									<%
 									User u= (User)request.getSession().getAttribute("visitedUser"); 
@@ -87,10 +87,11 @@
 						<table cellpadding="20px" >
 						<tr>
 						<td>
-								<FONT SIZE="3"><b>
+								<FONT SIZE="3"><br><br><b>
 									Competenze:
 								</b></FONT>
 								<br>
+								<div>
 								<%
 								ArrayList<String> elencoNomiCompetenze= (ArrayList<String>)request.getSession().getAttribute("visitedUserAbilities");
 								if(elencoNomiCompetenze.size()!=0){
@@ -106,6 +107,7 @@
 									
 								
 								%>
+							</div>
 							</td>
 							</tr>
 							</table>
@@ -115,7 +117,7 @@
 								<br><br><br>
 								<FONT SIZE="3"><b>
 									Informazioni:
-								</b></FONT> 
+								</b></FONT><br> 
 									Età: <%=etàProfilo %> <br>
 									Vive a: <%=cittàProfilo%> <br>
 									Mail: <%=mailProfilo %> <br>
