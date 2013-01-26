@@ -57,8 +57,10 @@
 									out.println("<form action=\"RemoveFriendshipServlet\" method=\"post\"><input type=\"hidden\" value=\""+s+"\" name=\"idProfilo\"><input type=\"submit\" value=\"Elimina amicizia\"></form>");
 									out.println("<br><br><br>");
 								}
+							}else if(lista_amici.size()==0){
+								out.println("<br><p>Non hai ancora amici</p> <p> Usa la nostra funzionalità di ricerca per cercare i tuoi contatti di lavoro su SWIMv2! </p>");
 							}else{
-								out.println("<p>Non hai ancora amici</p> <p> Usa la nostra funzionalità di ricerca per cercare i tuoi contatti di lavoro su SWIM! </p>");
+								out.println("<br><p>Non hai ancora amici</p> <p> Usa la nostra funzionalità di ricerca per cercare i tuoi contatti di lavoro su SWIMv2! </p>");
 							}
 							
 							

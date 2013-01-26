@@ -30,9 +30,9 @@
 					<u><b>Richiedi Aiuto</b></u>
 					</h1>
 					<div class="adv"><p>
-					<h6>
+					<h5>
 					Riempi i campi sottostanti con la competenza richiesta e inserisci un messaggio con i particolari della tua richiesta. ATTENZIONE:nel campo competenza devi inserire solo la competenza posseduta dall'utente a cui hai chiesto aiuto!
-					</h6></p>
+					</h5></p>
 					</div>
 					
 					<form name="richiediAiuto" action="CreateHelpRequestServlet" method="get">

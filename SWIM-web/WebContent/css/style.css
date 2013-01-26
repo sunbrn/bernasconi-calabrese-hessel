@@ -72,6 +72,7 @@
 			margin: 20px;
 		}
 		.testo{
+			margin-top:20px;
 			margin-left:20px;
 		}
 		.valutazioni{
@@ -134,5 +135,6 @@
 			height:10px;
 			width:960px;
 			background-image: url(/SWIM-web/ImmaginiNuove/barrafinale.gif);
+			margin-top:20px;
 			margin-bottom: 20px;
 		}
