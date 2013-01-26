@@ -21,31 +21,37 @@
 			</ul>
 		</div>
 		
-						<div id="center">
-						<!--INPUT FORM RICHIEDI COMPETENZA-->
-						<form name="RichiediCompetenza" action="CreateAbilityRequestServlet" method="get">
-							
-							<table border="0" cellpadding="1" cellspacing="2" width="100%" align="center">
-							
-								<TBODY>									
-										<tr>
-										<td align="left" width="0%">Competenza Richiesta:</td>
-										<td align="left" width="100%"><INPUT id="competenzaRichiesta" name="competenzaRichiesta" style="height: 33" type="text" value=""></td>
-										</tr>			
-										
-										<tr>
-										<td align="left" width="0%"></td>
-										<td align="left" width="50%"><input type="submit" style="width:70;height: 33" value="submit"></td>
-										</tr>	
-											
-										</tr>		
-								</TBODY>
-										
-							</table>
-						</form>	
-						</div>
-				<div id=chiusura>
-				</div>
+		<div id="center">
+			<p>Stai inviando una richiesta aggiunta competenza all'amministratore del sito.</p>
+			<p> Dopo averla inviata puoi controllare sul tuo profilo lo stato della tua richiesta:</p>
+			<p> il semaforo <img src="/SWIM-web/ImmaginiNuove/pallino_giallo.gif"> indica che la tua richiesta è in stato di attesa</p>
+			<p> il semaforo <img src="/SWIM-web/ImmaginiNuove/pallino_verde.gif"> indica che la tua richiesta è stata accettata e puoi aggiungerla fra le tue competenze selezionando la voce aggiungi vicino al tuo elenco competenze</p>
+			<p> il semaforo <img src="/SWIM-web/ImmaginiNuove/pallino_rosso.gif"> indica che la tua richiesta non è stata accettata e quindi non potrai inserirla fra le tue competenze</p>
+			<br>
+			<br>
+			<br>
+			<!--INPUT FORM RICHIEDI COMPETENZA-->
+				<form name="RichiediCompetenza" action="CreateAbilityRequestServlet" method="get">
+					
+					<table border="0" cellpadding="1" cellspacing="2" width="100%" align="center">
+					
+						<TBODY>									
+								<tr>
+								<td align="left" width="0%">Competenza Richiesta:</td>
+								<td align="left" width="100%"><INPUT id="competenzaRichiesta" name="competenzaRichiesta" style="height: 33" type="text" value=""></td>
+								</tr>			
+								
+								<tr>
+								<td align="left" width="0%"></td>
+								<td align="left" width="50%"><input type="submit" style="width:70;height: 33" value="submit"></td>
+								</tr>			
+						</TBODY>
+								
+					</table>
+				</form>	
+		</div>
+		<div id=chiusura>
+		</div>
 	</div>
 	</div>
 </body>
