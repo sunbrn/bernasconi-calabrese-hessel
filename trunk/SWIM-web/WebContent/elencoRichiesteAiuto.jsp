@@ -52,14 +52,14 @@
 											 +"<img src=\"/SWIM-web/ImmaginiNuove/questionmark.jpg\" alt=\"user\" class=\"user\" width=\"90px\" height=\"90px\"/>"
 											+"</td>"+"<td align=\"middle\">");
 									out.println("<p>"+i+". "+richiedente+" ");
-									out.println("<p><form action=\"HelpPageServlet\" method=\"get\"><input type=\"hidden\" value=\""+idAiuto+"\" name=\"help_ID\"><input type=\"submit\" value=\"Ask!\"> </form></p>");
+									out.println("<p><form action=\"HelpPageServlet\" method=\"get\"><input type=\"hidden\" value=\""+idAiuto+"\" name=\"help_ID\"><input type=\"submit\" value=\"Visualizza\"> </form></p>");
 									out.println("<br><br>");
 									i=i+1;
 								}
 							}else{
 								out.println("non ci sono richieste di aiuto pendenti <br><br>");
 							}
-							out.println("<br><br><br><a href=\"homePageUtente.jsp\"> Torna alla Home </a>");
+							
 
 							%>
 							

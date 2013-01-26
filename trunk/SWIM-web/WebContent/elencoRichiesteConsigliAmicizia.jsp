@@ -28,14 +28,14 @@
 		</div>
 		
 		<div class="testo">
-		<table style="border:1px solid">
-		<tr>			
+		<table>
+		<tr valign="top">			
 		<td>
 		
 		<div id="richieste">
-		<table width="300px" style="border:1px solid">
+		<table width="350px">
 		<tr >
-		<td>
+		<td valign="top">
 			<h3> Richieste di amicizia:</h3>
 
 	
@@ -76,10 +76,18 @@
 		</div>
 		</td>
 		<td>
-		<div id="consigli">		
-		<table width="300px" style="border:1px solid">
+		<table width="100px">
 		<tr>
 		<td>
+		</td>
+		</tr>
+		</table>
+		</td>
+		<td>
+		<div id="consigli">		
+		<table width="350px">
+		<tr>
+		<td valign="top">
 			<h3>SWIMv2 Consiglia:</h3>
 	
 			<%
