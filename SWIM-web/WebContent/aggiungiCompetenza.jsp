@@ -33,9 +33,10 @@
 		</div>
 		
 		<div id="center">
-		<br><br>
+		
 		<p>Nuova Competenza:</p>
-		<p>Scegli una nuova competenza da aggiungere: </p>
+		<p>Scegli una nuova competenza da aggiungere. </p>
+		<p>Consiglio per aggiungere una competenza:  se ad esempio sei un insegnante di chitarra ma offri anche lezioni di solfeggio aggiungi fra le tue competenze sia insegnante di chitarra che insegnanate di musica, in questo modo sarai contattato anche dagli utenti che cercano un insegnanate di musica e potrai avere così molte più offerte di lavoro!</p> 
 		<br>
 		<br> 
 		<p>
@@ -61,7 +62,7 @@
 	<br><br><br>
 	
 	<div class="adv">
-				<p> se non hai trovato la competenza che desideravi dichiarare, invia una richiesta all'amministratore! </p>
+	<p> Se non hai trovato la competenza che desideravi dichiarare, invia una richiesta all'amministratore selezionando la voce Richiedi Competenza! </p>
 	</div>
 	</div>
 

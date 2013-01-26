@@ -40,15 +40,15 @@
 				ArrayList<User> lista=(ArrayList<User>) request.getSession().getAttribute("risultatiRicerca");
 				if(lista!=null){
 					for (User u: lista){
-						out.println("<tr><td align=\"right\">"
+						out.println("<tr><td>"
 								 +"<img src=\"/SWIM-web/ImmaginiNuove/utente.png\" alt=\"user\" class=\"user\" width=\"90px\" height=\"90px\"/>"
-								+"</td>"+"<td align=\"middle\">");
+								+"</td>"+"<td align=\"center\">");
 						out.println("<p>"+u.getNome());
 						out.println(u.getCognome()+"</p>");
 						out.println("<p>"+u.getData_nascita()+"</p>");
 						String s=Long.toString(u.getUser_ID());
 						out.println("<p><form action=\"ShowUserProfileServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idProfilo\"><input type=\"submit\" value=\"Visualizza profilo\" align=\"center\"> </form></p></td></tr>");
-						out.println("<br><br><br>");
+						
 					}
 				}else{
 					out.println("nessun utente corrisponde alla ricerca");

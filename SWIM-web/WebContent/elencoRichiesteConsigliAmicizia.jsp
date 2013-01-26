@@ -26,90 +26,106 @@
             </li>
             </ul>
 		</div>
-					
-			<table width="100%" height="100%">
-				<tr>
-					
-					
-						<td align="middle" width="40%" frame=void >
-							<h3> Richieste di amicizia:</h3>
+		
+		<div class="testo">
+		<table style="border:1px solid">
+		<tr>			
+		<td>
+		
+		<div id="richieste">
+		<table width="300px" style="border:1px solid">
+		<tr >
+		<td>
+			<h3> Richieste di amicizia:</h3>
 
+	
+				<%
+					ArrayList<User> richiesteAmicizia= (ArrayList<User>) request.getSession().getAttribute("richiesteAmicizia");
 					
-								<%
-									ArrayList<User> richiesteAmicizia= (ArrayList<User>) request.getSession().getAttribute("richiesteAmicizia");
-									
-									if(richiesteAmicizia.size()!=0){
-										for(User u : richiesteAmicizia){
-											String nomeRichiesta = u.getNome();
-											String cognomeRichiesta = u.getCognome();
-											String nascitaRichiesta = Integer.toString(u.getData_nascita());
-											String s=Long.toString(u.getUser_ID());
-											out.println("<tr><td align=\"right\">"
-													 +"<img src=\"/SWIM-web/ImmaginiNuove/add-user.png\" alt=\"user\" class=\"user\" width=\"90px\" height=\"90px\"/>"
-													+"</td>"+"<td align=\"left\">");
-											out.println("<p>");
-											out.println(nomeRichiesta+"  ");
-											out.println(cognomeRichiesta+"  "+nascitaRichiesta);
-											out.println("</p>");
-											out.println("<p><form action=\"ShowUserProfileServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idProfilo\"><input type=\"submit\" value=\"Visualizza Profilo\"> </form></p>");
-											out.println("<p>");
-											out.println("<form name=\"myform\" action=\"AnswerFriendshipRequestServlet\" method=\"get\">");
-											out.println("<input type=\"hidden\" value=\""+s+"\" name=\"amicoFuturo_ID\">");
-											out.println("<input type=\"radio\" name=\"accettazione\" value=\"accettata\" checked> Accetta<br>");
-											out.println("<input type=\"radio\" name=\"accettazione\" value=\"rifiutata\"> Rifiuta<br>");
-											out.println("<input type=\"submit\" value=\"Conferma scelta\">");
-											out.println("</form>");
-											out.println("</p>");
-											out.println("<br><br><br>");
-										}
-									}else{
-										out.println("non ci sono richieste di amicizia pendenti");
-									}
-								%>
-						</td>		
-				
-									
-				
-						<td align="center" width="40%" frame=void >
-							<h3>SWIM Consiglia:</h3>
-					
-							<%
-								ArrayList<User> consigliAmicizia= (ArrayList<User>) request.getSession().getAttribute("consigliAmicizia");
-								if(consigliAmicizia.size()!=0){
-									for(User u : consigliAmicizia){
-										String nomeSuggerito = u.getNome();
-										String cognomeSuggerito = u.getCognome();
-										String nascitaSuggerito = Integer.toString(u.getData_nascita());
-										String s=Long.toString(u.getUser_ID());
-										out.println("<tr><td align=\"right\">"
-												 +"<img src=\"/SWIM-web/ImmaginiNuove/questionmark.jpg\" alt=\"user\" class=\"user\" width=\"90px\" height=\"90px\"/>"
-												+"</td>"+"<td align=\"left\">");
-										out.println("<p>");
-										out.println(nomeSuggerito+"  ");
-										out.println(cognomeSuggerito+"  "+nascitaSuggerito);
-										out.println("</p>");
-										out.println("<p><form action=\"ShowUserProfileServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idProfilo\"><input type=\"submit\" value=\"Visualizza Profilo\"> </form></p>");
-										out.println("<p>");
-										out.println("<form name=\"myform\" action=\"AnswerFriendshipRequestServlet\" method=\"get\">");
-										out.println("<input type=\"hidden\" value=\""+s+"\" name=\"amicoFuturo_ID\">");
-										out.println("<input type=\"radio\" name=\"accettazione\" value=\"accettata\" checked> Accetta consiglio <br>");
-										out.println("<input type=\"radio\" name=\"accettazione\" value=\"rifiutata\"> Rifiuta consiglio <br>");
-										out.println("<input type=\"submit\" value=\"Conferma scelta\">");
-										out.println("</form>");
-										out.println("</p>");
-										out.println("<br><br><br>");
-									}
-								}else{
-									out.println("non ci sono nuovi suggerimenti SWIM");
-								}
-					
-							%>
-						</td>
-				</tr>
-			</table>
-			
-			<div id=chiusura>
-			</div>
+					if(richiesteAmicizia.size()!=0){
+						for(User u : richiesteAmicizia){
+							String nomeRichiesta = u.getNome();
+							String cognomeRichiesta = u.getCognome();
+							String nascitaRichiesta = Integer.toString(u.getData_nascita());
+							String s=Long.toString(u.getUser_ID());
+							out.println("<tr><td align=\"right\">"
+									 +"<img src=\"/SWIM-web/ImmaginiNuove/add-user.png\" alt=\"user\" class=\"user\" width=\"90px\" height=\"90px\"/>"
+									+"</td>"+"<td align=\"left\">");
+							out.println("<p>");
+							out.println(nomeRichiesta+"  ");
+							out.println(cognomeRichiesta+"  "+nascitaRichiesta);
+							out.println("</p>");
+							out.println("<p><form action=\"ShowUserProfileServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idProfilo\"><input type=\"submit\" value=\"Visualizza Profilo\"> </form></p>");
+							out.println("<p>");
+							out.println("<form name=\"myform\" action=\"AnswerFriendshipRequestServlet\" method=\"get\">");
+							out.println("<input type=\"hidden\" value=\""+s+"\" name=\"amicoFuturo_ID\">");
+							out.println("<input type=\"radio\" name=\"accettazione\" value=\"accettata\" checked> Accetta<br>");
+							out.println("<input type=\"radio\" name=\"accettazione\" value=\"rifiutata\"> Rifiuta<br>");
+							out.println("<input type=\"submit\" value=\"Conferma scelta\">");
+							out.println("</form>");
+							out.println("</p>");
+							out.println("<br><br><br>");
+						}
+					}else{
+						out.println("non ci sono richieste di amicizia pendenti");
+					}
+				%>
+		</td>
+		</tr>		
+		</table>
+		</div>
+		</td>
+		<td>
+		<div id="consigli">		
+		<table width="300px" style="border:1px solid">
+		<tr>
+		<td>
+			<h3>SWIMv2 Consiglia:</h3>
+	
+			<%
+				ArrayList<User> consigliAmicizia= (ArrayList<User>) request.getSession().getAttribute("consigliAmicizia");
+				if(consigliAmicizia.size()!=0){
+					for(User u : consigliAmicizia){
+						String nomeSuggerito = u.getNome();
+						String cognomeSuggerito = u.getCognome();
+						String nascitaSuggerito = Integer.toString(u.getData_nascita());
+						String s=Long.toString(u.getUser_ID());
+						out.println("<tr><td align=\"right\">"
+								 +"<img src=\"/SWIM-web/ImmaginiNuove/add-user.png\" alt=\"user\" class=\"user\" width=\"90px\" height=\"90px\"/>"
+								+"</td>"+"<td align=\"left\">");
+						out.println("<p>");
+						out.println(nomeSuggerito+"  ");
+						out.println(cognomeSuggerito+"  "+nascitaSuggerito);
+						out.println("</p>");
+						out.println("<p><form action=\"ShowUserProfileServlet\" method=\"get\"><input type=\"hidden\" value=\""+s+"\" name=\"idProfilo\"><input type=\"submit\" value=\"Visualizza Profilo\"> </form></p>");
+						out.println("<p>");
+						out.println("<form name=\"myform\" action=\"AnswerFriendshipRequestServlet\" method=\"get\">");
+						out.println("<input type=\"hidden\" value=\""+s+"\" name=\"amicoFuturo_ID\">");
+						out.println("<input type=\"radio\" name=\"accettazione\" value=\"accettata\" checked> Accetta consiglio <br>");
+						out.println("<input type=\"radio\" name=\"accettazione\" value=\"rifiutata\"> Rifiuta consiglio <br>");
+						out.println("<input type=\"submit\" value=\"Conferma scelta\">");
+						out.println("</form>");
+						out.println("</p>");
+						out.println("<br><br><br>");
+					}
+				}else{
+					out.println("non ci sono nuovi suggerimenti SWIM");
+				}
+	
+			%>
+		</td>
+		</tr>
+		</table>
+		</div>
+		
+		</td>
+		</tr>
+		</table>
+		
+		</div>
+		
+		<div id=chiusura>
+		</div>
 			
 	</div>				
 	</div>			

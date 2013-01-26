@@ -34,8 +34,8 @@
             </ul>
 		</div>
 		
-					
-		<table width="50%" align="center" >
+		<div id="center">			
+		<table width="50%" >
 		<H1><u><b> Aiuto </b></u></H1>  
 			
 			<tr>
@@ -50,7 +50,7 @@
 					<%=cognomeRich %>	
 					
 					</p> 
-					
+					<br>
 					<p>	Offerente: 
 					
 					 
@@ -61,7 +61,7 @@
 
 					
 					</p>
-					
+					<br>
 					<p>	Competenza: 
 																		
 
@@ -70,7 +70,7 @@
 		
 					
 					</p>
-					
+					<br>
 					<p>	Data: 
 					
 
@@ -85,7 +85,7 @@
 
 					
 					</p>												
-									
+					<br>				
 					<table width="100%" border="1" >
 						<tr>
 						<td><H5><u><b> Messaggi: </b></u></H5>
@@ -147,7 +147,7 @@
 				</td>
 			</tr>
 		</table> 
-		
+		</div>
 		<div id=chiusura>
 		</div>
 		

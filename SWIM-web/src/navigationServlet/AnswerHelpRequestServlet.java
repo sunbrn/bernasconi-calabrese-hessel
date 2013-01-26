@@ -50,27 +50,27 @@ public class AnswerHelpRequestServlet extends HttpServlet {
 				
 				request.getSession().setAttribute("accettato", accettato);
 				request.getSession().setAttribute("messaggioOfferenteAiuto", mexRisp);
-				response.sendRedirect("/SWIM-web/aiuto.jsp");
+				
 			}else{
 				accettato=true;
 				remoteHelp.rispostaAiuto(helpID, accettato, mexRisp);
-				
-				ArrayList<User> elencoClienti;
-				ArrayList<Aiuto> elencoAiuti=remoteHelp.getAiuti(userID);
-				
-				elencoClienti=new ArrayList<User>();
-				for(Aiuto a : elencoAiuti){
-					if(a.getRichiedente()==userID){
-						elencoClienti.add(remoteUser.getUser(a.getOfferente()));
-					}else{
-						elencoClienti.add(remoteUser.getUser(a.getRichiedente()));
-					}
+			}	
+			ArrayList<User> elencoClienti;
+			ArrayList<Aiuto> elencoAiuti=remoteHelp.getAiuti(userID);
+			
+			elencoClienti=new ArrayList<User>();
+			for(Aiuto a : elencoAiuti){
+				if(a.getRichiedente()==userID){
+					elencoClienti.add(remoteUser.getUser(a.getOfferente()));
+				}else{
+					elencoClienti.add(remoteUser.getUser(a.getRichiedente()));
 				}
-				request.getSession().setAttribute("UserActiveHelps", elencoAiuti);
-				request.getSession().setAttribute("UserHelpClients", elencoClienti);
-				
-				response.sendRedirect("/SWIM-web/homePageUtente.jsp");
 			}
+			request.getSession().setAttribute("UserActiveHelps", elencoAiuti);
+			request.getSession().setAttribute("UserHelpClients", elencoClienti);
+			
+			response.sendRedirect("/SWIM-web/homePageUtente.jsp");
+		
 		} catch (NamingException e) {
 			request.getSession().setAttribute("errore", 1);
 			response.sendRedirect("/SWIM-web/errore.jsp");
