@@ -54,7 +54,7 @@
 		
 		
 		<div id="left">
-          <table>
+          <table style="border: 1px solid #004eFF">
           <tr>
           <td width="10px"></td>
   		<!-- IMMAGINE E NOME UTENTE -->
