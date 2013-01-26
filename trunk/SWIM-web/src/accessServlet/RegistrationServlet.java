@@ -38,7 +38,6 @@ public class RegistrationServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("sono nella servlet");
 		
 		try {
 			Context ctx = getInitialContext();
@@ -82,7 +81,6 @@ public class RegistrationServlet extends HttpServlet {
 					response.sendRedirect("/SWIM-web/errore.jsp");
 				}else{
 					request.getSession().setAttribute("idUser", remoteUser.getUser(id).getUser_ID());
-					System.out.println(remoteUser.getUser(id).getUser_ID());
 					request.getSession().setAttribute("User", remoteUser.getUser(id));
 					
 					ArrayList<String> elencoNomiCompetenze=new ArrayList<String>();
