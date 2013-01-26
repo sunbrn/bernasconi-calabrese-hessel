@@ -56,10 +56,10 @@
 		<div id="left">
           <table>
           <tr>
-          <td width="20px"></td>
+          <td width="10px"></td>
   		<!-- IMMAGINE E NOME UTENTE -->
                     
-            <td><img src="/SWIM-web/ImmaginiNuove/utente.png" width="90px" height="90px" border="5" style="border:medium groove rgb(0, 153, 255)">
+            <td><img src="/SWIM-web/ImmaginiNuove/utente.png" width="90px" height="90px" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
 			</td>
 			<td width="10px"></td>          
           	<td>
@@ -118,7 +118,7 @@
 								Mail: <%=mail%> <br>
 								Diploma: <%=diploma%> <br>
 								Laurea: <%=laurea%> <br>
-								Altro: <%=altro%><br>
+								Descrizione personale: <%=altro%><br>
 							
             </div>     
           </td>

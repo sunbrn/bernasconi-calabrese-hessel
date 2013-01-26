@@ -15,6 +15,7 @@
 <title> SWIMv2 - Profilo Pubblico </title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
 <body>	
 	<div id="cont">
 	<div id="layout">
@@ -52,17 +53,16 @@
 			</ul>
 		</div>
 				
-							
-				
-				<div id="left">	
-				
-					<table> 
-						<tr>
-							<td width="20px"></td>
-							<td><img src="/SWIM-web/ImmaginiNuove/uente.png" width="90px" height="90px" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
-							</td>
-									<td width="10px"></td>          
-          							<td>
+				<div id="left">
+					<table>
+					<tr>
+					<td width="10px"></td>
+					<!-- IMMAGINE E NOME UTENTE -->
+									
+									<td><img src="SWIM-web/ImmaginiNuove/uente.png" width="120" height="120" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
+									</td>
+									<td width="10px"></td>    
+									<td>
 									<%
 									User u= (User)request.getSession().getAttribute("visitedUser"); 
 									String nomeProfilo=u.getNome();
@@ -73,20 +73,21 @@
 									String diplomaProfilo=u.getDiploma();
 									String laureaProfilo=u.getLaurea();
 									String altroProfilo=u.getAltro();
-									%><H1><u><b><%=nomeProfilo %> <%=cognomeProfilo %>
-									</b></u></H1>
+									%><H1><b><u><%=nomeProfilo %> <%=cognomeProfilo %>
+									</u></b></H1>
 								<br>
 								<br>
 							</td>
-						</tr>
-						</table>
-						<!-- SECONDO RIQUADRO -->
-						<div class="testo">
-						<table>
+							</tr>
+					
+						<!-- COMPETENZE E INFO -->
 						<tr>
-							
-							<td width="50%">
-								<FONT SIZE="3"><br><br><b>
+						<td>
+						<div class="testo">
+						<table cellpadding="20px" >
+						<tr>
+						<td>
+								<FONT SIZE="3"><b>
 									Competenze:
 								</b></FONT>
 								<br>
@@ -105,19 +106,24 @@
 									
 								
 								%>
-								<br>
+							</td>
+							</tr>
+							</table>
+							</div>
+							
+							<div class="testo">
+								<br><br><br>
 								<FONT SIZE="3"><b>
 									Informazioni:
 								</b></FONT> 
-								<br>
-								Età: <%=etàProfilo %> 
-								Vive a: <%=cittàProfilo%>
-								Mail: <%=mailProfilo %>
-								Diploma: <%=diplomaProfilo%>
-								Laurea: <%=laureaProfilo%>
-								Altro: <%=altroProfilo%>
-								
-							</td>
+									Età: <%=etàProfilo %> <br>
+									Vive a: <%=cittàProfilo%> <br>
+									Mail: <%=mailProfilo %> <br>
+									<%if(diplomaProfilo!=""){ out.println("Diploma: "+diplomaProfilo);}%> <br>
+									<%if(laureaProfilo!=""){ out.println("Laurea: "+laureaProfilo);}%> <br>
+									<%if(altroProfilo!=""){ out.println("Descrizione personale: "+altroProfilo);}%> <br>
+							</div>
+						</td>
 						</tr>					
 						</table>
 						
@@ -125,16 +131,15 @@
 						
 						
 						<!-- TERZO RIQUADRO -->	
-			<div class="testo">		
-					
-			<table width="600px">			
-                <tr width="600px">
-                    <td width="250px" height="400px">
-                    <table width="100%" height="400px" style="border: 5px solid #004eff">
-					<tr><td width="20px"></td><td valign="top"  align="left">
-					<h2 align="center">Valutazioni</h2><br>
+						<div class="testo">
+						<table width="600px">			
+                			<tr  width="600px">
+                				<td width="250px" height="400px">
+									<table width="100%" height="400px" style="border: 5px solid #004eff">
+									<tr><td width="20px"></td><td valign="top"  align="left">
+									<h2 align="center">Valutazioni</h2><br>
 						
-						<h4> Professionalita': </h4> 
+									<h4> Professionalita': </h4> 
 										<%						
 											System.out.println("sono in profiloPubblico.jsp e sto per stampare voto professionalità");
 	 										int v1= (Integer)request.getSession().getAttribute("visitedUserProf");
@@ -146,9 +151,9 @@
 	 										else if (v1==4) out.println("<img src=\"/SWIM-web/Immagini/quattro.jpg\" width=\"100\" height=\"20\">");
 	 										else out.println("<img src=\"/SWIM-web/Immagini/cinque.jpg\" width=\"100\" height=\"20\">");
 	 									%>
-						<br><br>
+									<br><br>
 						
-						<h4> Disponibilita': </h4>
+									<h4> Disponibilita': </h4> 
 										 <%	
 										 	int v2= (Integer)request.getSession().getAttribute("visitedUserDisp");
  																
@@ -159,9 +164,9 @@
  											else if (v2==4) out.println("<img src=\"/SWIM-web/Immagini/quattro.jpg\" width=\"100\" height=\"20\">");
  											else out.println("<img src=\"/SWIM-web/Immagini/cinque.jpg\" width=\"100\" height=\"20\">");
 										%>
-						<br><br>
+									<br><br>
 						
-						<h4> Prezzo Prestazione: </h4>
+									<h4> Prezzo Prestazione: </h4> 
 										<%		
 											int v3= (Integer)request.getSession().getAttribute("visitedUserPrez");
 																
@@ -173,13 +178,14 @@
 											else out.println("<img src=\"/SWIM-web/Immagini/cinque.jpg\" width=\"100\" height=\"20\">");
 										%>
 									<br><br>
-				</td></tr>
-				</table>
-				</td>
-				<td width="350px" height="400px">
-				<table width="350px" height="400px" style="border: 5px solid #004eff">
-				<tr><td width="20px"></td><td valign="top"  align="left">
-				<h2 align="center">Commenti</h2><br>
+							</td></tr>
+							</table>
+							</td>
+							
+							<td width="350px" height="400px">
+								<table width="350px" height="400px" style="border: 5px solid #004eff">
+									<tr><td width="20px"></td><td valign="top"  align="left">
+									<h2 align="center">Commenti</h2><br>
 									<%
 										Collection<String> elencoCommenti= (Collection<String>)request.getSession().getAttribute("visitedUserComments");
 											out.println("ci sono "+elencoCommenti.size()+" commenti <br> <br>");
@@ -194,14 +200,14 @@
 									
 									
 								
-							</td></tr>	
+								</td></tr>	
 				</table>
 				</td>									
 				</tr>						
 				</table>
 				</div> 						
-			</div>	
-					<div id="right">
+				</div>	
+			<div id="right">
 				<%if(request.getSession().getAttribute("idUser")!=null){
 					
 					out.println("<div id=\"right\" align=\"center\">"+	
