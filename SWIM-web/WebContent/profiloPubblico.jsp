@@ -53,15 +53,16 @@
 			</ul>
 		</div>
 				
-				<div id="left">
+			<div id="left">
 					<table width="100%" height="100%" cellpadding="10px">
 					<tr>
-					<td></td>
+									<td width="15px"></td>
 					<!-- IMMAGINE E NOME UTENTE -->
 									
-									<td width="10px"><img src="/SWIM-web/ImmaginiNuove/utente.png" width="90" height="90" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
+									<td width="15px" align="left">
+									<img src="/SWIM-web/ImmaginiNuove/utente.png" width="90px" height="90px" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
 									</td>
-									<td width="5px"></td>    
+									<td width="10px" align="left"></td>    
 									<td>
 									<%
 									User u= (User)request.getSession().getAttribute("visitedUser"); 
@@ -73,20 +74,19 @@
 									String diplomaProfilo=u.getDiploma();
 									String laureaProfilo=u.getLaurea();
 									String altroProfilo=u.getAltro();
-									%><H1><b><u><%=nomeProfilo %> <%=cognomeProfilo %>
-									</u></b></H1>
-								<br>
-								<br>
-							</td>
-							</tr>
+									%>Profilo di:   <H1><b><%=nomeProfilo %> <%=cognomeProfilo %>
+									</b></H1>
+									<br>
+									</td>
+					</tr>
+					</table>
 					
 						<!-- COMPETENZE E INFO -->
-						<tr>
-						<td>
+						
 						<div class="testo">
-						<table cellpadding="20px" >
-						<tr>
-						<td>
+						<table width="600px" cellpadding="20px">
+								<tr>
+								<td>
 								<FONT SIZE="3"><br><br><b>
 									Competenze:
 								</b></FONT>
@@ -107,38 +107,39 @@
 									
 								
 								%>
-							</div>
-							</td>
-							</tr>
-							</table>
-							</div>
+								</div>
+								</td>
+								</tr>
 							
-							<div class="testo">
-								<br><br><br>
-								<FONT SIZE="3"><b>
-									Informazioni:
-								</b></FONT><br> 
+							<tr>
+							<td><br><br><br>
+									
+									<FONT SIZE="3"><b>
+									Informazioni:</b></FONT><br> 
 									Età: <%=etàProfilo %> <br>
 									Vive a: <%=cittàProfilo%> <br>
 									Mail: <%=mailProfilo %> <br>
-									<%if(diplomaProfilo!=""){ out.println("Diploma: "+diplomaProfilo);}%> <br>
-									<%if(laureaProfilo!=""){ out.println("Laurea: "+laureaProfilo);}%> <br>
-									<%if(altroProfilo!=""){ out.println("Descrizione personale: "+altroProfilo);}%> <br>
-							</div>
-						</td>
-						</tr>					
+									<%if(!diplomaProfilo.equals("")){ out.println("Diploma: "+diplomaProfilo+"<br>");}%>
+									<%if(!laureaProfilo.equals("")){ out.println("Laurea: "+laureaProfilo+"<br>");}%>
+									<%if(!altroProfilo.equals("")){ out.println("Descrizione personale: "+altroProfilo+"<br>");}%>
+							
+							</td>
+							</tr>					
 						</table>
+						</div>
 						
-						<br><br><br><br>
+						<br>
 						
 						
 						<!-- TERZO RIQUADRO -->	
 						<div class="testo">
 						<table width="600px">			
                 			<tr  width="600px">
-                				<td width="250px" height="400px">
-									<table width="100%" height="400px" style="border: 5px solid #004eff">
-									<tr><td width="20px"></td><td valign="top"  align="left">
+                			<td width="250px" height="250px">
+									<table width="100%" height="250px" style="border: 5px solid #004eff">
+									<tr>
+									<td width="20px"></td>
+									<td valign="top"  align="left">
 									<h2 align="center">Valutazioni</h2><br>
 						
 									<h4> Professionalita': </h4> 
@@ -180,13 +181,13 @@
 											else out.println("<img src=\"/SWIM-web/Immagini/cinque.jpg\" width=\"100\" height=\"20\">");
 										%>
 									<br><br>
-							</td></tr>
-							</table>
+									</td></tr>
+									</table>
 							</td>
 							
-							<td width="350px" height="400px">
-								<table width="350px" height="400px" style="border: 5px solid #004eff">
-									<tr><td width="20px"></td><td valign="top"  align="left">
+							<td width="350px" height="250px">
+									<table width="350px" height="250px" style="border: 5px solid #004eff">
+									<tr><td width="20px" valign="top"  align="left">
 									<h2 align="center">Commenti</h2><br>
 									<%
 										Collection<String> elencoCommenti= (Collection<String>)request.getSession().getAttribute("visitedUserComments");
@@ -198,17 +199,14 @@
 													out.println("<br><br>");
 												}
 											}
-									%>
-									
-									
-								
-								</td></tr>	
-				</table>
-				</td>									
-				</tr>						
-				</table>
-				</div> 						
-				</div>	
+									%>							
+									</td></tr>	
+									</table>
+							</td>									
+							</tr>						
+						</table>
+						</div> 						
+			</div>	
 			<div id="right">
 				<%if(request.getSession().getAttribute("idUser")!=null){
 					
@@ -234,11 +232,11 @@
              	
              	}
 				%>
-				</div>
-				<div id=chiusura>
-				</div>
-		</div>
-		</div>
+			</div>
+			
+			
+	</div>
+	</div>
 					
 		
 </body>
