@@ -56,8 +56,6 @@ public class Richieste_agg_compBean implements Richieste_agg_compBeanRemote,Rich
     
     public void removeRequest(long user_ID){
     	try{
-    		System.out.println("sono in removeRequest");
-    		System.out.println("parametro passato:"+user_ID);
     		Query q=manager.createQuery("FROM Richieste_agg_comp r WHERE (r.user_ID=:id AND (r.stato=:rifiutata OR r.stato=:accettata))");
 	    	q.setParameter("id",user_ID);
 	    	q.setParameter("rifiutata", RIFIUTATA);
