@@ -54,13 +54,15 @@
 		
 		
 		<div id="left">
-          <table cellpadding="10">
+          <table>
           <tr>
-          <td>
+          <td width="20px"></td>
   		<!-- IMMAGINE E NOME UTENTE -->
                     
-             <img src="/SWIM-web/ImmaginiNuove/utente.png" width="90px" height="90px" border="5" style="border:medium groove rgb(0, 153, 255)">
-          
+            <td><img src="/SWIM-web/ImmaginiNuove/utente.png" width="90px" height="90px" border="5" style="border:medium groove rgb(0, 153, 255)">
+			</td>
+			<td width="10px"></td>          
+          	<td>
 			<%
 			String nome = u.getNome();
 			String cognome = u.getCognome();
@@ -72,7 +74,7 @@
 			String altro = u.getAltro();
 			%>
 			
-			&nbsp;&nbsp;<b><FONT size="8"><%=nome %> <%=cognome %>   </FONT>   
+			<b><FONT size="7"><%=nome %> <%=cognome %>   </FONT>   
 		  </b>
           <br>
           </td>
@@ -130,10 +132,10 @@
 			<div class="testo">		
 					
 			<table width="600px">			
-                <tr width="100%">
-                    <td width="40%" height="100%">
-                    <table width="100%" height="100%" style="border: 5px solid #004eff">
-					<tr><td width="10%"></td><td>
+                <tr width="600px">
+                    <td width="250px" height="400px">
+                    <table width="100%" height="400px" style="border: 5px solid #004eff">
+					<tr><td width="20px"></td><td valign="top"  align="left">
 					<h2 align="center">Valutazioni</h2><br>
 						
 						<h4> Professionalita': </h4> 
@@ -187,9 +189,9 @@
 				</td></tr>
 				</table>
 				</td>
-				<td width="60%" height="100%">
-				<table width="100%" height="100%" style="border: 5px solid #004eff">
-				<tr><td width="10%"></td><td>
+				<td width="350px" height="400px">
+				<table width="350px" height="400px" style="border: 5px solid #004eff">
+				<tr><td width="20px"></td><td valign="top"  align="left">
 					<h2 align="center">Commenti</h2><br>
 					<%	
 						Collection<String> elencoCommenti= (Collection<String>) request.getSession().getAttribute("UserComments");
