@@ -35,38 +35,36 @@ public class AmicizieBean implements AmicizieBeanRemote,AmicizieBeanLocal {
 
     public void richiediAmicizia(long id1,long id2){
 		try{
-    	Query q=manager.createQuery("FROM Amicizie a WHERE (a.user_ID1=:new_user_ID1 AND a.user_ID2=:new_user_ID2) OR (a.user_ID2=:new_user_ID1 AND a.user_ID1=:new_user_ID2)");
-    	q.setParameter("new_user_ID1", id1);
-    	q.setParameter("new_user_ID2", id2);
-    	Amicizie a=(Amicizie)q.getSingleResult();
-    	
-    	if(a.getStato()==RICHIESTA){
-    		consigliaAmicizia(id1,id2);
-    		consigliaAmicizia(id2, id1);
-    		a.setStato(ACCETTATA);
-    		manager.merge(a);		
-    	}
-    	if(a.getStato()==CONSIGLIATA){
-    		if(a.getUser_ID1()==id1){
-    			a.setStato(CONSIGLIATAeRICHIESTA);
-    			manager.merge(a);
-    		}else{
-    			long u1=id1;
-    			long u2=a.getUser_ID1();
-    			manager.remove(a);
-        		Amicizie newAmicizia= new Amicizie();
-        		newAmicizia.setUser_ID1(id1);  
-        		newAmicizia.setUser_ID2(id2);
-        		newAmicizia.setStato(RICHIESTA);
-        		manager.persist(newAmicizia);
-    		}
-    	}
-    	if(a.getStato()==CONSIGLIATAeRICHIESTA){
-    		a.setStato(ACCETTATA);
-    		manager.merge(a);
-    	}
-    	
-    	
+	    	Query q=manager.createQuery("FROM Amicizie a WHERE (a.user_ID1=:new_user_ID1 AND a.user_ID2=:new_user_ID2) OR (a.user_ID2=:new_user_ID1 AND a.user_ID1=:new_user_ID2)");
+	    	q.setParameter("new_user_ID1", id1);
+	    	q.setParameter("new_user_ID2", id2);
+	    	Amicizie a=(Amicizie)q.getSingleResult();
+	    	
+	    	if(a.getStato()==RICHIESTA){
+	    		consigliaAmicizia(id1,id2);
+	    		consigliaAmicizia(id2, id1);
+	    		a.setStato(ACCETTATA);
+	    		manager.merge(a);		
+	    	}
+	    	if(a.getStato()==CONSIGLIATAeRICHIESTA){
+	    		a.setStato(ACCETTATA);
+	    		manager.merge(a);
+	    	}
+	    	if(a.getStato()==CONSIGLIATA){
+	    		if(a.getUser_ID1()==id1){
+	    			a.setStato(CONSIGLIATAeRICHIESTA);
+	    			manager.merge(a);
+	    		}else{
+	    			long u1=id1;
+	    			long u2=a.getUser_ID1();
+	    			manager.remove(a);
+	        		Amicizie newAmicizia= new Amicizie();
+	        		newAmicizia.setUser_ID1(id1);  
+	        		newAmicizia.setUser_ID2(id2);
+	        		newAmicizia.setStato(RICHIESTA);
+	        		manager.persist(newAmicizia);
+	    		}
+	    	}
 		}catch(NoResultException e){
     		Amicizie newAmicizia= new Amicizie();
     		newAmicizia.setUser_ID1(id1);  
@@ -116,7 +114,7 @@ public class AmicizieBean implements AmicizieBeanRemote,AmicizieBeanLocal {
 		    	qu.setParameter("new_user_ID1", am.getUser_ID2());
 		    	qu.setParameter("new_user_ID2", id2);
 		    	ArrayList<Amicizie> gi‡Amico=(ArrayList<Amicizie>)q.getResultList();
-		    	if(gi‡Amico.size()!=0){
+		    	if(gi‡Amico.size()==0){
 		    		creaNuovaAmiciziaConsigliata(id2,am.getUser_ID2());
 		    	}
 		    	}catch(NoResultException e){
@@ -128,7 +126,7 @@ public class AmicizieBean implements AmicizieBeanRemote,AmicizieBeanLocal {
 			    qu.setParameter("new_user_ID1", am.getUser_ID1());
 			    qu.setParameter("new_user_ID2", id2);
 			    ArrayList<Amicizie> gi‡Amico=(ArrayList<Amicizie>)q.getResultList();
-			    if(gi‡Amico.size()!=0){
+			    if(gi‡Amico.size()==0){
 			    	creaNuovaAmiciziaConsigliata(id2,am.getUser_ID1());
 		    	}
 				}catch(NoResultException e){
