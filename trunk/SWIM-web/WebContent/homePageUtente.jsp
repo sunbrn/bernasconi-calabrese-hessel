@@ -56,12 +56,12 @@
 		<div id="left">
           <table width="100%" height="100%" cellpadding="10px">
           <tr>
-          <td></td>
+          <td width="15px"></td>
   		<!-- IMMAGINE E NOME UTENTE -->
                     
-            <td width="10px" align="left"><img src="/SWIM-web/ImmaginiNuove/utente.png" width="90px" height="90px" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
+            <td width="15px" align="left"><img src="/SWIM-web/ImmaginiNuove/utente.png" width="90px" height="90px" align="left" border="5" style="border:medium groove rgb(0, 153, 255)">
 			</td>
-			<td width="5px" align="left">
+			<td width="10px" align="left">
 			</td>          
           	<td>
 			<%
@@ -126,15 +126,15 @@
           </div>
 
 		  	
-			<br><br><br><br>						
+			<br>						
 						
 			<!-- TERZO RIQUADRO -->	
 			<div class="testo">		
 					
 			<table width="600px">			
                 <tr width="600px">
-                    <td width="250px" height="400px">
-                    <table width="100%" height="400px" style="border: 5px solid #004eff">
+                    <td width="250px" height="250px">
+                    <table width="100%" height="250px" style="border: 5px solid #004eff">
 					<tr><td width="20px"></td><td valign="top"  align="left">
 					<h2 align="center">Valutazioni</h2><br>
 						
@@ -189,8 +189,8 @@
 				</td></tr>
 				</table>
 				</td>
-				<td width="350px" height="400px">
-				<table width="350px" height="400px" style="border: 5px solid #004eff">
+				<td width="350px" height="250px">
+				<table width="350px" height="250px" style="border: 5px solid #004eff">
 				<tr><td width="20px"></td><td valign="top"  align="left">
 					<h2 align="center">Commenti</h2><br>
 					<%	
@@ -271,7 +271,7 @@
 						if(mieRichieste!=null){
 							if(mieRichieste.size()!=0){
 								for(Richieste_agg_comp r : mieRichieste){
-									out.println(i+". ");
+									out.println("<br>");
 									out.println(r.getTesto_richiesta());
 									if(r.getStato().equals("accettata")){
 										out.println("<img src=\"/SWIM-web/ImmaginiNuove/pallino_verde.gif\">");
@@ -291,8 +291,7 @@
 							
 			</div>
 			
-			<div id=chiusura>
-			</div>
+			
 			
 		</div>
 		</div>

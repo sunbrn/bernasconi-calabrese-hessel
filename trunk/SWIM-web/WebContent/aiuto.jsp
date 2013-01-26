@@ -34,12 +34,15 @@
             </ul>
 		</div>
 		
-		<div id="center">			
-		<table width="50%" >
-		<H1><u><b> Aiuto </b></u></H1>  
+		<div id="center">
+		<table style="border: 1px solid #004eFF" width="100%">
+		 
 			
 			<tr>
-				<td align="middle">							
+				<td align="center">							
+					<p><H1><u><b> Aiuto </b></u></H1> 
+					</p>
+					<br>
 					
 					<p> Richiedente: 
 					
@@ -85,69 +88,64 @@
 
 					
 					</p>												
-					<br>				
-					<table width="100%" border="1" >
-						<tr>
-						<td><H5><u><b> Messaggi: </b></u></H5>
+					<br>
+					<p>	Messaggio richiesta: 
 						
 
 						<% String mexRich=(String) request.getSession().getAttribute("messaggioRichiedenteAiuto"); %>
 						<%=mexRich %>
 
-						</td>
-						</tr>
+					</p>
+					<br>
+					
 						
 						<%
 						boolean accettato = (Boolean) request.getSession().getAttribute("accettato");
 						if (!accettato) { 
-							out.println("<form name=\"Aiuto\" action=\"AnswerHelpRequestServlet\" method=\"get\">"+						
+							out.println("<p><form name=\"Aiuto\" action=\"AnswerHelpRequestServlet\" method=\"get\">"+						
 											"<table border=\"0\" cellpadding=\"1\" cellspacing=\"2\" width=\"100%\">"+		
 												"<TBODY>"+
-														"<tr><td><H5><u><b> Per accettare l'aiuto inserire una risposta e premere 'submit': </b></u></H5>"+
-														"<textarea cols=\"40\" rows=\"5\" id=\"messaggio_risposta\" name=\"messaggio_risposta\"></textarea><br>"+
-														"<p align=\"middle\"></p>"+
+														"<tr><td>Per accettare l'aiuto inserire una risposta e premere 'submit':"+
+														"<textarea cols=\"70\" rows=\"5\" id=\"messaggio_risposta\" name=\"messaggio_risposta\"></textarea><br>"+
 														"</td></tr>"+
-														"<tr><td align=\"left\"></td>"+
-														"<td align=\"left\" width=\"50%\"> <input type=\"hidden\" value=\"accettato\" name=\"rispostaAiuto\">"+
-														"<input type=\"submit\" style=\"width:70;height: 33\" value=\"submit\">"+
+														"<tr><td><input type=\"hidden\" value=\"accettato\" name=\"rispostaAiuto\"><br>"+
+														"<input type=\"submit\" style=\"width:80;height: 33\" value=\" submit \">"+
 														"</td></tr>"+
 												"</TBODY>"+	
 											"</table>"+
-										"</form>"+
-										"<form name=\"Login\" action=\"AnswerHelpRequestServlet\" method=\"get\">"+					
+										"</form></p>"+
+										"<p><form name=\"Login\" action=\"AnswerHelpRequestServlet\" method=\"get\">"+					
 											"<table border=\"0\" cellpadding=\"1\" cellspacing=\"2\" width=\"100%\">"+
 												"<TBODY>"+
-													"<tr><td align=\"left\" width=\"0%\"></td>"+
-													"<td align=\"left\" width=\"50%\"> <input type=\"hidden\" value=\"rifiutato\" name=\"rispostaAiuto\">"+
-													"<input type=\"submit\" style=\"width:70;height: 33\" value=\"rifiuta\">"+
+													"<tr><td width=\"50%\"> <input type=\"hidden\" value=\"rifiutato\" name=\"rispostaAiuto\">"+
+													"<input type=\"submit\" style=\"width:80;height: 33\" value=\" rifiuta \">"+
 													"</td></tr>	"+
 												"</TBODY>"+
 											"</table>"+
-										"</form>");
+										"</form></p>");
 						}else {
 
 							
 							String mexRisp =(String)request.getSession().getAttribute("messaggioOfferenteAiuto");
-							out.println("<tr><td><H5><u><b> Risposta: </b></u></H5>");
-							out.println(mexRisp+"</td></tr>");
+							out.println("<p>Messaggio risposta:");
+							out.println(mexRisp+"</p>");
 							
 							long userID=(Long)request.getSession().getAttribute("idUser");
 							long richiedenteID=(Long)request.getSession().getAttribute("richiedente_ID");
 							long helpID=(Long)request.getSession().getAttribute("help_ID");
 							
 							if(userID==richiedenteID){
-								out.println("<form action=\"HelpTerminationServlet\" method=\"get\"><input type=\"submit\" value=\"Concludi Aiuto e Inserisci Feedback!\"> </form>");
+								out.println("<br><p><form action=\"HelpTerminationServlet\" method=\"get\"><input type=\"submit\" value=\" Concludi aiuto e inserisci Feedback \"> </form></p>");
 							}
 						}
 						
 						%>
 
-					</table>
-								
 				</td>
 			</tr>
 		</table> 
 		</div>
+		
 		<div id=chiusura>
 		</div>
 		
