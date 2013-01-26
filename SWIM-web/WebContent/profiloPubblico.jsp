@@ -196,6 +196,7 @@
 					</table> 	
 					</div>				
 					</div>
+					<div id="right">
 				<%if(request.getSession().getAttribute("idUser")!=null){
 					
 					out.println("<div id=\"right\" align=\"center\">"+	
@@ -220,7 +221,7 @@
              	
              	}
 				%>
-				
+				</div>
 				<div id=chiusura>
 				</div>
 		</div>
