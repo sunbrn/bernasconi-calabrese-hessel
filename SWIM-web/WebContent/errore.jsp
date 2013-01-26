@@ -20,6 +20,8 @@
 				<%
 				if(request.getSession().getAttribute("idUser")!=null){
 					out.println("<ul><li><a href=\"homePageUtente.jsp\"> Home </a></li></ul>");
+				}else if(request.getSession().getAttribute("admin")!=null){
+					out.println("<ul><li><a href=\"ShowAbilityListServlet\"> Lista Competenze </a></li></ul>");
 				}else{
 					out.println("<ul><li><a href=\"index.html\"> Home </a></li>");
 					out.println("<li><a href=\"registrazione.html\"> Registrati </a></li></ul>");
@@ -53,6 +55,8 @@
 			out.println("ERRORE: la password vecchia non corrisponde, controlla di aver riempito correttamente i campi!");
 		}else if(err==6){
 			out.println("ERRORE: accesso fallito! Inserisci di nuovo nickname e password oppure registrati!");
+		}else if(err==7){
+			out.println("<p>La competenza che volevi inserire è già presente nella Lista Competenze.</p> Controlla la lista e continua selezionando Lista Competenze");
 		}
 		%>
 		</font>
