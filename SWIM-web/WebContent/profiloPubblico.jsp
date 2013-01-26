@@ -144,7 +144,7 @@
 						
 									<h4> Professionalita': </h4> 
 										<%						
-											System.out.println("sono in profiloPubblico.jsp e sto per stampare voto professionalità");
+											
 	 										int v1= (Integer)request.getSession().getAttribute("visitedUserProf");
 	 																									
 	 										if (v1==0) out.println("<img src=\"/SWIM-web/Immagini/zero.jpg\" width=\"100\" height=\"20\">");
