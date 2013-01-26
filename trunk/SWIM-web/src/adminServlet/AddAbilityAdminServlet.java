@@ -54,8 +54,8 @@ public class AddAbilityAdminServlet extends HttpServlet {
 			if(!inserted){
 				request.getSession().setAttribute("statoRichiestaAggCompetenza", RIFIUTATA);
 				request.getSession().setAttribute("esitoAggiuntaCompetenzaAdmin", NONINSERITA);
-				out.println("<h1>Competenza gia' presente</h1>");
-				out.println("<form action=\"adminListaRichiesteCompetenza.jsp\" method=\"get\"><input type=\"submit\" value=\"Torna alla lista di richieste\"></form>");
+				request.getSession().setAttribute("errore", 7);
+				response.sendRedirect("/SWIM-web/errore.jsp");
 			}else{
 				if(richiesta!=null){
 					long richiestaID=Long.parseLong(richiesta);
