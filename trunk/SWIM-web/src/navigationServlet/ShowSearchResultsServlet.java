@@ -64,14 +64,16 @@ public class ShowSearchResultsServlet extends HttpServlet {
 				lista=remoteUser.cercaPerCompetenza(competenza);
 			}
 			
-			if(checkBox.equals(SOLOAMICI)&&lista.size()==0){
+			if(checkBox.equals(SOLOAMICI)&&lista.size()!=0){
+				ArrayList<User> listaAmici=new ArrayList<User>(); 
 				for(User utente:lista){
 					long user_id1=(Long)request.getSession().getAttribute("idUser");
 					long user_id2=utente.getUser_ID();
-					if(!remoteFriend.verificaAmicizia(user_id1, user_id2)){
-						lista.remove(utente);
+					if(remoteFriend.verificaAmicizia(user_id1, user_id2)){
+						listaAmici.add(utente);
 					}
 				}
+				lista=listaAmici;
 			}
 			
 			request.getSession().setAttribute("risultatiRicerca", lista);
